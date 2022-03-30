@@ -79,7 +79,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1648657759337" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1648658723329" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -98,7 +98,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1648657759337" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1648658723329" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -161,7 +161,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Diabetes Dataset Report
+                                Diabetes Dataset Report (1) -- Data preprocessing
                             </h1>
                             
                                 <!--en-->
@@ -174,9 +174,9 @@
                                 Date: <a href="#">2022-03-27</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">1.6
+                                    href="#">2.4
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">248</a></span>
+                                    <span class="post-words">words:<a href="#">388</a></span>
                                     
                                         <span class="post-category">
                                 Category:
@@ -211,6 +211,7 @@ data.head(10)
 </code></pre>
 <figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648653284208.png" alt="" loading="lazy"></figure>
 <p>The meaning of each column is stated as below:</p>
+<blockquote>
 <ul>
 <li>Pregnancies: Number of times pregnant</li>
 <li>Glucose: Plasma glucose concentration a 2 hours in an oral glucose tolerance test</li>
@@ -222,6 +223,20 @@ data.head(10)
 <li>Age: Age (years)</li>
 <li>Outcome: Class variable (0 or 1)</li>
 </ul>
+</blockquote>
+<p>Next, we need to examin whether there are null values in the dataset.</p>
+<pre><code class="language-Python">data.isnull().sum()
+</code></pre>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648658044021.png" alt="" loading="lazy"><br>
+It seems there is no null values. Shall we pop the champagne now? If we further examine the data, we will find that the situation is not as good as we thought.</p>
+<pre><code class="language-Python">data.describe()
+</code></pre>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648658246847.png" alt="" loading="lazy"><br>
+We can see from the picture above that the minimum value of Glucose, BloodPressure, SkinThickness, Insulin, BMI is zero. However, anyone having common sense knows that by no means would these indicators of an alive person be zero. Apparently, the null values are replaced by zeros when inputing data. Here we calculate the number of null values in each column so that we will better decide how to deal with them.</p>
+<pre><code class="language-Python">for col in list(data.columns):
+    zero = len(data[data[col] == 0])
+    print('0s in %s: %d' % (col, zero))
+</code></pre>
 
                         </div>
                         
@@ -248,10 +263,10 @@ data.head(10)
                                                     <i class="post-share"></i>
                                                     <span>Share:</span>
                                                         <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://qingqiuzhang.github.io/post/diabetes-dataset-report/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://qingqiuzhang.github.io/post/diabetes-dataset-report/&sharesource=qzone&title=Diabetes Dataset Report&pics=https://qingqiuzhang.github.io/images/avatar.png?v=1648657759337&summary=&lt;p&gt;This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to an end-to-end machine learning project using diverse classification models.&lt;/p&gt;
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://qingqiuzhang.github.io/post/diabetes-dataset-report/&sharesource=qzone&title=Diabetes Dataset Report (1) -- Data preprocessing&pics=https://qingqiuzhang.github.io/images/avatar.png?v=1648658723329&summary=&lt;p&gt;This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to an end-to-end machine learning project using diverse classification models.&lt;/p&gt;
 "><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://qingqiuzhang.github.io/post/diabetes-dataset-report/&sharesource=weibo&title=Diabetes Dataset Report + " - " + &lt;p&gt;This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to an end-to-end machine learning project using diverse classification models.&lt;/p&gt;
-&pic="https://qingqiuzhang.github.io/images/avatar.png?v=1648657759337 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://qingqiuzhang.github.io/post/diabetes-dataset-report/&sharesource=weibo&title=Diabetes Dataset Report (1) -- Data preprocessing + " - " + &lt;p&gt;This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to an end-to-end machine learning project using diverse classification models.&lt;/p&gt;
+&pic="https://qingqiuzhang.github.io/images/avatar.png?v=1648658723329 "><i class="fa fa-weibo "></i></a>
                                                         
                                                                 </span>
                                                                 <!--en-->
@@ -374,7 +389,7 @@ data.head(10)
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1648657759337);
+                    newDate.setTime(1648658723329);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
