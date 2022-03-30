@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>qingqiuzhang</title>
-    <updated>2022-03-30T14:53:26.440Z</updated>
+    <updated>2022-03-30T15:20:25.206Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
@@ -14,12 +14,41 @@
         <id>https://qingqiuzhang.github.io/post/diabetes-dataset-report/</id>
         <link href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">
         </link>
-        <updated>2022-03-29T14:44:03.000Z</updated>
+        <updated>2022-03-28T02:44:03.000Z</updated>
         <summary type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to an end-to-end machine learning project using diverse classification models.</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to an end-to-end machine learning project using diverse classification models.</p>
 <!-- more -->
 <p><a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Data Source</a></p>
+<h1 id="what-can-we-do-with-this-dataset">What Can We Do With This Dataset?</h1>
+<p>The observations in the dataset are all females from Pima Indian heritage who are greater than or equal to 21 years old.</p>
+<h1 id="data-preprocessing">Data Preprocessing</h1>
+<p>I cannot emphasize the importance of data preprocessing. It is the process of transforming raw data into more reasonable, useful and efficient format. It's a must and one of the most important step in a machine learing project. Without it our models will probably crash and won't be able to generate good results.<br>
+There are several steps in data preprocessing: data cleaning, data reduction and data transformation. In the following paragraphs, I'll show you how to perform the steps one by one.</p>
+<h2 id="data-cleaning">Data Cleaning</h2>
+<h3 id="data-at-a-glance">Data At A Glance</h3>
+<pre><code class="language-Python"># packages needed
+import numpy as np
+import pandas as pd
+import seaborn as sns
+
+# load data
+data = pd.read_csv('diabetes.csv')
+data.head(10)
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648653284208.png" alt="" loading="lazy"></figure>
+<p>The meaning of each column is stated as below:</p>
+<ul>
+<li>Pregnancies: Number of times pregnant</li>
+<li>Glucose: Plasma glucose concentration a 2 hours in an oral glucose tolerance test</li>
+<li>BloodPressure: Diastolic blood pressure (mm Hg)</li>
+<li>SkinThickness: Triceps skin fold thickness (mm)</li>
+<li>Insulin: 2-Hour serum insulin (mu U/ml)</li>
+<li>BMI: Body mass index (weight in kg/(height in m)^2)</li>
+<li>DiabetesPedigreeFunction: Diabetes pedigree function</li>
+<li>Age: Age (years)</li>
+<li>Outcome: Class variable (0 or 1)</li>
+</ul>
 ]]></content>
     </entry>
 </feed>
