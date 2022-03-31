@@ -103,7 +103,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1648689147451" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1648690679822" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -176,12 +176,12 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-25</a>
+                                Date: <a href="#">2022-03-24</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">2.9
+                                    href="#">3.3
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">470</a></span>
+                                    <span class="post-words">words:<a href="#">523</a></span>
                                     
                                         <span class="post-category">
                                 Category:
@@ -204,10 +204,9 @@
 <p>I cannot emphasize the importance of data preprocessing. It is the process of transforming raw data into more reasonable, useful and efficient format. It's a must and one of the most important step in a machine learing project. Without it our models will probably crash and won't be able to generate good results.<br>
 There are several steps in data preprocessing: data cleaning, data reduction and data transformation. In the following paragraphs, I'll show you how to perform the steps one by one.</p>
 <h2 id="data-cleaning">Data Cleaning</h2>
-<pre><code class="language-Python"># packages needed
+<pre><code class="language-Python3"># packages needed
 import numpy as np
 import pandas as pd
-import seaborn as sns
 
 # load data
 data = pd.read_csv('diabetes.csv')
@@ -229,7 +228,7 @@ data.head(10)
 </ul>
 </blockquote>
 <p>Next, we need to examin whether there are null values in the dataset.</p>
-<pre><code class="language-Python">data.isnull().sum()
+<pre><code class="language-Python3">data.isnull().sum()
 </code></pre>
 <p><img src="https://qingqiuzhang.github.io/post-images/1648658044021.png" alt="" loading="lazy"><br>
 It seems there is no null values. Shall we pop the champagne now? If we further examine the data, we will find that the situation is not as good as we thought.</p>
@@ -237,13 +236,13 @@ It seems there is no null values. Shall we pop the champagne now? If we further 
 </code></pre>
 <p><img src="https://qingqiuzhang.github.io/post-images/1648658246847.png" alt="" loading="lazy"><br>
 We can see from the picture above that the minimum value of Glucose, BloodPressure, SkinThickness, Insulin, BMI is zero. However, anyone having common sense knows that by no means would these indicators of an alive person be zero. Apparently, the null values are replaced by zeros when inputing data. Here we calculate the number of null values in each column so that we will better decide how to deal with them.</p>
-<pre><code class="language-Python">for col in list(data.columns):
+<pre><code class="language-Python3">for col in list(data.columns):
     zero = len(data[data[col] == 0])
     print('0s in %s: %d' % (col, zero))
 </code></pre>
 <p><img src="https://qingqiuzhang.github.io/post-images/1648684925178.png" alt="" loading="lazy"><br>
 There are nearly 400 null values in Insulin column, so it's not realistic to drop all the null values. Normally under such circumstance, we replace them with indicators such as mean, median, or mode, etc. Here I choose median.</p>
-<pre><code class="language-Python"># replace 0s in target columns with null value
+<pre><code class="language-Python3"># replace 0s in target columns with null value
 data.iloc[:, 1:6] = data.iloc[:, 1:6].replace({0:np.NaN})
 # fill null values with medians
 data = data.fillna(data.median()) 
@@ -251,6 +250,13 @@ data.describe()
 </code></pre>
 <figure data-type="image" tabindex="2"><img src="https://qingqiuzhang.github.io/post-images/1648685342343.png" alt="" loading="lazy"></figure>
 <h2 id="data-reduction">Data Reduction</h2>
+<p>With clean data at hand, we can visulize the data, which may indicate some relations between the features or between features and targets.</p>
+<pre><code class="language-Python3">import seaborn as sns
+sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
+</code></pre>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648690175972.png" alt="" loading="lazy"><br>
+From the pair plot above, we see that there is not much difference in distribution between diabetics and nondiabetics except glucose.<br>
+<img src="https://qingqiuzhang.github.io/post-images/1648690286890.png" alt="" loading="lazy"></p>
 <h2 id="data-transformation">Data Transformation</h2>
 
                         </div>
@@ -362,7 +368,7 @@ data.describe()
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1648689147451);
+                    newDate.setTime(1648690679822);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
