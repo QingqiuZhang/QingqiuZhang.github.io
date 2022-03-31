@@ -53,7 +53,6 @@
                                     gtag('config', 'UA-224309801-1');
                                 </script>
                                 
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
 </head>
 
 <body>
@@ -164,67 +163,87 @@
 
             <div class="main">
                 <div class="container">
-                    <div class="intro">
-                        <div class="avatar">
-                            <a href="https://qingqiuzhang.github.io"><img src="https://qingqiuzhang.github.io/images/avatar.png?v=1648686950879"></a>
-                        </div>
-                        <div class="nickname">
-                            Qingqiu Zhang
-                        </div>
-                        <div class="description">
-                            <span id="subtitle">
-                                Thank you for visiting. Have fun here!
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                About Me
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Qingqiu Zhang
+                                    </a>
+                                    <span class="post-time">
+                                Date: <a href="#">2022-03-29</a>
                             </span>
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">0.6
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">91</a></span>
+                                    
+                                </div>
+                                
+                        </header>
+                        
+                        <div class="post-content">
+                            <p><strong>Qingqiu Zhang</strong><br>
+Hi, my name is Qingqiu Zhang, and you can also call me Sophia.</p>
+<p>I'm currently a graduate student at Brandeis University and I majored in Business Analytics.</p>
+<p>I create this website becasue I want to keep track of my learning path, especially in Machine Learning. I'm teaching myself Deep Learning, and I hope I can post some articles about it in the near future!</p>
+<p>Feel free to contact me using any of the methods below:</p>
+<ul>
+<li>LinkedIn: https://www.linkedin.com/in/qingqiuzhang/</li>
+<li>E-mail: qingqiuzhang@brandeis.edu</li>
+</ul>
+
                         </div>
-                        <div class="links">
+                        
+                            <div class="post-toc">
+                                
+                            </div>
                             
                                 
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                        </div>
-                    </div>
+                                                    
+                                                        <!-- Share-->
+                                                        <span style="margin-right:15px">
+                                                    <i class="post-share"></i>
+                                                    <span>Share:</span>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://qingqiuzhang.github.io/about-me/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://qingqiuzhang.github.io/about-me/&sharesource=qzone&title=About Me&pics=https://qingqiuzhang.github.io/images/avatar.png?v=1648686950879&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://qingqiuzhang.github.io/about-me/&sharesource=weibo&title=About Me + " - " + &pic="https://qingqiuzhang.github.io/images/avatar.png?v=1648686950879 "><i class="fa fa-weibo "></i></a>
+                                                        
+                                                                </span>
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                            
+                                                                                </section>
+                    </article>
                 </div>
+                
+                                            
             </div>
     </div>
-
-</body>
-<script>
-    // type 
-    var typed = new Typed("#subtitle", {
-        strings: ['Thank you for visiting. Have fun here!', '', ''],
-        startDelay: 10,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-    });
-    //head title
-    var titleTime;
-    document.addEventListener("visibilitychange", function() {
-        document.hidden ? (document.title = "\uD83D\uDE25" + OriginTitile, clearTimeout(titleTime)) : (document.title = "\uD83D\uDE1D" + OriginTitile, titleTime = setTimeout(function() {
-            document.title = OriginTitile
-        }, 2E3))
-    });
-    var OriginTitile = document.title;
-</script>
-
+    </div>
+    </div>
+    
         <footer id="footer" class="footer">
             <div class="copyright">
                 
@@ -281,5 +300,10 @@
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
 
 </html>

@@ -53,7 +53,6 @@
                                     gtag('config', 'UA-224309801-1');
                                 </script>
                                 
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
 </head>
 
 <body>
@@ -164,67 +163,111 @@
 
             <div class="main">
                 <div class="container">
-                    <div class="intro">
-                        <div class="avatar">
-                            <a href="https://qingqiuzhang.github.io"><img src="https://qingqiuzhang.github.io/images/avatar.png?v=1648686950879"></a>
-                        </div>
-                        <div class="nickname">
-                            Qingqiu Zhang
-                        </div>
-                        <div class="description">
-                            <span id="subtitle">
-                                Thank you for visiting. Have fun here!
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Diabetes Dataset Report (2) -- Model Training And Evaluating 
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Qingqiu Zhang
+                                    </a>
+                                    <span class="post-time">
+                                Date: <a href="#">2022-03-29</a>
                             </span>
+                                    <span class="post-readtime">Reading Time:<a
+                                    href="#">0.8
+                                    mins</a></span>
+                                    <span class="post-words">words:<a href="#">136</a></span>
+                                    
+                                </div>
+                                
+                        </header>
+                        
+                        <div class="post-content">
+                            <p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">the previous article</a>, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.</p>
+<!-- more -->
+<h1 id="model-training-and-evaluating">Model Training And Evaluating</h1>
+<p>There are so many classification models. Some you may have heard or used while the others not. This articles covers almost all the classification models you may need as a beginner. I will show you how to conduct them and how different hyperparameters will affect the models.</p>
+<h2 id="k-nearest-neighbor-classifier">K-Nearest Neighbor Classifier</h2>
+<h2 id="logistic-regression">Logistic Regression</h2>
+<h3 id="ordinary-logistic-regression">Ordinary Logistic Regression</h3>
+<h3 id="ridge">Ridge</h3>
+<h3 id="lasss">Lasss</h3>
+<h3 id="combined-ridge-and-lasso">Combined Ridge and Lasso</h3>
+<h2 id="naive-bayes-classifier">Naive Bayes Classifier</h2>
+
                         </div>
-                        <div class="links">
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#model-training-and-evaluating">Model Training And Evaluating</a>
+<ul>
+<li><a href="#k-nearest-neighbor-classifier">K-Nearest Neighbor Classifier</a></li>
+<li><a href="#logistic-regression">Logistic Regression</a>
+<ul>
+<li><a href="#ordinary-logistic-regression">Ordinary Logistic Regression</a></li>
+<li><a href="#ridge">Ridge</a></li>
+<li><a href="#lasss">Lasss</a></li>
+<li><a href="#combined-ridge-and-lasso">Combined Ridge and Lasso</a></li>
+</ul>
+</li>
+<li><a href="#naive-bayes-classifier">Naive Bayes Classifier</a></li>
+</ul>
+</li>
+</ul>
+
+                            </div>
                             
                                 
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                                
-                                        
-                        </div>
-                    </div>
+                                                    
+                                                        <!-- Share-->
+                                                        <span style="margin-right:15px">
+                                                    <i class="post-share"></i>
+                                                    <span>Share:</span>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://qingqiuzhang.github.io/diabetes-dataset-report-/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://qingqiuzhang.github.io/diabetes-dataset-report-/&sharesource=qzone&title=Diabetes Dataset Report (2) -- Model Training And Evaluating &pics=https://qingqiuzhang.github.io/images/avatar.png?v=1648686950879&summary=&lt;p&gt;In &lt;a href=&#34;https://qingqiuzhang.github.io/post/diabetes-dataset-report/&#34;&gt;the previous article&lt;/a&gt;, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.&lt;/p&gt;
+"><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://qingqiuzhang.github.io/diabetes-dataset-report-/&sharesource=weibo&title=Diabetes Dataset Report (2) -- Model Training And Evaluating  + " - " + &lt;p&gt;In &lt;a href=&#34;https://qingqiuzhang.github.io/post/diabetes-dataset-report/&#34;&gt;the previous article&lt;/a&gt;, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.&lt;/p&gt;
+&pic="https://qingqiuzhang.github.io/images/avatar.png?v=1648686950879 "><i class="fa fa-weibo "></i></a>
+                                                        
+                                                                </span>
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                        
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://qingqiuzhang.github.io/diabetes-dataset-report/">
+                                                                                                    Diabetes Dataset Report (1) -- Data Preprocessing
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
                 </div>
+                
+                                            
             </div>
     </div>
-
-</body>
-<script>
-    // type 
-    var typed = new Typed("#subtitle", {
-        strings: ['Thank you for visiting. Have fun here!', '', ''],
-        startDelay: 10,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-    });
-    //head title
-    var titleTime;
-    document.addEventListener("visibilitychange", function() {
-        document.hidden ? (document.title = "\uD83D\uDE25" + OriginTitile, clearTimeout(titleTime)) : (document.title = "\uD83D\uDE1D" + OriginTitile, titleTime = setTimeout(function() {
-            document.title = OriginTitile
-        }, 2E3))
-    });
-    var OriginTitile = document.title;
-</script>
-
+    </div>
+    </div>
+    
         <footer id="footer" class="footer">
             <div class="copyright">
                 
@@ -281,5 +324,10 @@
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
 
 </html>
