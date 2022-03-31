@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>Qingqiu Zhang</title>
-    <updated>2022-03-31T02:02:10.472Z</updated>
+    <updated>2022-03-31T02:39:36.806Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
@@ -10,22 +10,33 @@
     <icon>https://qingqiuzhang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, Qingqiu Zhang</rights>
     <entry>
-        <title type="html"><![CDATA[Diabetes Dataset Report (2) -- Model Training And Evaluating ]]></title>
+        <title type="html"><![CDATA[Retail Data Anlytics (1) -- Data Preprocessing]]></title>
+        <id>https://qingqiuzhang.github.io/retail-data-anlytics-1-data-preprocessing/</id>
+        <link href="https://qingqiuzhang.github.io/retail-data-anlytics-1-data-preprocessing/">
+        </link>
+        <updated>2022-03-30T02:20:22.000Z</updated>
+        <summary type="html"><![CDATA[<p>This is a thorough analysis of retail dataset from Kaggle. In this article, I will demonstrate how to an end-to-end machine learning project using diverse regression models.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>This is a thorough analysis of retail dataset from Kaggle. In this article, I will demonstrate how to an end-to-end machine learning project using diverse regression models.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Diabetes Data Analytics (2) -- Model Training And Evaluating ]]></title>
         <id>https://qingqiuzhang.github.io/diabetes-dataset-report-/</id>
         <link href="https://qingqiuzhang.github.io/diabetes-dataset-report-/">
         </link>
-        <updated>2022-03-27T12:26:04.000Z</updated>
+        <updated>2022-03-26T12:26:04.000Z</updated>
         <summary type="html"><![CDATA[<p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">the previous article</a>, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">the previous article</a>, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Diabetes Dataset Report (1) -- Data Preprocessing]]></title>
+        <title type="html"><![CDATA[Diabetes Data Analytics (1) -- Data Preprocessing]]></title>
         <id>https://qingqiuzhang.github.io/diabetes-dataset-report/</id>
         <link href="https://qingqiuzhang.github.io/diabetes-dataset-report/">
         </link>
-        <updated>2022-03-25T02:44:03.000Z</updated>
+        <updated>2022-03-24T02:44:03.000Z</updated>
         <summary type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to an end-to-end machine learning project using diverse classification models.</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to an end-to-end machine learning project using diverse classification models.</p>

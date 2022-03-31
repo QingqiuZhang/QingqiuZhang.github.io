@@ -107,7 +107,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1648692127470" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1648693558001" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -170,7 +170,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Diabetes Dataset Report (1) -- Data Preprocessing
+                                Diabetes Data Analytics (1) -- Data Preprocessing
                             </h1>
                             
                                 <!--en-->
@@ -180,15 +180,17 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-24</a>
+                                Date: <a href="#">2022-03-23</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">3.3
+                                    href="#">3.7
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">523</a></span>
+                                    <span class="post-words">words:<a href="#">598</a></span>
                                     
                                         <span class="post-category">
                                 Category:
+                                
+                                <a href="https://qingqiuzhang.github.io/2uMVT4cFu/">Classification</a>
                                 
                                 <a href="https://qingqiuzhang.github.io/URtsfZ1k8/">Machine Learning</a>
                                 
@@ -257,13 +259,20 @@ data.describe()
 </code></pre>
 <figure data-type="image" tabindex="2"><img src="https://qingqiuzhang.github.io/post-images/1648685342343.png" alt="" loading="lazy"></figure>
 <h2 id="data-reduction">Data Reduction</h2>
-<p>With clean data at hand, we can visulize the data, which may indicate some relations between the features or between features and targets.</p>
+<p>With clean data at hand, we can visulize the data, which may indicate some relations between the features or between features and targets. Knowing these is useful to data reduction, for example, if a feature is highly correlated with the target, then we had better retain it. Or if two features are highly correlated, it would be much easier for us if we drop out one of them.</p>
 <pre><code class="language-Python3">import seaborn as sns
 sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
 </code></pre>
 <p><img src="https://qingqiuzhang.github.io/post-images/1648690175972.png" alt="" loading="lazy"><br>
-From the pair plot above, we see that there is not much difference in distribution between diabetics and nondiabetics except glucose.<br>
-<img src="https://qingqiuzhang.github.io/post-images/1648690286890.png" alt="" loading="lazy"></p>
+From the pair plot above, we see that there is not much difference in distribution between diabetics and nondiabetics except glucose. We can further test it by calculating the correlation matrix.</p>
+<pre><code class="language-Python3">corr_mat = data.corr().round(2)
+corr_mat
+</code></pre>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648690286890.png" alt="" loading="lazy"><br>
+We can see the result more easily visualizing the correlation matrix.</p>
+<pre><code class="language-Python3">sns.heatmap(corr_mat)
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://qingqiuzhang.github.io/post-images/1648692939717.png" alt="" loading="lazy"></figure>
 <h2 id="data-transformation">Data Transformation</h2>
 
                         </div>
@@ -291,6 +300,10 @@ From the pair plot above, we see that there is not much difference in distributi
                                                                         <span class="tag ">
                         
                         
+                        <a href="https://qingqiuzhang.github.io/2uMVT4cFu/">#
+                                                Classification
+                                                    </a>
+                                                    
                         <a href="https://qingqiuzhang.github.io/URtsfZ1k8/">#
                                                 Machine Learning
                                                     </a>
@@ -309,7 +322,7 @@ From the pair plot above, we see that there is not much difference in distributi
                                                                                 <section class="post-nav">
                                                                                     
                                                                                         <a class="prev" rel="prev" href="https://qingqiuzhang.github.io/diabetes-dataset-report-/">
-                                                                                            Diabetes Dataset Report (2) -- Model Training And Evaluating 
+                                                                                            Diabetes Data Analytics (2) -- Model Training And Evaluating 
                                                                                         </a>
                                                                                         
                                                                                             
@@ -375,7 +388,7 @@ From the pair plot above, we see that there is not much difference in distributi
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1648692127470);
+                    newDate.setTime(1648693558001);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
