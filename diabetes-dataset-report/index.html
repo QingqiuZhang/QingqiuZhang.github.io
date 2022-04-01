@@ -107,7 +107,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1648740259293" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1648849141634" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -180,7 +180,7 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-23</a>
+                                Date: <a href="#">2022-03-22</a>
                             </span>
                                     
                                         <span class="post-category">
@@ -254,8 +254,36 @@ data = data.fillna(data.median())
 data.describe()
 </code></pre>
 <figure data-type="image" tabindex="2"><img src="https://qingqiuzhang.github.io/post-images/1648685342343.png" alt="" loading="lazy"></figure>
+<h2 id="data-transformation">Data Transformation</h2>
+<p>If the range of two features differ a lot, for example, one is from 0 to 1 and the other is from 0 to 10,000, apparantly models won't treat such two features equally. Normally, the feature with larger range would influence the result more. Nevertheless, this doesn't mean it's more important than the other one. That's why we need scale the features. Frequently used scaling techniques are:</p>
+<ul>
+<li>MinMaxScaler()</li>
+<li>StardardScaler()</li>
+<li>MaxAbsScaler()</li>
+<li>RobustScaler()<br>
+I usually choose MinMaxScaler() or StandardScaler() for most of datasets. You can also use others according to the charasteristic of the dataset at hand.</li>
+</ul>
+<pre><code class="language-Python3"># get X, y
+X = data.drop([&quot;Outcome&quot;], axis=1)
+y = data[&quot;Outcome&quot;]
+
+X2 = X.copy
+y2 = y.copy
+
+from sklearn.model_selection import train_test_split
+# split X, y into traning set and validation set
+X2_train, X2_trainValid, y2_train, y2_trainValid = train_test_split(X, y, test_size=0.5, stratify=y)
+# perform feature scaling
+scaler = StandardScaler()
+X2_train = scaler.fit_transform(X2_train)
+print(X2_train)
+X2_trainValid = scaler.transform(X2_trainValid)
+print(X2_trainValid)
+</code></pre>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648849125776.png" alt="" loading="lazy"><br>
+<img src="https://qingqiuzhang.github.io/post-images/1648849136388.png" alt="" loading="lazy"></p>
 <h2 id="data-reduction">Data Reduction</h2>
-<p>With clean data at hand, we can visulize the data, which may indicate some relations between the features or between features and targets. Knowing these is useful to data reduction, for example, if a feature is highly correlated with the target, then we had better retain it. Or if two features are highly correlated, it would be much easier for us if we drop out one of them.</p>
+<p>With clean data at hand, we can visulize the data, which may indicate some relations between the features or between features and targets. Knowing these is useful to data reduction, for example, if a feature is highly correlated with the target, then we had better retain it. Or if two features are highly correlated, it would be much easier for us if we drop out one of them. Here I use PCA (Principal componenet analysis) for a demonstration.</p>
 <pre><code class="language-Python3">import seaborn as sns
 sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
 </code></pre>
@@ -269,7 +297,6 @@ We can see the result more easily visualizing the correlation matrix.</p>
 <pre><code class="language-Python3">sns.heatmap(corr_mat)
 </code></pre>
 <figure data-type="image" tabindex="3"><img src="https://qingqiuzhang.github.io/post-images/1648692939717.png" alt="" loading="lazy"></figure>
-<h2 id="data-transformation">Data Transformation</h2>
 
                         </div>
                         
@@ -279,8 +306,8 @@ We can see the result more easily visualizing the correlation matrix.</p>
 <li><a href="#data-preprocessing">Data Preprocessing</a>
 <ul>
 <li><a href="#data-cleaning">Data Cleaning</a></li>
-<li><a href="#data-reduction">Data Reduction</a></li>
 <li><a href="#data-transformation">Data Transformation</a></li>
+<li><a href="#data-reduction">Data Reduction</a></li>
 </ul>
 </li>
 </ul>
@@ -384,7 +411,7 @@ We can see the result more easily visualizing the correlation matrix.</p>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1648740259293);
+                    newDate.setTime(1648849141634);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
