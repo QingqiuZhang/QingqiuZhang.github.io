@@ -103,7 +103,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1648929894426" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1648940447533" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -176,7 +176,7 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-20</a>
+                                Date: <a href="#">2022-03-15</a>
                             </span>
                                     
                                         <span class="post-category">
@@ -211,6 +211,160 @@ data = pd.read_csv('diabetes.csv')
 data.head(10)
 </code></pre>
 <figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648653284208.png" alt="The first ten rows of data" loading="lazy"></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+    font-size: 65%;
+}
+</code></pre>
+</style>
+<table border="0" class="dataframe">
+  <thead>
+    <tr style="text-align: middle;">
+      <th></th>
+      <th>Pregnancies</th>
+      <th>Glucose</th>
+      <th>BloodPressure</th>
+      <th>SkinThickness</th>
+      <th>Insulin</th>
+      <th>BMI</th>
+      <th>DiabetesPedigreeFunction</th>
+      <th>Age</th>
+      <th>Outcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6</td>
+      <td>148</td>
+      <td>72</td>
+      <td>35</td>
+      <td>0</td>
+      <td>33.6</td>
+      <td>0.627</td>
+      <td>50</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>85</td>
+      <td>66</td>
+      <td>29</td>
+      <td>0</td>
+      <td>26.6</td>
+      <td>0.351</td>
+      <td>31</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>183</td>
+      <td>64</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.3</td>
+      <td>0.672</td>
+      <td>32</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>89</td>
+      <td>66</td>
+      <td>23</td>
+      <td>94</td>
+      <td>28.1</td>
+      <td>0.167</td>
+      <td>21</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>137</td>
+      <td>40</td>
+      <td>35</td>
+      <td>168</td>
+      <td>43.1</td>
+      <td>2.288</td>
+      <td>33</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>116</td>
+      <td>74</td>
+      <td>0</td>
+      <td>0</td>
+      <td>25.6</td>
+      <td>0.201</td>
+      <td>30</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3</td>
+      <td>78</td>
+      <td>50</td>
+      <td>32</td>
+      <td>88</td>
+      <td>31.0</td>
+      <td>0.248</td>
+      <td>26</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>10</td>
+      <td>115</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>35.3</td>
+      <td>0.134</td>
+      <td>29</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2</td>
+      <td>197</td>
+      <td>70</td>
+      <td>45</td>
+      <td>543</td>
+      <td>30.5</td>
+      <td>0.158</td>
+      <td>53</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>8</td>
+      <td>125</td>
+      <td>96</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.232</td>
+      <td>54</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 <p>The meaning of each column is stated as below:</p>
 <blockquote>
 <ul>
@@ -403,7 +557,7 @@ We can see the result more easily visualizing the correlation matrix.</p>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1648929894426);
+                    newDate.setTime(1648940447533);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
