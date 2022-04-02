@@ -28,10 +28,6 @@
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
             <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
             
-                        <!--CDN样式-->
-                        <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/hit-kounter-lc-0.3.0.js"></script>
-                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
-                        
                             <script>
                                 (function() {
                                     var bp = document.createElement('script');
@@ -107,7 +103,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1648857093004" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1648929894426" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -180,7 +176,7 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-22</a>
+                                Date: <a href="#">2022-03-20</a>
                             </span>
                                     
                                         <span class="post-category">
@@ -192,9 +188,6 @@
                                 
                             </span>
                                         
-                                            Views:
-                                            <span data-hk-page="current"> - </span>
-                                            
                                 </div>
                                 
                         </header>
@@ -217,7 +210,7 @@ import pandas as pd
 data = pd.read_csv('diabetes.csv')
 data.head(10)
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648653284208.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648653284208.png" alt="The first ten rows of data" loading="lazy"></figure>
 <p>The meaning of each column is stated as below:</p>
 <blockquote>
 <ul>
@@ -235,17 +228,17 @@ data.head(10)
 <p>Next, we need to examin whether there are null values in the dataset.</p>
 <pre><code class="language-Python3">data.isnull().sum()
 </code></pre>
-<p><img src="https://qingqiuzhang.github.io/post-images/1648658044021.png" alt="" loading="lazy"><br>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648658044021.png" alt="The number of null values in each column" loading="lazy"><br>
 It seems there is no null values. Shall we pop the champagne now? If we further examine the data, we will find that the situation is not as good as we thought.</p>
 <pre><code class="language-Python">data.describe()
 </code></pre>
-<p><img src="https://qingqiuzhang.github.io/post-images/1648658246847.png" alt="" loading="lazy"><br>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648658246847.png" alt="Indicators" loading="lazy"><br>
 We can see from the picture above that the minimum value of Glucose, BloodPressure, SkinThickness, Insulin, BMI is zero. However, anyone having common sense knows that by no means would these indicators of an alive person be zero. Apparently, the null values are replaced by zeros when inputing data. Here we calculate the number of null values in each column so that we will better decide how to deal with them.</p>
 <pre><code class="language-Python3">for col in list(data.columns):
     zero = len(data[data[col] == 0])
     print('0s in %s: %d' % (col, zero))
 </code></pre>
-<p><img src="https://qingqiuzhang.github.io/post-images/1648684925178.png" alt="" loading="lazy"><br>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648684925178.png" alt="The number of 0s in each column" loading="lazy"><br>
 There are nearly 400 null values in Insulin column, so it's not realistic to drop all the null values. Normally under such circumstance, we replace them with indicators such as mean, median, or mode, etc. Here I choose median.</p>
 <pre><code class="language-Python3"># replace 0s in target columns with null value
 data.iloc[:, 1:6] = data.iloc[:, 1:6].replace({0:np.NaN})
@@ -280,8 +273,7 @@ print(X2_train)
 X2_trainValid = scaler.transform(X2_trainValid)
 print(X2_trainValid)
 </code></pre>
-<p><img src="https://qingqiuzhang.github.io/post-images/1648849125776.png" alt="" loading="lazy"><br>
-<img src="https://qingqiuzhang.github.io/post-images/1648849136388.png" alt="" loading="lazy"></p>
+<figure data-type="image" tabindex="3"><img src="https://qingqiuzhang.github.io/post-images/1648849136388.png" alt="" loading="lazy"></figure>
 <h2 id="data-reduction">Data Reduction</h2>
 <p>With clean data at hand, we can visulize the data, which may indicate some relations between the features or between features and targets. Knowing these is useful to data reduction, for example, if a feature is highly correlated with the target, then we had better retain it. Or if two features are highly correlated, it would be much easier for us if we drop out one of them. Here I use PCA (Principal componenet analysis) for a demonstration.</p>
 <pre><code class="language-Python3">import seaborn as sns
@@ -296,7 +288,7 @@ corr_mat
 We can see the result more easily visualizing the correlation matrix.</p>
 <pre><code class="language-Python3">sns.heatmap(corr_mat)
 </code></pre>
-<figure data-type="image" tabindex="3"><img src="https://qingqiuzhang.github.io/post-images/1648692939717.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://qingqiuzhang.github.io/post-images/1648692939717.png" alt="" loading="lazy"></figure>
 
                         </div>
                         
@@ -411,7 +403,7 @@ We can see the result more easily visualizing the correlation matrix.</p>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1648857093004);
+                    newDate.setTime(1648929894426);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
