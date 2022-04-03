@@ -103,7 +103,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1648946361215" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1648952006493" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -176,7 +176,7 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-05</a>
+                                Date: <a href="#">2022-02-21</a>
                             </span>
                                     
                                         <span class="post-category">
@@ -210,29 +210,9 @@ import pandas as pd
 data = pd.read_csv('diabetes.csv')
 data.head(10)
 </code></pre>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-        width: 75%;
-        overflown: scroll;
-    }
-<pre><code>.dataframe tbody tr th {
-    vertical-align: top;
-    width: 75%;
-    overflown: scroll;
-}
-
-.dataframe thead th {
-    text-align: right;
-    width: 75%;
-    overflown: scroll;
-}
-</code></pre>
-</style>
-<table border="0" class="dataframe">
+<table border="1" style="font-size:67%;">
   <thead>
-    <tr style="text-align: middle;">
+    <tr style="text-align: right;">
       <th></th>
       <th>Pregnancies</th>
       <th>Glucose</th>
@@ -246,7 +226,7 @@ data.head(10)
     </tr>
   </thead>
   <tbody>
-    <tr style="text-align: middle;">
+    <tr>
       <th>0</th>
       <td>6</td>
       <td>148</td>
@@ -368,7 +348,6 @@ data.head(10)
     </tr>
   </tbody>
 </table>
-</div>
 <p>The meaning of each column is stated as below:</p>
 <blockquote>
 <ul>
@@ -399,137 +378,122 @@ dtype: int64</pre>
 <p>It seems there is no null values. Shall we pop the champagne now? If we further examine the data, we will find that the situation is not as good as we thought.</p>
 <pre><code class="language-Python">data.describe().round(2)
 </code></pre>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-<pre><code>.dataframe tbody tr th {
-    vertical-align: top;
-}
-
-.dataframe thead th {
-    text-align: right;
-    width: 100px;
-    overflown: scroll
-}
-</code></pre>
-</style>
-<table border="0" width="400" class="dataframe">
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Pregnancies</th>
-      <th>Glucose</th>
-      <th>BloodPressure</th>
-      <th>SkinThickness</th>
-      <th>Insulin</th>
-      <th>BMI</th>
-      <th>DiabetesPedigreeFunction</th>
-      <th>Age</th>
-      <th>Outcome</th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>count</th>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-    </tr>
-    <tr>
-      <th>mean</th>
+      <th>Pregnancies</th>
+      <td>768.0</td>
       <td>3.85</td>
-      <td>120.89</td>
-      <td>69.11</td>
-      <td>20.54</td>
-      <td>79.80</td>
-      <td>31.99</td>
-      <td>0.47</td>
-      <td>33.24</td>
-      <td>0.35</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>3.38</td>
-      <td>31.97</td>
-      <td>19.36</td>
-      <td>15.95</td>
-      <td>115.24</td>
-      <td>7.88</td>
-      <td>0.33</td>
-      <td>11.76</td>
-      <td>0.48</td>
-    </tr>
-    <tr>
-      <th>min</th>
+      <td>3.37</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>0.08</td>
-      <td>21.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>25%</th>
       <td>1.00</td>
-      <td>99.00</td>
-      <td>62.00</td>
+      <td>3.00</td>
+      <td>6.00</td>
+      <td>17.00</td>
+    </tr>
+    <tr>
+      <th>Glucose</th>
+      <td>768.0</td>
+      <td>120.89</td>
+      <td>31.97</td>
       <td>0.00</td>
+      <td>99.00</td>
+      <td>117.00</td>
+      <td>140.25</td>
+      <td>199.00</td>
+    </tr>
+    <tr>
+      <th>BloodPressure</th>
+      <td>768.0</td>
+      <td>69.11</td>
+      <td>19.36</td>
+      <td>0.00</td>
+      <td>62.00</td>
+      <td>72.00</td>
+      <td>80.00</td>
+      <td>122.00</td>
+    </tr>
+    <tr>
+      <th>SkinThickness</th>
+      <td>768.0</td>
+      <td>20.54</td>
+      <td>15.95</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>23.00</td>
+      <td>32.00</td>
+      <td>99.00</td>
+    </tr>
+    <tr>
+      <th>Insulin</th>
+      <td>768.0</td>
+      <td>79.80</td>
+      <td>115.24</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>30.50</td>
+      <td>127.25</td>
+      <td>846.00</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>768.0</td>
+      <td>31.99</td>
+      <td>7.88</td>
       <td>0.00</td>
       <td>27.30</td>
-      <td>0.24</td>
-      <td>24.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>3.00</td>
-      <td>117.00</td>
-      <td>72.00</td>
-      <td>23.00</td>
-      <td>30.50</td>
       <td>32.00</td>
-      <td>0.37</td>
-      <td>29.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>6.00</td>
-      <td>140.25</td>
-      <td>80.00</td>
-      <td>32.00</td>
-      <td>127.25</td>
       <td>36.60</td>
-      <td>0.63</td>
-      <td>41.00</td>
-      <td>1.00</td>
+      <td>67.10</td>
     </tr>
     <tr>
-      <th>max</th>
-      <td>17.00</td>
-      <td>199.00</td>
-      <td>122.00</td>
-      <td>99.00</td>
-      <td>846.00</td>
-      <td>67.10</td>
+      <th>DiabetesPedigreeFunction</th>
+      <td>768.0</td>
+      <td>0.47</td>
+      <td>0.33</td>
+      <td>0.08</td>
+      <td>0.24</td>
+      <td>0.37</td>
+      <td>0.63</td>
       <td>2.42</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>768.0</td>
+      <td>33.24</td>
+      <td>11.76</td>
+      <td>21.00</td>
+      <td>24.00</td>
+      <td>29.00</td>
+      <td>41.00</td>
       <td>81.00</td>
+    </tr>
+    <tr>
+      <th>Outcome</th>
+      <td>768.0</td>
+      <td>0.35</td>
+      <td>0.48</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
       <td>1.00</td>
     </tr>
   </tbody>
 </table>
-</div>
 <p>We can see from the picture above that the minimum value of Glucose, BloodPressure, SkinThickness, Insulin, BMI is zero. However, anyone having common sense knows that by no means would these indicators of an alive person be zero. Apparently, the null values are replaced by zeros when inputing data. Here we calculate the number of null values in each column so that we will better decide how to deal with them.</p>
 <pre><code class="language-Python3">for col in list(data.columns):
     zero = len(data[data[col] == 0])
@@ -550,146 +514,285 @@ dtype: int64</pre>
 data.iloc[:, 1:6] = data.iloc[:, 1:6].replace({0:np.NaN})
 # fill null values with medians
 data = data.fillna(data.median()) 
-data.describe().round(2)
+data.describe().round(2).T
 </code></pre>
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-<pre><code>.dataframe tbody tr th {
-    vertical-align: top;
-}
-
-.dataframe thead th {
-    text-align: right;
-}
-</code></pre>
-</style>
-<table border="0" width="400" class="dataframe">
+<table border="1">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Pregnancies</th>
-      <th>Glucose</th>
-      <th>BloodPressure</th>
-      <th>SkinThickness</th>
-      <th>Insulin</th>
-      <th>BMI</th>
-      <th>DiabetesPedigreeFunction</th>
-      <th>Age</th>
-      <th>Outcome</th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>count</th>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-      <td>768.00</td>
-    </tr>
-    <tr>
-      <th>mean</th>
+      <th>Pregnancies</th>
+      <td>768.0</td>
       <td>3.85</td>
-      <td>121.66</td>
-      <td>72.39</td>
-      <td>29.11</td>
-      <td>140.67</td>
-      <td>32.46</td>
-      <td>0.47</td>
-      <td>33.24</td>
-      <td>0.35</td>
-    </tr>
-    <tr>
-      <th>std</th>
       <td>3.37</td>
-      <td>30.44</td>
-      <td>12.10</td>
-      <td>8.79</td>
-      <td>86.38</td>
-      <td>6.88</td>
-      <td>0.33</td>
-      <td>11.76</td>
-      <td>0.48</td>
-    </tr>
-    <tr>
-      <th>min</th>
       <td>0.00</td>
-      <td>44.00</td>
-      <td>24.00</td>
-      <td>7.00</td>
-      <td>14.00</td>
-      <td>18.20</td>
-      <td>0.08</td>
-      <td>21.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>25%</th>
       <td>1.00</td>
-      <td>99.75</td>
-      <td>64.00</td>
-      <td>25.00</td>
-      <td>121.50</td>
-      <td>27.50</td>
-      <td>0.24</td>
-      <td>24.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>50%</th>
       <td>3.00</td>
-      <td>117.00</td>
-      <td>72.00</td>
-      <td>29.00</td>
-      <td>125.00</td>
-      <td>32.30</td>
-      <td>0.37</td>
-      <td>29.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>75%</th>
       <td>6.00</td>
-      <td>140.25</td>
-      <td>80.00</td>
-      <td>32.00</td>
-      <td>127.25</td>
-      <td>36.60</td>
-      <td>0.63</td>
-      <td>41.00</td>
-      <td>1.00</td>
+      <td>17.00</td>
     </tr>
     <tr>
-      <th>max</th>
-      <td>17.00</td>
+      <th>Glucose</th>
+      <td>768.0</td>
+      <td>121.66</td>
+      <td>30.44</td>
+      <td>44.00</td>
+      <td>99.75</td>
+      <td>117.00</td>
+      <td>140.25</td>
       <td>199.00</td>
+    </tr>
+    <tr>
+      <th>BloodPressure</th>
+      <td>768.0</td>
+      <td>72.39</td>
+      <td>12.10</td>
+      <td>24.00</td>
+      <td>64.00</td>
+      <td>72.00</td>
+      <td>80.00</td>
       <td>122.00</td>
+    </tr>
+    <tr>
+      <th>SkinThickness</th>
+      <td>768.0</td>
+      <td>29.11</td>
+      <td>8.79</td>
+      <td>7.00</td>
+      <td>25.00</td>
+      <td>29.00</td>
+      <td>32.00</td>
       <td>99.00</td>
+    </tr>
+    <tr>
+      <th>Insulin</th>
+      <td>768.0</td>
+      <td>140.67</td>
+      <td>86.38</td>
+      <td>14.00</td>
+      <td>121.50</td>
+      <td>125.00</td>
+      <td>127.25</td>
       <td>846.00</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>768.0</td>
+      <td>32.46</td>
+      <td>6.88</td>
+      <td>18.20</td>
+      <td>27.50</td>
+      <td>32.30</td>
+      <td>36.60</td>
       <td>67.10</td>
+    </tr>
+    <tr>
+      <th>DiabetesPedigreeFunction</th>
+      <td>768.0</td>
+      <td>0.47</td>
+      <td>0.33</td>
+      <td>0.08</td>
+      <td>0.24</td>
+      <td>0.37</td>
+      <td>0.63</td>
       <td>2.42</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>768.0</td>
+      <td>33.24</td>
+      <td>11.76</td>
+      <td>21.00</td>
+      <td>24.00</td>
+      <td>29.00</td>
+      <td>41.00</td>
       <td>81.00</td>
+    </tr>
+    <tr>
+      <th>Outcome</th>
+      <td>768.0</td>
+      <td>0.35</td>
+      <td>0.48</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
       <td>1.00</td>
     </tr>
   </tbody>
 </table>
-</div>
+Now we can visualize the dataset and see if we can find something else.
+<pre><code class="language-Python3">import seaborn as sns
+sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
+</code></pre>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648690175972.png" alt="Pairplot-Imbalanced data set" loading="lazy"><br>
+From the pairplot above, we discover this is an imbalanced dataset. There are 500 observations whose outcome is 0 and only 268 is 1. If we train our model with such data, the results may be misleading. There are several methods to deal with imbalanced data:</p>
+<ol>
+<li>Collect more data</li>
+<li>Under-Sampling</li>
+<li>Over-Sampling</li>
+<li>Use confusion matrix or other way to evaluate the peformance<br>
+As the number of observations is only 768, it's unrealistic to under-sampling. Here I wil illustrate how to do oversampling using SMOTE().</li>
+</ol>
+<pre><code class="language-Python3">from imblearn.over_sampling import SMOTE 
+# get X, y
+X = data.iloc[:, 0:8]
+y = data.iloc[:, -1]
+# perform SMOTE()
+oversample = SMOTE()
+X, y = oversample.fit_resample(X, y)
+# join X, y
+y = pd.DataFrame(y)
+data = pd.concat([X, y], axis=1)
+print(data.shape)
+data.describe().round(2).T
+</code></pre>
+<table border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Pregnancies</th>
+      <td>1000.0</td>
+      <td>3.99</td>
+      <td>3.33</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>3.00</td>
+      <td>6.00</td>
+      <td>17.00</td>
+    </tr>
+    <tr>
+      <th>Glucose</th>
+      <td>1000.0</td>
+      <td>126.40</td>
+      <td>31.39</td>
+      <td>44.00</td>
+      <td>102.82</td>
+      <td>122.00</td>
+      <td>148.00</td>
+      <td>199.00</td>
+    </tr>
+    <tr>
+      <th>BloodPressure</th>
+      <td>1000.0</td>
+      <td>72.97</td>
+      <td>11.71</td>
+      <td>24.00</td>
+      <td>65.75</td>
+      <td>72.00</td>
+      <td>80.00</td>
+      <td>122.00</td>
+    </tr>
+    <tr>
+      <th>SkinThickness</th>
+      <td>1000.0</td>
+      <td>29.64</td>
+      <td>8.22</td>
+      <td>7.00</td>
+      <td>27.00</td>
+      <td>29.00</td>
+      <td>33.00</td>
+      <td>99.00</td>
+    </tr>
+    <tr>
+      <th>Insulin</th>
+      <td>1000.0</td>
+      <td>146.58</td>
+      <td>90.69</td>
+      <td>14.00</td>
+      <td>125.00</td>
+      <td>125.00</td>
+      <td>136.25</td>
+      <td>846.00</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>1000.0</td>
+      <td>33.01</td>
+      <td>6.68</td>
+      <td>18.20</td>
+      <td>28.40</td>
+      <td>32.66</td>
+      <td>36.80</td>
+      <td>67.10</td>
+    </tr>
+    <tr>
+      <th>DiabetesPedigreeFunction</th>
+      <td>1000.0</td>
+      <td>0.49</td>
+      <td>0.32</td>
+      <td>0.08</td>
+      <td>0.26</td>
+      <td>0.40</td>
+      <td>0.65</td>
+      <td>2.42</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>1000.0</td>
+      <td>33.88</td>
+      <td>11.34</td>
+      <td>21.00</td>
+      <td>25.00</td>
+      <td>31.00</td>
+      <td>41.00</td>
+      <td>81.00</td>
+    </tr>
+    <tr>
+      <th>Outcome</th>
+      <td>1000.0</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>1.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+Once again visualize the dataset to see the changes in the distribution of data.
+<pre><code class="language-Python3">sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
+</code></pre>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648950949751.png" alt="pairplot2" loading="lazy"><br>
+For now, we transform the original imbalanced dataset into a balanced dataset with the number of each outcome class being 500. there is not much difference in distribution between diabetics and nondiabetics. Glucose should have the highest correlation with Outcome among all the features. We can testify it using a correlation matrix heatmap.</p>
+<pre><code class="language-Python3">corr_mat = data.corr().round(2)
+plt.figure(figsize = (15,10))
+sns.heatmap(corr_mat, annot=True)
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648951579451.png" alt="" loading="lazy"></figure>
 <h2 id="data-transformation">Data Transformation</h2>
 <p>If the range of two features differ a lot, for example, one is from 0 to 1 and the other is from 0 to 10,000, apparantly models won't treat such two features equally. Normally, the feature with larger range would influence the result more. Nevertheless, this doesn't mean it's more important than the other one. That's why we need scale the features. Frequently used scaling techniques are:</p>
 <ul>
 <li>MinMaxScaler()</li>
 <li>StardardScaler()</li>
 <li>MaxAbsScaler()</li>
-<li>RobustScaler()<br>
-I usually choose MinMaxScaler() or StandardScaler() for most of datasets. You can also use others according to the charasteristic of the dataset at hand.</li>
+<li>RobustScaler()</li>
 </ul>
+<p>I usually choose MinMaxScaler() or StandardScaler() for most of datasets. You can also use others according to the charasteristic of the dataset at hand.</p>
 <pre><code class="language-Python3"># get X, y
 X = data.drop([&quot;Outcome&quot;], axis=1)
 y = data[&quot;Outcome&quot;]
@@ -707,22 +810,54 @@ print(X2_train)
 X2_trainValid = scaler.transform(X2_trainValid)
 print(X2_trainValid)
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648849136388.png" alt="" loading="lazy"></figure>
+<pre>[[-0.86583338 -1.18590252 -2.5407598  ...  2.36236055  0.059368
+  -0.66182567]
+ [-0.56074762 -1.30437961 -0.5856297  ...  0.92385297  1.5766631
+  -0.575063  ]
+ [-0.56074762 -0.84741167 -1.01001675 ...  0.49700038 -0.09947556
+  -1.09563904]
+ ...
+ [ 0.35450965  0.45821104  0.68753147 ... -0.21442061 -0.42275597
+  -0.74858835]
+ [ 1.57485267  1.18460674 -0.30940607 ... -1.09502236 -0.52771647
+   1.07342779]
+ [-0.56074762 -0.8147711  -0.33099746 ...  0.76734036 -0.55277092
+  -0.66182567]]
+[[ 1.57485267 -0.73832382  1.59549311 ...  1.66775686  1.24296528
+   0.55285175]
+ [-0.86583338 -1.43494188  0.17826701 ...  1.8771571   2.15997341
+  -0.14124963]
+ [-0.86583338  2.09023942 -1.01001675 ... -0.4278469  -0.29274103
+   2.20134255]
+ ...
+ [-0.86583338 -1.50022302  0.68753147 ... -1.09658263  0.35733372
+  -1.00887637]
+ [-1.17091913 -0.03139747 -0.16124264 ... -0.81201424 -0.79874515
+   0.20580106]
+ [-1.17091913 -1.66342586 -1.68903605 ... -0.75510056 -0.74603639
+  -1.00887637]]
+</pre>
 <h2 id="data-reduction">Data Reduction</h2>
 <p>With clean data at hand, we can visulize the data, which may indicate some relations between the features or between features and targets. Knowing these is useful to data reduction, for example, if a feature is highly correlated with the target, then we had better retain it. Or if two features are highly correlated, it would be much easier for us if we drop out one of them. Here I use PCA (Principal componenet analysis) for a demonstration.</p>
-<pre><code class="language-Python3">import seaborn as sns
-sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
+<pre><code class="language-Python3">from sklearn.decomposition import PCA
+pca = PCA()
+X = pca.fit_transform(X)
+print(X)
 </code></pre>
-<p><img src="https://qingqiuzhang.github.io/post-images/1648690175972.png" alt="" loading="lazy"><br>
-From the pair plot above, we see that there is not much difference in distribution between diabetics and nondiabetics except glucose. We can further test it by calculating the correlation matrix.</p>
-<pre><code class="language-Python3">corr_mat = data.corr().round(2)
-corr_mat
-</code></pre>
-<p><img src="https://qingqiuzhang.github.io/post-images/1648690286890.png" alt="" loading="lazy"><br>
-We can see the result more easily visualizing the correlation matrix.</p>
-<pre><code class="language-Python3">sns.heatmap(corr_mat)
-</code></pre>
-<figure data-type="image" tabindex="2"><img src="https://qingqiuzhang.github.io/post-images/1648692939717.png" alt="" loading="lazy"></figure>
+<pre>[[-1.48212827e+01  2.66418913e+01  6.77045733e+00 ...  1.28306645e+00
+  -4.41730071e-01  1.08702215e-01]
+ [-2.53614440e+01 -3.80054541e+01 -1.53466357e+00 ...  4.06783776e+00
+  -2.50459441e+00 -9.57021831e-02]
+ [-9.83659118e+00  5.72071616e+01 -1.78166537e+01 ...  8.30157785e+00
+   4.60163646e+00  2.42241723e-01]
+ ...
+ [-8.54656132e+01  3.00921079e+01  6.86126007e+00 ...  4.57134748e+00
+   2.42255141e+00  1.22062151e-01]
+ [-2.36693301e+01 -2.79343649e+01 -3.54949033e+00 ... -3.82012635e-01
+   4.69302230e-01 -2.89569829e-01]
+ [-1.69091697e+01  1.34152393e+01  3.35830801e+00 ... -1.66109447e+01
+   5.12758994e+00  2.13862262e-02]]
+</pre>
 
                         </div>
                         
@@ -837,7 +972,7 @@ We can see the result more easily visualizing the correlation matrix.</p>
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1648946361215);
+                    newDate.setTime(1648952006493);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
