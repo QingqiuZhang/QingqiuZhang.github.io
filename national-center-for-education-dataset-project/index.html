@@ -103,7 +103,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1648952586403" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1648955460449" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -176,20 +176,449 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-04-01</a>
+                                Date: <a href="#">2022-03-31</a>
                             </span>
                                     
+                                        <span class="post-category">
+                                Category:
+                                
+                                <a href="https://qingqiuzhang.github.io/Ru_HJ7UUn/">DataFrame</a>
+                                
+                                <a href="https://qingqiuzhang.github.io/WOUmPg0ZPX/">Python</a>
+                                
+                            </span>
+                                        
                                 </div>
                                 
                         </header>
                         
                         <div class="post-content">
-                            <p>The dataset you will be processing comes from the National Center for Education Statistics. You can find the original dataset <a href="https://nces.ed.gov/programs/digest/d18/tables/dt18_104.20.asp">here</a>. This data has been cleaned a bit and you can use the the provided file <a href="https://drive.google.com/file/d/1z1LcOYSQJumFE6c5MDgbDyXb3s36VWoL/view?usp=sharing">nces-ed-attainment.csv</a>.</p>
+                            <p>The dataset you will be processing comes from the National Center for Education Statistics. You can find the original dataset <a href="https://nces.ed.gov/programs/digest/d18/tables/dt18_104.20.asp">here</a>. This data has been cleaned a bit and you can use the the provided file <a href="https://github.com/qingqiuzhang/qingqiuzhang.github.io/blob/3ea2049485e33080a3787524ead8cc24d2cc9a42/national-center-for-education-dataset-project/nces-ed-attainment.csv">nces-ed-attainment.csv</a>.</p>
+<p>The original dataset is titled: Percentage of persons 25 to 29 years old with selected levels of educational attainment, by race/ethnicity and sex: Selected years, 1920 through 2018. The cleaned version you will be working with has columns for Year, Sex, Educational Attainment, and race/ethnicity categories considered in the dataset. Note that not all columns will have data starting at 1920.</p>
+<h1 id="exploring-the-data">Exploring the data</h1>
+<pre><code class="language-Python3">import pandas as pd
+df = pd.read_csv('nces-ed-attainment.csv')
+df.head()
+</code></pre>
+<table border="1" style="font-size:75%">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Sex</th>
+      <th>Min degree</th>
+      <th>Total</th>
+      <th>White</th>
+      <th>Black</th>
+      <th>Hispanic</th>
+      <th>Asian</th>
+      <th>Pacific Islander</th>
+      <th>American Indian/Alaska Native</th>
+      <th>Two or more races</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1920</td>
+      <td>A</td>
+      <td>high school</td>
+      <td>---</td>
+      <td>22.0</td>
+      <td>6.3</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1940</td>
+      <td>A</td>
+      <td>high school</td>
+      <td>38.1</td>
+      <td>41.2</td>
+      <td>12.3</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1950</td>
+      <td>A</td>
+      <td>high school</td>
+      <td>52.8</td>
+      <td>56.3</td>
+      <td>23.6</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1960</td>
+      <td>A</td>
+      <td>high school</td>
+      <td>60.7</td>
+      <td>63.7</td>
+      <td>38.6</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1970</td>
+      <td>A</td>
+      <td>high school</td>
+      <td>75.4</td>
+      <td>77.8</td>
+      <td>58.4</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+      <td>---</td>
+    </tr>
+  </tbody>
+</table>
+There are so many "---" in dataset. We should convert it into null values for further manipulation.
+<pre><code class="language-Python3">df = df.replace('---', np.nan)
+df.info()
+</code></pre>
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 214 entries, 0 to 213
+Data columns (total 11 columns):
+ #   Column                         Non-Null Count  Dtype  
+---  ------                         --------------  -----  
+ 0   Year                           214 non-null    int64  
+ 1   Sex                            214 non-null    object 
+ 2   Min degree                     214 non-null    object 
+ 3   Total                          214 non-null    object 
+ 4   White                          214 non-null    float64
+ 5   Black                          214 non-null    float64
+ 6   Hispanic                       214 non-null    object 
+ 7   Asian                          214 non-null    object 
+ 8   Pacific Islander               214 non-null    object 
+ 9   American Indian/Alaska Native  214 non-null    object 
+ 10  Two or more races              214 non-null    object 
+dtypes: float64(2), int64(1), object(8)
+memory usage: 18.5+ KB
+</pre>
+<p>Several columns have wrong type.</p>
+<pre><code class="language-Python3">race = ['Total', 'Hispanic',  'Asian', 'Pacific Islander', 'American Indian/Alaska Native', 'Two or more races']
+df[race] = df[race].apply(pd.to_numeric)
+df.describe(include = 'all')
+df.info()
+</code></pre>
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 214 entries, 0 to 213
+Data columns (total 11 columns):
+ #   Column                         Non-Null Count  Dtype  
+---  ------                         --------------  -----  
+ 0   Year                           214 non-null    int64  
+ 1   Sex                            214 non-null    object 
+ 2   Min degree                     214 non-null    object 
+ 3   Total                          212 non-null    float64
+ 4   White                          214 non-null    float64
+ 5   Black                          214 non-null    float64
+ 6   Hispanic                       204 non-null    float64
+ 7   Asian                          168 non-null    float64
+ 8   Pacific Islander               93 non-null     float64
+ 9   American Indian/Alaska Native  131 non-null    float64
+ 10  Two or more races              157 non-null    float64
+dtypes: float64(8), int64(1), object(2)
+memory usage: 18.5+ KB
+</pre>
+<p>Have a look at some indicators of each column.</p>
+<pre><code class="language-Python3">df.describe(include = 'all').T
+</code></pre>
+<table border="1" style="font-size:75%">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Year</th>
+      <td>214.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2005.48</td>
+      <td>15.6</td>
+      <td>1920.0</td>
+      <td>2005.0</td>
+      <td>2010.0</td>
+      <td>2014.0</td>
+      <td>2018.0</td>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <td>214</td>
+      <td>3</td>
+      <td>A</td>
+      <td>78</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Min degree</th>
+      <td>214</td>
+      <td>4</td>
+      <td>high school</td>
+      <td>59</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Total</th>
+      <td>212.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>42.77</td>
+      <td>30.15</td>
+      <td>4.1</td>
+      <td>22.12</td>
+      <td>36.1</td>
+      <td>84.4</td>
+      <td>94.0</td>
+    </tr>
+    <tr>
+      <th>White</th>
+      <td>214.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>47.21</td>
+      <td>31.32</td>
+      <td>4.5</td>
+      <td>22.3</td>
+      <td>42.65</td>
+      <td>85.9</td>
+      <td>96.4</td>
+    </tr>
+    <tr>
+      <th>Black</th>
+      <td>214.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>35.19</td>
+      <td>32.36</td>
+      <td>1.1</td>
+      <td>10.12</td>
+      <td>23.2</td>
+      <td>70.62</td>
+      <td>93.5</td>
+    </tr>
+    <tr>
+      <th>Hispanic</th>
+      <td>204.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>27.68</td>
+      <td>26.85</td>
+      <td>0.6</td>
+      <td>7.6</td>
+      <td>16.6</td>
+      <td>57.02</td>
+      <td>87.2</td>
+    </tr>
+    <tr>
+      <th>Asian</th>
+      <td>168.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>62.02</td>
+      <td>27.03</td>
+      <td>15.0</td>
+      <td>46.55</td>
+      <td>66.0</td>
+      <td>81.05</td>
+      <td>98.5</td>
+    </tr>
+    <tr>
+      <th>Pacific Islander</th>
+      <td>93.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>50.79</td>
+      <td>33.24</td>
+      <td>10.0</td>
+      <td>24.0</td>
+      <td>34.0</td>
+      <td>90.7</td>
+      <td>100.0</td>
+    </tr>
+    <tr>
+      <th>American Indian/Alaska Native</th>
+      <td>131.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>42.67</td>
+      <td>32.1</td>
+      <td>2.1</td>
+      <td>16.55</td>
+      <td>24.4</td>
+      <td>83.05</td>
+      <td>95.1</td>
+    </tr>
+    <tr>
+      <th>Two or more races</th>
+      <td>157.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>44.46</td>
+      <td>31.58</td>
+      <td>2.9</td>
+      <td>25.7</td>
+      <td>34.7</td>
+      <td>87.9</td>
+      <td>98.2</td>
+    </tr>
+  </tbody>
+</table>
+# Visulization
+## Computing multi-variate statistics of dataset (Correlation Matrix Heatmap)
+<pre><code class="language-Python3">import seaborn as sns
+cormat = df[race].corr().round(2)
+sns.heatmap(cormat, annot=True)
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648954052583.png" alt="" loading="lazy"></figure>
+<h2 id="plot-the-enrollment-rate-distribution-for-different-min-degree-of-people-with-different-races">Plot the enrollment rate distribution for different min degree of people with different races</h2>
+<pre><code class="language-Python3">f, axes = plt.subplots(4, 2, sharey=False, figsize=(15, 12))
+for ind, val in enumerate(race):
+    sns.histplot(data=df, x=val, hue='Min degree', label=&quot;100% Equities&quot;, 
+                 kde=True, stat=&quot;density&quot;, linewidth=0, ax=axes[ind//2,ind%2], 
+                 bins=200).set(title=val)
+f.tight_layout(pad=3.0)
+plt.show()
+</code></pre>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648954297942.png" alt="" loading="lazy"><br>
+For Black, Hispanic, Pacific Islander people and people with two or more races, the enrollment rate is low for most of the past time. For Asian and White people, the overall enrollment rate is high for most of the past time.</p>
+<pre><code class="language-Python3">f, axes = plt.subplots(4, 2, sharey=False, figsize=(14, 14))
+sns.lineplot(data = df, x = &quot;Year&quot;, y = &quot;Total&quot;, hue='Min degree', ci=None, ax=axes[0,0])
+sns.lineplot(data = df, x = &quot;Year&quot;, y = &quot;White&quot;, hue='Min degree', ci=None, ax=axes[0,1])
+sns.lineplot(data = df, x = &quot;Year&quot;, y = &quot;Black&quot;, hue='Min degree', ci=None, ax=axes[1,0])
+sns.lineplot(data = df, x = &quot;Year&quot;, y = &quot;Hispanic&quot;, hue='Min degree', ci=None, ax=axes[1,1])
+sns.lineplot(data = df, x = &quot;Year&quot;, y = &quot;Asian&quot;, hue='Min degree', ci=None, ax=axes[2,0])
+sns.lineplot(data = df, x = &quot;Year&quot;, y = &quot;Pacific Islander&quot;, hue='Min degree', ci=None, ax=axes[2,1])
+sns.lineplot(data = df, x = &quot;Year&quot;, y = &quot;American Indian/Alaska Native&quot;, hue='Min degree', ci=None, ax=axes[3,0])
+sns.lineplot(data = df, x = &quot;Year&quot;, y = &quot;Two or more races&quot;, hue='Min degree', ci=None, ax=axes[3,1])
+</code></pre>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648954622712.png" alt="" loading="lazy"><br>
+The Black and White people has low enrollment rate at the 1920s to 1970s, but the enrollments increased dramatically. For Black, White and Hispanic people, the enrollment rates for the four degrees has been increasing overtime. The enrollment rates of the four degrees keeps quite static since 2006 for Asian, Pacific Islander, American Indian/Alaska Native and people with two or more races.</p>
+<h1 id="questions">Questions</h1>
+<h2 id="q1">Q1</h2>
+<p>What are the percent of different degrees completed for a given year range and sex? Parameter arguments are as follows: two year arguments, and a value for sex (’A’, ’F’, or ’M’). Function should return all rows of the data which match the given sex, and have data between the given years (inclusive for the start, exclusive for the end). If no data is found for the parameters, return Python keyword None.</p>
+<pre><code class="language-Python3">def completion_bet_years(df1,year1,year2,sex):
+    result = df1.loc[(df1['Sex']==sex) &amp; 
+                     (df1['Year'] &gt;= year1) &amp; 
+                     (df1['Year'] &lt; year2)]
+    if result.shape[0] == 0:
+        return None
+    else:
+        return result
+print(completion_bet_years(df,1920,1941,'A'))
+</code></pre>
+<pre>    Year Sex   Min degree  Total  White  Black  Hispanic  Asian  \
+0   1920   A  high school    NaN   22.0    6.3       NaN    NaN   
+1   1940   A  high school   38.1   41.2   12.3       NaN    NaN   
+39  1920   A   bachelor's    NaN    4.5    1.2       NaN    NaN   
+40  1940   A   bachelor's    5.9    6.4    1.6       NaN    NaN   
 
+    Pacific Islander  American Indian/Alaska Native  Two or more races  
+0                NaN                            NaN                NaN  
+1                NaN                            NaN                NaN  
+39               NaN                            NaN                NaN  
+40               NaN                            NaN                NaN  
+</pre>
+<h2 id="q2">Q2</h2>
+<p>What were the percentages for women vs men having earned a Bachelor’s Degree in a given year? Parameter list argument is the year in question and return the percentages as a tuple: (% for men, % for women)</p>
+<pre><code class="language-Python3">def compare_bachelors_in_year(df, year):
+    women = df[(df['Sex']=='F') &amp; 
+               (df['Min degree']==&quot;bachelor's&quot;) &amp; 
+               (df['Year']==year)].iloc[0]['Total']
+    men = df[(df['Sex']=='M') &amp; 
+             (df['Min degree']==&quot;bachelor's&quot;) &amp; 
+             (df['Year']==year)].iloc[0]['Total']
+    return ('{} % for men'.format(men),'{} % for women'.format(women))
+
+compare_bachelors_in_year(df,2010)
+</code></pre>
+<pre>('27.8 % for men', '35.7 % for women')</pre>
+<h2 id="q3">Q3</h2>
+<p>What were the two most commonly awarded levels of educational attainment awarded between 2000-2010 (inclusive)? Use the mean percent over the years to compare the education levels. Return a list as follows: [#1 level, mean % of #1 level, #2 level, mean % of #2 level].</p>
+<pre><code class="language-Python3">def top_2_2000s(df):
+    df_2000s = df.loc[(df['Year']&gt;=2000) &amp; 
+                      (df['Year']&lt;=2010) &amp; 
+                      (df['Sex']=='A')][['Total','Min degree']]
+    mean_percent_edu = df_2000s.groupby('Min degree').mean().sort_values(by='Total',ascending=False)
+    level1 = mean_percent_edu.iloc[0]['Total']
+    level2 = mean_percent_edu.iloc[1]['Total']
+    edu1 = mean_percent_edu.index[0]
+    edu2 = mean_percent_edu.index[1]
+    return  ['#1 level, {level:.3f} % of {edu}'.format(level=level1, edu=edu1), 
+             '#2 level, {level:.3f} % of {edu}'.format(level=level2, edu=edu2)]
+
+top_2_2000s(df)
+</code></pre>
+<pre>['#1 level, 87.557 % of high school', "#2 level, 38.757 % of associate's"]</pre>
                         </div>
                         
                             <div class="post-toc">
-                                
+                                <ul class="markdownIt-TOC">
+<li><a href="#exploring-the-data">Exploring the data</a>
+<ul>
+<li><a href="#plot-the-enrollment-rate-distribution-for-different-min-degree-of-people-with-different-races">Plot the enrollment rate distribution for different min degree of people with different races</a></li>
+</ul>
+</li>
+<li><a href="#questions">Questions</a>
+<ul>
+<li><a href="#q1">Q1</a></li>
+<li><a href="#q2">Q2</a></li>
+<li><a href="#q3">Q3</a></li>
+</ul>
+</li>
+</ul>
+
                             </div>
                             
                                 
@@ -200,6 +629,16 @@
                                                                         <span>Tag(s):</span>
                                                                         <span class="tag ">
                         
+                        
+                        <a href="https://qingqiuzhang.github.io/Ru_HJ7UUn/">#
+                                                DataFrame
+                                                    </a>
+                                                    
+                        <a href="https://qingqiuzhang.github.io/WOUmPg0ZPX/">#
+                                                Python
+                                                    </a>
+                                                    
+                                                        
                                                             </span>
                                                                     </div>
                                                                     <div>
@@ -279,7 +718,7 @@
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1648952586403);
+                    newDate.setTime(1648955460449);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
