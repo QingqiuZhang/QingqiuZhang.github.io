@@ -163,53 +163,251 @@
 
             <div class="main">
                 <div class="container">
-                    <div class="post-wrap archive">
-                        
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Bike Sharing Dataset Analytics
+                            </h1>
                             
-                                <h3>
-                                    2022
-                                </h3>
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Qingqiu Zhang
+                                    </a>
+                                    <span class="post-time">
+                                Date: <a href="#">2022-03-31</a>
+                            </span>
+                                    
+                                        <span class="post-category">
+                                Category:
                                 
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://qingqiuzhang.github.io/iris-data-set-analytics/">
-                                                Iris Dataset Analytics
-                                            </a>
-                                            <span class="archive-item-date">2022-03-30 </span>
-                                        </article>
+                                <a href="https://qingqiuzhang.github.io/8jX6f7soJ/">Data Visualization</a>
+                                
+                                <a href="https://qingqiuzhang.github.io/WOUmPg0ZPX/">Python</a>
+                                
+                                <a href="https://qingqiuzhang.github.io/-cFBAkweb/">Regression</a>
+                                
+                                <a href="https://qingqiuzhang.github.io/URtsfZ1k8/">Machine Learning</a>
+                                
+                            </span>
                                         
-                                            
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://qingqiuzhang.github.io/diabetes-dataset-report-/">
-                                                Diabetes Data Analytics (2) -- Model Training And Evaluating 
-                                            </a>
-                                            <span class="archive-item-date">2022-03-23 </span>
-                                        </article>
-                                        
-                                            
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://qingqiuzhang.github.io/diabetes-dataset-report/">
-                                                Diabetes Data Analytics (1) -- Data Preprocessing
-                                            </a>
-                                            <span class="archive-item-date">2022-02-19 </span>
-                                        </article>
-                                        
-                                            
-                                                
-                    </div>
-                    <div class="pagination-container">
+                                </div>
+                                
+                        </header>
                         
-                                                
+                        <div class="post-content">
+                            <p>This article aims to predict the count of casual users (feature casual), count of registered users (feature registered), and the total count of both causal and registered users (feature cnt) using the multi-regression model.</p>
+<h1 id="exploring-the-data">Exploring the data</h1>
+<pre><code class="language-Python3">import numpy as np
+import pandas as pd
+day = pd.read_csv('day.csv')
+day.head()
+</code></pre>
+<table border="1" style="font-size:49%">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>instant</th>
+      <th>dteday</th>
+      <th>season</th>
+      <th>yr</th>
+      <th>mnth</th>
+      <th>holiday</th>
+      <th>weekday</th>
+      <th>workingday</th>
+      <th>weathersit</th>
+      <th>temp</th>
+      <th>atemp</th>
+      <th>hum</th>
+      <th>windspeed</th>
+      <th>casual</th>
+      <th>registered</th>
+      <th>cnt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2011-01-01</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0.344167</td>
+      <td>0.363625</td>
+      <td>0.805833</td>
+      <td>0.160446</td>
+      <td>331</td>
+      <td>654</td>
+      <td>985</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2011-01-02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0.363478</td>
+      <td>0.353739</td>
+      <td>0.696087</td>
+      <td>0.248539</td>
+      <td>131</td>
+      <td>670</td>
+      <td>801</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2011-01-03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.196364</td>
+      <td>0.189405</td>
+      <td>0.437273</td>
+      <td>0.248309</td>
+      <td>120</td>
+      <td>1229</td>
+      <td>1349</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2011-01-04</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.200000</td>
+      <td>0.212122</td>
+      <td>0.590435</td>
+      <td>0.160296</td>
+      <td>108</td>
+      <td>1454</td>
+      <td>1562</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>2011-01-05</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.226957</td>
+      <td>0.229270</td>
+      <td>0.436957</td>
+      <td>0.186900</td>
+      <td>82</td>
+      <td>1518</td>
+      <td>1600</td>
+    </tr>
+  </tbody>
+</table>
+## Visualization
+```Python3
+import matplotlib.pyplot as plt
+sns.set(style="ticks", palette="pastel")
+f, axes = plt.subplots(3, 3, sharey=False, figsize=(15, 12))
+<p>ax = plt.subplot2grid((3, 3), (0, 0), colspan=3)<br>
+result = day[['mnth', 'casual', 'registered', 'cnt']].groupby(['mnth']).mean()<br>
+result = result.stack().reset_index().set_index('mnth').rename(columns={'level_1':'cat', 0:'people per day'})<br>
+sns.barplot(x=result.index, y='people per day', data=result, hue='cat', ax=ax)</p>
+<p>cat = ['season', 'yr', 'holiday', 'weekday', 'workingday', 'weathersit']<br>
+for ind, val in enumerate(cat):<br>
+result = round(day[[val, 'casual', 'registered', 'cnt']].groupby([val]).mean())<br>
+result = result.stack().reset_index().set_index(val).rename(columns={'level_1':'cat', 0:'people per day'})<br>
+sns.barplot(x=result.index, y='people per day', data=result, hue='cat', ax=axes[ind//3+1,ind%3])<br>
+f.tight_layout(pad=3.0)<br>
+plt.show()</p>
+<pre><code>![](https://qingqiuzhang.github.io/post-images/1648957479910.png)
+```Python3
+</code></pre>
+<pre><code class="language-Python3"></code></pre>
+<pre><code class="language-Python3"></code></pre>
+<pre><code class="language-Python3"></code></pre>
+<pre><code class="language-Python3"></code></pre>
+
+                        </div>
+                        
+                            <div class="post-toc">
+                                <ul class="markdownIt-TOC">
+<li><a href="#exploring-the-data">Exploring the data</a></li>
+</ul>
+
+                            </div>
+                            
+                                
+                                                    
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                        
+                        
+                        <a href="https://qingqiuzhang.github.io/8jX6f7soJ/">#
+                                                Data Visualization
+                                                    </a>
+                                                    
+                        <a href="https://qingqiuzhang.github.io/WOUmPg0ZPX/">#
+                                                Python
+                                                    </a>
+                                                    
+                        <a href="https://qingqiuzhang.github.io/-cFBAkweb/">#
+                                                Regression
+                                                    </a>
+                                                    
+                        <a href="https://qingqiuzhang.github.io/URtsfZ1k8/">#
+                                                Machine Learning
+                                                    </a>
+                                                    
                                                         
+                                                            </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
                                                                 
-                    </div>
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://qingqiuzhang.github.io/iris-data-set-analytics/">
+                                                                                                    Iris Dataset Analytics
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
                 </div>
+                
+                                            
             </div>
+    </div>
+    </div>
     </div>
     
         <footer id="footer" class="footer">
@@ -270,5 +468,8 @@
                 </script>
         </div>
 </body>
+<script>
+    scroll();
+</script>
 
 </html>

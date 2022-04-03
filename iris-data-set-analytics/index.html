@@ -166,7 +166,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Diabetes Data Analytics (2) -- Model Training And Evaluating 
+                                Iris Dataset Analytics
                             </h1>
                             
                                 <!--en-->
@@ -176,11 +176,13 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-23</a>
+                                Date: <a href="#">2022-03-30</a>
                             </span>
                                     
                                         <span class="post-category">
                                 Category:
+                                
+                                <a href="https://qingqiuzhang.github.io/8jX6f7soJ/">Data Visualization</a>
                                 
                                 <a href="https://qingqiuzhang.github.io/WOUmPg0ZPX/">Python</a>
                                 
@@ -195,50 +197,297 @@
                         </header>
                         
                         <div class="post-content">
-                            <p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">the previous article</a>, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.</p>
-<!-- more -->
-<p><strong>In case you need the source data, visit this webpage:</strong> <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Data Source</a></p>
-<h1 id="model-training-and-evaluating">Model Training And Evaluating</h1>
-<p>There are so many classification models. Some you may have heard or used while the others not. This articles covers almost all the classification models you may need as a beginner. I will show you how to conduct them and how different hyperparameters will affect the models.</p>
-<h2 id="k-nearest-neighbor-classifier">K-Nearest Neighbor Classifier</h2>
-<h2 id="logistic-regression">Logistic Regression</h2>
-<h3 id="ordinary-logistic-regression">Ordinary Logistic Regression</h3>
-<h3 id="ridge">Ridge</h3>
-<h3 id="lasss">Lasss</h3>
-<h3 id="combined-ridge-and-lasso">Combined Ridge and Lasso</h3>
+                            <p>The Iris Data set was created by R.A. Fisher and is perhaps the best known data set to be found in the pattern recognition literature. Fisher’s paper is a classic in the field and is referenced frequently to this day. The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. Predicted attribute: class of iris plant.</p>
+<p>This article aims to classify this dataset utilizing the following models: K Nearest Neighbors (KNN), Naive Bayes and Logistic Regression.</p>
+<h1 id="exploring-data">Exploring Data</h1>
+<pre><code class="language-Python3">import pandas as pd
+import numpy as np
+df = pd.read_csv('iris_dataset.csv', header=None, names=['sepal length',
+                                                         'sepal width',
+                                                         'petal length',
+                                                         'petal width',
+                                                         'class'])
+df.head()
+</code></pre>
+<table border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length</th>
+      <th>sepal width</th>
+      <th>petal length</th>
+      <th>petal width</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+  </tbody>
+</table>
+Calculate some indicators of features.
+<pre><code class="language-Python3">df.describe()
+</code></pre>
+<table border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal length</th>
+      <th>sepal width</th>
+      <th>petal length</th>
+      <th>petal width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.843333</td>
+      <td>3.057333</td>
+      <td>3.758000</td>
+      <td>1.199333</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.828066</td>
+      <td>0.435866</td>
+      <td>1.765298</td>
+      <td>0.762238</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.300000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>0.100000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>5.100000</td>
+      <td>2.800000</td>
+      <td>1.600000</td>
+      <td>0.300000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.800000</td>
+      <td>3.000000</td>
+      <td>4.350000</td>
+      <td>1.300000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.400000</td>
+      <td>3.300000</td>
+      <td>5.100000</td>
+      <td>1.800000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>7.900000</td>
+      <td>4.400000</td>
+      <td>6.900000</td>
+      <td>2.500000</td>
+    </tr>
+  </tbody>
+</table>
+## Visualization
+<pre><code class="language-Python3">import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+sns.set(style=&quot;ticks&quot;, palette=&quot;pastel&quot;)
+f, axes = plt.subplots(2, 2, sharey=False, figsize=(14, 14))
+sns.violinplot(x=&quot;class&quot;, y=&quot;sepal length&quot;, data=df, ax=axes[0,0]).set(title='Sepal Length')
+sns.violinplot(x=&quot;class&quot;, y=&quot;sepal width&quot;, data=df, ax=axes[0,1]).set(title='Sepal Width')
+sns.violinplot(x=&quot;class&quot;, y=&quot;petal length&quot;, data=df, ax=axes[1,0]).set(title='Petal Length')
+sns.violinplot(x=&quot;class&quot;, y=&quot;petal width&quot;, data=df, ax=axes[1,1]).set(title='Petal Width')
+plt.show()
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648956002552.png" alt="" loading="lazy"></figure>
+<pre><code class="language-Python3">sns.pairplot(df, hue=&quot;class&quot;)
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://qingqiuzhang.github.io/post-images/1648956073180.png" alt="" loading="lazy"></figure>
+<h1 id="train-and-evaluate-three-models-using-cross-validation">Train and evaluate three models using cross-validation</h1>
+<h2 id="k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</h2>
+<pre><code class="language-Python3">import sklearn.neighbors
+import sklearn.metrics
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+num = 200
+results = []
+features = ['sepal length', 'sepal width', 'petal length', 'petal width']
+for k in range(1, 20):
+    test_accuarcy_per_time = []
+    for i in range(num):
+        # Split data
+        train_data, test_data = train_test_split(df, test_size=0.25)
+        # Standardization 
+        scaler = StandardScaler()
+        scaler.fit(train_data.iloc[:, 0:4])
+        df_normalized = pd.concat([pd.DataFrame(scaler.transform(df.iloc[:, 0:4]), 
+                                                columns=features), 
+                                   df[['class']]], 
+                                  axis=1)
+        train_normalized = df_normalized.iloc[train_data.index]
+        test_normalized = df_normalized.iloc[test_data.index]
+        train_normalized_x = train_normalized[features].values
+        train_normalized_y = train_normalized['class'].values
+        test_normalized_x = test_normalized[features].values
+        test_normalized_y = test_normalized['class'].values
+        # Perform KNN
+        knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=k).fit(train_normalized_x,
+                                                                        train_normalized_y)
+        # Store the test accuracy of each split into test_accuarcy_per_time
+        # Store the test accuracy of each split into test_accuarcy_per_time
+        test_accuarcy_per_time.append(sklearn.metrics.accuracy_score(test_normalized_y,
+                                                                     knn.predict(test_normalized_x)))
+    # Calculate the average test accuracies for different ks and store them into results
+    results.append({'k':k, 'test accuracy':np.mean(test_accuarcy_per_time)})
+results = pd.DataFrame(results)
+print(results)
+</code></pre>
+<pre>     k  test accuracy
+0    1       0.943026
+1    2       0.937500
+2    3       0.945789
+3    4       0.942105
+4    5       0.948421
+5    6       0.948684
+6    7       0.949605
+7    8       0.950526
+8    9       0.951053
+9   10       0.954474
+10  11       0.956579
+11  12       0.957105
+12  13       0.953553
+13  14       0.951974
+14  15       0.952763
+15  16       0.943947
+16  17       0.945526
+17  18       0.945132
+18  19       0.942632
+</pre>
+<p>Select best k and best test accuracy</p>
+<pre><code class="language-Python3">print('best k:',np.argmax(results['test accuracy'])+1,'; '
+      'accuracy:',max(results['test accuracy']))
+
+# Plot Accuracy vs K
+fig, ax = plt.subplots()
+ax.plot(results['k'], results['test accuracy'], label=&quot;test accuracy&quot;)
+ax.set_xlim(15, 0)  # reverse x; from simple model to complex model
+                    # (complex model tries hard to sort of figure out all sorts of details in the data)
+ax.set_ylabel(&quot;Accuracy&quot;)
+ax.set_xlabel(&quot;n_neighbors&quot;)
+ax.grid()
+ax.legend()
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://qingqiuzhang.github.io/post-images/1648956297208.png" alt="" loading="lazy"></figure>
 <h2 id="naive-bayes-classifier">Naive Bayes Classifier</h2>
-<h2 id="support-vector-machine">Support Vector Machine</h2>
-<h3 id="linear">Linear</h3>
-<h3 id="nonlinear">Nonlinear</h3>
-<h2 id="decision-tree">Decision Tree</h2>
-<h2 id="random-forest">Random Forest</h2>
+<pre><code class="language-Python3">from sklearn.naive_bayes import MultinomialNB
+
+features = ['sepal length', 'sepal width', 'petal length', 'petal width']
+df1 = df.copy()
+for column in features:
+    df1[column] = [round(i - np.min(df1[column])) for i in df1[column]]
+    df1[column] = df1[column].astype('category')
+X = pd.get_dummies(df1[features])
+
+# Calculate mean test accuracy
+test_accuarcy_per_time = []
+for i in range(num):
+    X_train, X_test, y_train, y_test = train_test_split(X, df1['class'].values, test_size=.25)
+    mnb = MultinomialNB(alpha=0.01)
+    mnb.fit(X_train, y_train)
+    y_test_pred = mnb.predict(X_test)
+    test_accuarcy_per_time.append(sklearn.metrics.accuracy_score(y_test, y_test_pred))
+print('\n',np.mean(test_accuarcy_per_time))
+</code></pre>
+<pre>0.9321052631578948</pre>
+<h2 id="logistic-regression">Logistic Regression</h2>
+<pre><code class="language-Python3">from sklearn.linear_model import LogisticRegression
+
+df2 = df.copy()
+X = df2.iloc[:, 0:4].values
+y = df2.iloc[:, 4].values
+
+# Calculate mean test accuracy
+test_accuarcy_per_time = []
+for i in range(num):
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
+    sc = StandardScaler()
+    X_train = sc.fit_transform(X_train)
+    X_test = sc.transform(X_test)
+    lr = LogisticRegression(penalty=&quot;l2&quot;, solver='lbfgs', multi_class='auto')
+    lr.fit(X_train, y_train)
+    y_pred = lr.predict(X_test)
+    test_accuarcy_per_time.append(sklearn.metrics.accuracy_score(y_test, y_pred))
+
+# accuracy score
+sklearn.metrics.accuracy_score(y_test, y_pred)
+</code></pre>
+<pre>0.9736842105263158</pre>
+<h1 id="conclusion">Conclusion</h1>
+<p>For the current running, Logistic Regression has the highest test accuracy followed by KNN Classifier. Naive Bayes Classifier has the lowest test accuracy.</p>
+<p>However, when I tried more times, I found that sometimes Logistic Regression has the highest test accuracy while other times KNN Classifier does. Naive Bayes Classifier always has the lowest test accuracy.</p>
 
                         </div>
                         
                             <div class="post-toc">
                                 <ul class="markdownIt-TOC">
-<li><a href="#model-training-and-evaluating">Model Training And Evaluating</a>
+<li><a href="#exploring-data">Exploring Data</a></li>
+<li><a href="#train-and-evaluate-three-models-using-cross-validation">Train and evaluate three models using cross-validation</a>
 <ul>
-<li><a href="#k-nearest-neighbor-classifier">K-Nearest Neighbor Classifier</a></li>
-<li><a href="#logistic-regression">Logistic Regression</a>
-<ul>
-<li><a href="#ordinary-logistic-regression">Ordinary Logistic Regression</a></li>
-<li><a href="#ridge">Ridge</a></li>
-<li><a href="#lasss">Lasss</a></li>
-<li><a href="#combined-ridge-and-lasso">Combined Ridge and Lasso</a></li>
-</ul>
-</li>
+<li><a href="#k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</a></li>
 <li><a href="#naive-bayes-classifier">Naive Bayes Classifier</a></li>
-<li><a href="#support-vector-machine">Support Vector Machine</a>
-<ul>
-<li><a href="#linear">Linear</a></li>
-<li><a href="#nonlinear">Nonlinear</a></li>
+<li><a href="#logistic-regression">Logistic Regression</a></li>
 </ul>
 </li>
-<li><a href="#decision-tree">Decision Tree</a></li>
-<li><a href="#random-forest">Random Forest</a></li>
-</ul>
-</li>
+<li><a href="#conclusion">Conclusion</a></li>
 </ul>
 
                             </div>
@@ -252,6 +501,10 @@
                                                                         <span class="tag ">
                         
                         
+                        <a href="https://qingqiuzhang.github.io/8jX6f7soJ/">#
+                                                Data Visualization
+                                                    </a>
+                                                    
                         <a href="https://qingqiuzhang.github.io/WOUmPg0ZPX/">#
                                                 Python
                                                     </a>
@@ -277,7 +530,15 @@
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
+                                                                                        <a class="prev" rel="prev" href="https://qingqiuzhang.github.io/bike-sharing-dataset-analytics/">
+                                                                                            Bike Sharing Dataset Analytics
+                                                                                        </a>
+                                                                                        
                                                                                             
+                                                                                                <a class="next" rel="next" href="https://qingqiuzhang.github.io/national-center-for-education-dataset-project/">
+                                                                                                    National Center for Education Dataset Project
+                                                                                                </a>
+                                                                                                
                                                                                 </section>
                     </article>
                 </div>
