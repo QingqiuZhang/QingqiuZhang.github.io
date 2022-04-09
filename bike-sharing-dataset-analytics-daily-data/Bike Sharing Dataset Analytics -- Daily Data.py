@@ -21,11 +21,11 @@ result = (
     .set_index("mnth")
     .rename(columns={"level_1": "cat", 0: "people per day"})
 )
-cat = ["season", "yr", "holiday", "weekday", "workingday", "weathersit"]
+cat    = ["season", "yr", "holiday", "weekday", "workingday", "weathersit"]
 
-sns.set(style="ticks", palette="pastel")
+sns.set(style ="ticks", palette="pastel")
 f, axes = plt.subplots(3, 3, sharey=False, figsize=(15, 12))
-ax = plt.subplot2grid((3, 3), (0, 0), colspan=3)
+ax      = plt.subplot2grid((3, 3), (0, 0), colspan=3)
 sns.barplot(x=result.index, y="people per day", data=result, hue="cat", ax=ax)
 for ind, val in enumerate(cat):
     result = round(day[[val, "casual", "registered", "cnt"]].groupby([val]).mean())
@@ -36,11 +36,11 @@ for ind, val in enumerate(cat):
         .rename(columns={"level_1": "cat", 0: "people per day"})
     )
     sns.barplot(
-        x=result.index,
-        y="people per day",
-        data=result,
-        hue="cat",
-        ax=axes[ind // 3 + 1, ind % 3],
+        x    =result.index,
+        y    ="people per day",
+        data = result,
+        hue  = "cat",
+        ax   =axes[ind // 3 + 1, ind % 3],
     )
 f.tight_layout(pad=3.0)
 plt.show()
@@ -55,7 +55,7 @@ result = (
 )
 
 f, axes = plt.subplots(3, 3, sharey=False, figsize=(20, 12))
-ax = plt.subplot2grid((3, 3), (0, 0), colspan=3)
+ax      = plt.subplot2grid((3, 3), (0, 0), colspan=3)
 sns.violinplot(x=result.index, y="people", hue="cat", data=result, cut=0, ax=ax)
 for ind, val in enumerate(cat):
     result = day[["casual", "registered", "cnt"]].set_index(day[val])
@@ -66,18 +66,18 @@ for ind, val in enumerate(cat):
         .rename(columns={"level_1": "cat", 0: "people"})
     )
     sns.violinplot(
-        x=result.index,
-        y="people",
-        hue="cat",
-        data=result,
-        cut=0,
-        ax=axes[ind // 3 + 1, ind % 3],
+        x    = result.index,
+        y    = "people",
+        hue  = "cat",
+        data = result,
+        cut  = 0,
+        ax   = axes[ind // 3 + 1, ind % 3],
     )
 f.tight_layout(pad=3.0)
 plt.show()
 
 day[cat] = day[cat].apply(lambda x: x.astype("category"))
-dummies = pd.get_dummies(day[cat], drop_first=True)
+dummies  = pd.get_dummies(day[cat], drop_first=True)
 print(dummies.shape)
 
 conti_predictors = ["temp", "atemp", "hum", "windspeed"]
@@ -88,7 +88,7 @@ y = day.iloc[:, 13:]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
 sc = StandardScaler()
 X_train[conti_predictors] = sc.fit_transform(X_train[conti_predictors])
-X_test[conti_predictors] = sc.transform(X_test[conti_predictors])
+X_test[conti_predictors]  = sc.transform(X_test[conti_predictors])
 
 lr = LinearRegression()
 lr.fit(X_train, y_train)
