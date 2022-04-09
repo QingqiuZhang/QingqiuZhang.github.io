@@ -173,7 +173,7 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-30</a>
+                                Date: <a href="#">2022-03-28</a>
                             </span>
                                     
                                         <span class="post-category">
@@ -197,7 +197,7 @@
                             <p>The Iris Data set was created by R.A. Fisher and is perhaps the best known data set to be found in the pattern recognition literature. Fisher’s paper is a classic in the field and is referenced frequently to this day. The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. Predicted attribute: class of iris plant.</p>
 <p>This article aims to classify this dataset utilizing the following models: K Nearest Neighbors (KNN), Naive Bayes and Logistic Regression.</p>
 <h1 id="exploring-data">Exploring Data</h1>
-<pre><code class="language-Python3">import pandas as pd
+<pre><code class="language-Python">import pandas as pd
 import numpy as np
 df = pd.read_csv('iris_dataset.csv', header=None, names=['sepal length',
                                                          'sepal width',
@@ -206,7 +206,7 @@ df = pd.read_csv('iris_dataset.csv', header=None, names=['sepal length',
                                                          'class'])
 df.head()
 </code></pre>
-<table border="1">
+<table border="1" align="center">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -261,9 +261,9 @@ df.head()
   </tbody>
 </table>
 Calculate some indicators of features.
-<pre><code class="language-Python3">df.describe()
+<pre><code class="language-Python">df.describe()
 </code></pre>
-<table border="1">
+<table border="1" align="center">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -333,7 +333,7 @@ Calculate some indicators of features.
   </tbody>
 </table>
 ## Visualization
-<pre><code class="language-Python3">import matplotlib.pyplot as plt
+<pre><code class="language-Python">import matplotlib.pyplot as plt
 import seaborn as sns
 %matplotlib inline
 sns.set(style=&quot;ticks&quot;, palette=&quot;pastel&quot;)
@@ -345,12 +345,12 @@ sns.violinplot(x=&quot;class&quot;, y=&quot;petal width&quot;, data=df, ax=axes[
 plt.show()
 </code></pre>
 <figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648956002552.png" alt="" loading="lazy"></figure>
-<pre><code class="language-Python3">sns.pairplot(df, hue=&quot;class&quot;)
+<pre><code class="language-Python">sns.pairplot(df, hue=&quot;class&quot;)
 </code></pre>
 <figure data-type="image" tabindex="2"><img src="https://qingqiuzhang.github.io/post-images/1648956073180.png" alt="" loading="lazy"></figure>
 <h1 id="train-and-evaluate-three-models-using-cross-validation">Train and evaluate three models using cross-validation</h1>
 <h2 id="k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</h2>
-<pre><code class="language-Python3">import sklearn.neighbors
+<pre><code class="language-Python">import sklearn.neighbors
 import sklearn.metrics
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -410,7 +410,7 @@ print(results)
 18  19       0.942632
 </pre>
 <p>Select best k and best test accuracy</p>
-<pre><code class="language-Python3">print('best k:',np.argmax(results['test accuracy'])+1,'; '
+<pre><code class="language-Python">print('best k:',np.argmax(results['test accuracy'])+1,'; '
       'accuracy:',max(results['test accuracy']))
 
 # Plot Accuracy vs K
@@ -425,7 +425,7 @@ ax.legend()
 </code></pre>
 <figure data-type="image" tabindex="3"><img src="https://qingqiuzhang.github.io/post-images/1648956297208.png" alt="" loading="lazy"></figure>
 <h2 id="naive-bayes-classifier">Naive Bayes Classifier</h2>
-<pre><code class="language-Python3">from sklearn.naive_bayes import MultinomialNB
+<pre><code class="language-Python">from sklearn.naive_bayes import MultinomialNB
 
 features = ['sepal length', 'sepal width', 'petal length', 'petal width']
 df1 = df.copy()
@@ -446,7 +446,7 @@ print('\n',np.mean(test_accuarcy_per_time))
 </code></pre>
 <pre>0.9321052631578948</pre>
 <h2 id="logistic-regression">Logistic Regression</h2>
-<pre><code class="language-Python3">from sklearn.linear_model import LogisticRegression
+<pre><code class="language-Python">from sklearn.linear_model import LogisticRegression
 
 df2 = df.copy()
 X = df2.iloc[:, 0:4].values
@@ -527,13 +527,9 @@ sklearn.metrics.accuracy_score(y_test, y_pred)
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://qingqiuzhang.github.io/bike-sharing-dataset-analytics/">
-                                                                                            Bike Sharing Dataset Analytics (1) -- Daily Data
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://qingqiuzhang.github.io/national-center-for-education-dataset-project/">
-                                                                                                    National Center for Education Dataset Project
+                                                                                                <a class="next" rel="next" href="https://qingqiuzhang.github.io/bike-sharing-dataset-analytics/">
+                                                                                                    Bike Sharing Dataset Analytics (1) -- Daily Data
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
@@ -598,7 +594,7 @@ sklearn.metrics.accuracy_score(y_test, y_pred)
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1649256282280);
+                    newDate.setTime(1649472063681);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>

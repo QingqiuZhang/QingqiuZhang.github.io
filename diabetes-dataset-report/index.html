@@ -209,7 +209,8 @@ import pandas as pd
 data = pd.read_csv('diabetes.csv')
 data.head(10)
 </code></pre>
-<table border="1" style="font-size:67%;">
+<div style="overflow: auto; width: 780px">
+<table border="1">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -347,6 +348,7 @@ data.head(10)
     </tr>
   </tbody>
 </table>
+</div>
 <p>The meaning of each column is stated as below:</p>
 <blockquote>
 <ul>
@@ -377,7 +379,8 @@ dtype: int64</pre>
 <p>It seems there is no null values. Shall we pop the champagne now? If we further examine the data, we will find that the situation is not as good as we thought.</p>
 <pre><code class="language-Python">data.describe().round(2)
 </code></pre>
-<table border="1" class="dataframe">
+<div style="overflow: auto; width: 780px">
+<table border="1">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -493,11 +496,13 @@ dtype: int64</pre>
     </tr>
   </tbody>
 </table>
-<p>We can see from the picture above that the minimum value of Glucose, BloodPressure, SkinThickness, Insulin, BMI is zero. However, anyone having common sense knows that by no means would these indicators of an alive person be zero. Apparently, the null values are replaced by zeros when inputing data. Here we calculate the number of null values in each column so that we will better decide how to deal with them.</p>
-<pre><code class="language-Python3">for col in list(data.columns):
+</div>
+We can see from the picture above that the minimum value of Glucose, BloodPressure, SkinThickness, Insulin, BMI is zero. However, anyone having common sense knows that by no means would these indicators of an alive person be zero. Apparently, the null values are replaced by zeros when inputing data. Here we calculate the number of null values in each column so that we will better decide how to deal with them.
+```Python3
+for col in list(data.columns):
     zero = len(data[data[col] == 0])
     print('0s in %s: %d' % (col, zero))
-</code></pre>
+```
 <pre>0s in Pregnancies: 111
 0s in Glucose: 5
 0s in BloodPressure: 35
@@ -508,13 +513,14 @@ dtype: int64</pre>
 0s in Age: 0
 0s in Outcome: 500
 </pre>
-<p>There are nearly 400 null values in Insulin column, so it's not realistic to drop all the null values. Normally under such circumstance, we replace them with indicators such as mean, median, or mode, etc. Here I choose median.</p>
-<pre><code class="language-Python3"># replace 0s in target columns with null value
+There are nearly 400 null values in Insulin column, so it's not realistic to drop all the null values. Normally under such circumstance, we replace them with indicators such as mean, median, or mode, etc. Here I choose median.
+```Python3
+# replace 0s in target columns with null value
 data.iloc[:, 1:6] = data.iloc[:, 1:6].replace({0:np.NaN})
 # fill null values with medians
 data = data.fillna(data.median()) 
 data.describe().round(2).T
-</code></pre>
+```
 <table border="1">
   <thead>
     <tr style="text-align: right;">
@@ -971,7 +977,7 @@ print(X)
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1649256282280);
+                    newDate.setTime(1649472063681);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>

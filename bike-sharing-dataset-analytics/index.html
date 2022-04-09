@@ -173,7 +173,7 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-30</a>
+                                Date: <a href="#">2022-03-22</a>
                             </span>
                                     
                                         <span class="post-category">
@@ -196,133 +196,135 @@
                         <div class="post-content">
                             <p>This article aims to predict the count of casual users (feature casual), count of registered users (feature registered), and the total count of both causal and registered users (feature cnt) using the multi-regression model.</p>
 <h1 id="exploring-the-data">Exploring the data</h1>
-<pre><code class="language-Python3">import numpy as np
+<pre><code class="language-Python">import numpy as np
 import pandas as pd
 day = pd.read_csv('day.csv')
 day.head()
 </code></pre>
-<table border="0" style="font-size:69%;">
+<div style="overflow: auto; width: 780px">
+<table border="0">
   <thead>
-    <tr style="text-align: middle;">
+    <tr style="text-align: right;">
       <th></th>
-      <th style="padding:6px 4px;">instant</th>
-      <th style="padding:6px 4px;">dteday</th>
-      <th style="padding:6px 4px;">season</th>
-      <th style="padding:6px 4px;">yr</th>
-      <th style="padding:6px 4px;">mnth</th>
-      <th style="padding:6px 4px;">holiday</th>
-      <th style="padding:6px 4px;">weekday</th>
-      <th style="padding:6px 4px;">workingday</th>
-      <th style="padding:6px 4px;">weathersit</th>
-      <th style="padding:6px 4px;">temp</th>
-      <th style="padding:6px 4px;">atemp</th>
-      <th style="padding:6px 4px;">hum</th>
-      <th style="padding:6px 4px;">windspeed</th>
-      <th style="padding:6px 4px;">casual</th>
-      <th style="padding:6px 4px;">registered</th>
-      <th style="padding:6px 4px;">cnt</th>
+      <th>instant</th>
+      <th>dteday</th>
+      <th>season</th>
+      <th>yr</th>
+      <th>mnth</th>
+      <th>holiday</th>
+      <th>weekday</th>
+      <th>workingday</th>
+      <th>weathersit</th>
+      <th>temp</th>
+      <th>atemp</th>
+      <th>hum</th>
+      <th>windspeed</th>
+      <th>casual</th>
+      <th>registered</th>
+      <th>cnt</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th style="padding:6px 4px;">0</th>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">2011-01-01</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">6</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">2</td>
-      <td style="padding:6px 4px;">0.344167</td>
-      <td style="padding:6px 4px;">0.363625</td>
-      <td style="padding:6px 4px;">0.805833</td>
-      <td style="padding:6px 4px;">0.160446</td>
-      <td style="padding:6px 4px;">331</td>
-      <td style="padding:6px 4px;">654</td>
-      <td style="padding:6px 4px;">985</td>
+    <tr> 
+      <th>0</th>
+      <td>1</td>
+      <td nowrap="nowrap">2011-01-01</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0.344167</td>
+      <td>0.363625</td>
+      <td>0.805833</td>
+      <td>0.160446</td>
+      <td>331</td>
+      <td>654</td>
+      <td>985</td>
     </tr>
-    <tr>
-      <th style="padding:6px 4px;">1</th>
-      <td style="padding:6px 4px;">2</td>
-      <td style="padding:6px 4px;">2011-01-02</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">2</td>
-      <td style="padding:6px 4px;">0.363478</td>
-      <td style="padding:6px 4px;">0.353739</td>
-      <td style="padding:6px 4px;">0.696087</td>
-      <td style="padding:6px 4px;">0.248539</td>
-      <td style="padding:6px 4px;">131</td>
-      <td style="padding:6px 4px;">670</td>
-      <td style="padding:6px 4px;">801</td>
+    <tr> 
+      <th>1</th>
+      <td>2</td>
+      <td nowrap="nowrap">2011-01-02</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0.363478</td>
+      <td>0.353739</td>
+      <td>0.696087</td>
+      <td>0.248539</td>
+      <td>131</td>
+      <td>670</td>
+      <td>801</td>
     </tr>
-    <tr>
-      <th style="padding:6px 4px;">2</th>
-      <td style="padding:6px 4px;">3</td>
-      <td style="padding:6px 4px;">2011-01-03</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0.196364</td>
-      <td style="padding:6px 4px;">0.189405</td>
-      <td style="padding:6px 4px;">0.437273</td>
-      <td style="padding:6px 4px;">0.248309</td>
-      <td style="padding:6px 4px;">120</td>
-      <td style="padding:6px 4px;">1229</td>
-      <td style="padding:6px 4px;">1349</td>
+    <tr> 
+      <th>2</th>
+      <td>3</td>
+      <td nowrap="nowrap">2011-01-03</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.196364</td>
+      <td>0.189405</td>
+      <td>0.437273</td>
+      <td>0.248309</td>
+      <td>120</td>
+      <td>1229</td>
+      <td>1349</td>
     </tr>
-    <tr>
-      <th style="padding:6px 4px;">3</th>
-      <td style="padding:6px 4px;">4</td>
-      <td style="padding:6px 4px;">2011-01-04</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">2</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0.200000</td>
-      <td style="padding:6px 4px;">0.212122</td>
-      <td style="padding:6px 4px;">0.590435</td>
-      <td style="padding:6px 4px;">0.160296</td>
-      <td style="padding:6px 4px;">108</td>
-      <td style="padding:6px 4px;">1454</td>
-      <td style="padding:6px 4px;">1562</td>
+    <tr> 
+      <th>3</th>
+      <td>4</td>
+      <td nowrap="nowrap">2011-01-04</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.200000</td>
+      <td>0.212122</td>
+      <td>0.590435</td>
+      <td>0.160296</td>
+      <td>108</td>
+      <td>1454</td>
+      <td>1562</td>
     </tr>
-    <tr>
-      <th style="padding:6px 4px;">4</th>
-      <td style="padding:6px 4px;">5</td>
-      <td style="padding:6px 4px;">2011-01-05</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0</td>
-      <td style="padding:6px 4px;">3</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">1</td>
-      <td style="padding:6px 4px;">0.226957</td>
-      <td style="padding:6px 4px;">0.229270</td>
-      <td style="padding:6px 4px;">0.436957</td>
-      <td style="padding:6px 4px;">0.186900</td>
-      <td style="padding:6px 4px;">82</td>
-      <td style="padding:6px 4px;">1518</td>
-      <td style="padding:6px 4px;">1600</td>
+    <tr> 
+      <th>4</th>
+      <td>5</td>
+      <td nowrap="nowrap">2011-01-05</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.226957</td>
+      <td>0.229270</td>
+      <td>0.436957</td>
+      <td>0.186900</td>
+      <td>82</td>
+      <td>1518</td>
+      <td>1600</td>
     </tr>
   </tbody>
 </table>
+</div>
 <h2 id="visualization">Visualization</h2>
-<pre><code class="language-Python3">import matplotlib.pyplot as plt
+<pre><code class="language-Python">import matplotlib.pyplot as plt
 import seaborn as sns
 %matplotlib inline
 sns.set(style=&quot;ticks&quot;, palette=&quot;pastel&quot;)
@@ -342,7 +344,7 @@ f.tight_layout(pad=3.0)
 plt.show()
 </code></pre>
 <figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648957479910.png" alt="" loading="lazy"></figure>
-<pre><code class="language-Python3">f, axes = plt.subplots(3, 3, sharey=False, figsize=(20, 12))
+<pre><code class="language-Python">f, axes = plt.subplots(3, 3, sharey=False, figsize=(20, 12))
 
 ax = plt.subplot2grid((3, 3), (0, 0), colspan=3)
 result = day[['casual', 'registered', 'cnt']].set_index(day['mnth'])
@@ -359,7 +361,7 @@ f.tight_layout(pad=3.0)
 The number of people who rental a bike every year is increasing, which indicates that riding bicycle is getting popular. This trend could be got if we fit a model on date and year. But here, since we don't have data of enough years, so we maily focus on the other features in our analysis.</p>
 <h1 id="linear-regression">Linear Regression</h1>
 <h2 id="split-data">Split Data</h2>
-<pre><code class="language-Python3">from sklearn.model_selection import train_test_split
+<pre><code class="language-Python">from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 cat = ['season', 'mnth', 'holiday', 'weekday', 'workingday', 'weathersit']
@@ -379,7 +381,7 @@ X_test[['temp', 'atemp', 'hum', 'windspeed']] = sc.transform(X_test[['temp', 'at
 <pre>(731, 24)
 (731, 4)</pre>
 <h2 id="train-model">Train Model</h2>
-<pre><code class="language-Python3">from sklearn.linear_model import LinearRegression
+<pre><code class="language-Python">from sklearn.linear_model import LinearRegression
 from dmba import adjusted_r2_score
 lr = LinearRegression()
 lr.fit(X_train, y_train)
@@ -390,7 +392,7 @@ y_pred
 
 print(adjusted_r2_score(y_test,y_pred,lr))
 </code></pre>
-<table border="1" >
+<table border="1" align="center">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -470,7 +472,7 @@ print(adjusted_r2_score(y_test,y_pred,lr))
 </table>
 <pre>0.5664326431246609</pre>
 Because number of people cannot be negative, we change some data so that the result make sense.
-<pre><code class="language-Python3">for i in range(y_pred.shape[0]):
+<pre><code class="language-Python">for i in range(y_pred.shape[0]):
     if y_pred['casual'].iloc[i] &lt;0 or y_pred['registered'].iloc[i] &lt;0:
         if y_pred['casual'].iloc[i] &lt;0:
             y_pred['casual'].iloc[i] = 0
@@ -481,7 +483,7 @@ y_pred
 
 print(adjusted_r2_score(y_test,y_pred,lr))
 </code></pre>
-<table border="1" class="dataframe">
+<table border="1" align="center">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -617,9 +619,13 @@ print(adjusted_r2_score(y_test,y_pred,lr))
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
+                                                                                        <a class="prev" rel="prev" href="https://qingqiuzhang.github.io/iris-data-set-analytics/">
+                                                                                            Iris Dataset Analytics
+                                                                                        </a>
+                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://qingqiuzhang.github.io/iris-data-set-analytics/">
-                                                                                                    Iris Dataset Analytics
+                                                                                                <a class="next" rel="next" href="https://qingqiuzhang.github.io/national-center-for-education-dataset-project/">
+                                                                                                    National Center for Education Dataset Project
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
@@ -684,7 +690,7 @@ print(adjusted_r2_score(y_test,y_pred,lr))
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1649256282280);
+                    newDate.setTime(1649472063681);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
