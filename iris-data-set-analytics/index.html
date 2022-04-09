@@ -173,7 +173,7 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-26</a>
+                                Date: <a href="#">2022-03-25</a>
                             </span>
                                     
                                         <span class="post-category">
@@ -202,9 +202,9 @@ You can find the <a href="https://github.com/qingqiuzhang/qingqiuzhang.github.io
 import numpy as np
 
 df = pd.read_csv(
-    &quot;iris_dataset.csv&quot;,
-    header=None,
-    names=[&quot;sepal length&quot;, &quot;sepal width&quot;, &quot;petal length&quot;, &quot;petal width&quot;, &quot;class&quot;],
+    &quot;/Users/qingqiuzhang/Desktop/iris_dataset.csv&quot;,
+    header = None,
+    names  = [&quot;sepal length&quot;, &quot;sepal width&quot;, &quot;petal length&quot;, &quot;petal width&quot;, &quot;class&quot;],
 )
 df.head()
 </code></pre>
@@ -339,16 +339,14 @@ df.head()
 import seaborn as sns
 
 features = [&quot;sepal length&quot;, &quot;sepal width&quot;, &quot;petal length&quot;, &quot;petal width&quot;]
-
 sns.set(style=&quot;ticks&quot;, palette=&quot;pastel&quot;)
 f, axes = plt.subplots(2, 2, sharey=False, figsize=(14, 14))
 for ind, val in enumerate(features):
     sns.violinplot(x=&quot;class&quot;, y=val, data=df, ax=axes[ind // 2, ind % 2]).set(
-        title=&quot;Sepal Length&quot;
+        title = &quot;Sepal Length&quot;
     )
 
 plt.show()
-sns.pairplot(df, hue=&quot;class&quot;)
 </code></pre>
 <figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648956002552.png" alt="" loading="lazy"></figure>
 <pre><code class="language-Python">sns.pairplot(df, hue=&quot;class&quot;)
@@ -356,43 +354,42 @@ sns.pairplot(df, hue=&quot;class&quot;)
 <figure data-type="image" tabindex="2"><img src="https://qingqiuzhang.github.io/post-images/1648956073180.png" alt="" loading="lazy"></figure>
 <h1 id="train-and-evaluate-three-models-using-cross-validation">Train and evaluate three models using cross-validation</h1>
 <h2 id="k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</h2>
-<pre><code class="language-Python">import sklearn.neighbors
-import sklearn.metrics
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-
+<pre><code class="language-Python">from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import ShuffleSplit
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
 
-NUM = 200
-X = df.drop([&quot;class&quot;], axis=1)
-y = df[&quot;class&quot;]
-shuffle = ShuffleSplit(n_splits=NUM, test_size=0.25, random_state=10)
-results = []
-klist = np.arange(1, 21, 1)
-FullModel = Pipeline([(&quot;scaler&quot;, StandardScaler()), (&quot;knn&quot;, KNeighborsClassifier())])
-param_grid = {&quot;knn__n_neighbors&quot;: klist}
+NUM         = 200
+X           = df.drop([&quot;class&quot;], axis=1)
+y           = df[&quot;class&quot;]
+shuffle     = ShuffleSplit(n_splits=NUM, test_size=0.25, random_state=10)
+results     = []
+klist       = np.arange(1, 21, 1)
+FullModel   = Pipeline([(&quot;scaler&quot;, StandardScaler()), (&quot;knn&quot;, KNeighborsClassifier())])
+param_grid  = {&quot;knn__n_neighbors&quot;: klist}
 grid_search = GridSearchCV(
     FullModel,
     param_grid,
-    scoring=&quot;Accuracy&quot;,
-    cv=shuffle,
-    return_train_score=True,
-    n_jobs=-1,
+    scoring            = &quot;accuracy&quot;,
+    cv                 = shuffle,
+    return_train_score = True,
+    n_jobs             = -1,
 )
 grid_search.fit(X, y)
 results = pd.DataFrame(grid_search.cv_results_)
-results[
-    [
-        &quot;rank_test_score&quot;,
-        &quot;mean_train_score&quot;,
-        &quot;mean_test_score&quot;,
-        &quot;param_knn__n_neighbors&quot;,
+
+print(
+    results[
+        [
+            &quot;rank_test_score&quot;,
+            &quot;mean_train_score&quot;,
+            &quot;mean_test_score&quot;,
+            &quot;param_knn__n_neighbors&quot;,
+        ]
     ]
-]
+)
 </code></pre>
 <div style="overflow: auto; width: 780px">
 <table border="1">
@@ -571,19 +568,19 @@ df1 = df.copy()
 for column in features:
     df1[column] = [round(i - np.min(df1[column])) for i in df1[column]]
     df1[column] = df1[column].astype(&quot;category&quot;)
-X = pd.get_dummies(df1[features])
+    X = pd.get_dummies(df1[features])
 
 # Calculate mean test accuracy
-alphas = [0.01, 0.1, 1.0, 5.0, 10.0, 15., 20., 35., 50.0]
-FullModel = Pipeline([(&quot;scaler&quot;, MinMaxScaler()), (&quot;mnb&quot;, MultinomialNB())])
-param_grid = {&quot;mnb__alpha&quot;: alphas}
+alphas      = [0.01, 0.1, 1.0, 5.0, 10.0, 15.0, 20.0, 35.0, 50.0]
+FullModel   = Pipeline([(&quot;scaler&quot;, MinMaxScaler()), (&quot;mnb&quot;, MultinomialNB())])
+param_grid  = {&quot;mnb__alpha&quot;: alphas}
 grid_search = GridSearchCV(
     FullModel,
     param_grid,
-    scoring=&quot;accuracy&quot;,
-    cv=shuffle,
-    return_train_score=True,
-    n_jobs=-1,
+    scoring            = &quot;accuracy&quot;,
+    cv                 = shuffle,
+    return_train_score = True,
+    n_jobs             = -1,
 )
 grid_search.fit(X, y)
 results = pd.DataFrame(grid_search.cv_results_)
@@ -675,29 +672,31 @@ print(
 <pre><code class="language-Python">from sklearn.linear_model import LogisticRegression
 
 df2 = df.copy()
-X = df2.iloc[:, 0:4].values
-y = df2.iloc[:, 4].values
+X   = df2.iloc[:, 0:4].values
+y   = df2.iloc[:, 4].values
 
 # Calculate mean test accuracy
-Clist = [0.01, 0.1, 1.0, 5.0, 10.0, 20.0, 50.0, 100., 150., 200.]
+Clist     = [0.01, 0.1, 1.0, 5.0, 10.0, 20.0, 50.0, 100.0, 150.0, 200.0]
 FullModel = Pipeline(
     [
         (&quot;scaler&quot;, StandardScaler()),
         (&quot;lr&quot;, LogisticRegression(penalty=&quot;l2&quot;, solver=&quot;lbfgs&quot;, multi_class=&quot;auto&quot;)),
     ]
 )
-param_grid = {&quot;lr__C&quot;: Clist}
+param_grid  = {&quot;lr__C&quot;: Clist}
 grid_search = GridSearchCV(
     FullModel,
     param_grid,
-    scoring=&quot;accuracy&quot;,
-    cv=shuffle,
-    return_train_score=True,
-    n_jobs=-1,
+    scoring            = &quot;accuracy&quot;,
+    cv                 = shuffle,
+    return_train_score = True,
+    n_jobs             = -1,
 )
 grid_search.fit(X, y)
 results = pd.DataFrame(grid_search.cv_results_)
-results[[&quot;rank_test_score&quot;, &quot;mean_train_score&quot;, &quot;mean_test_score&quot;, &quot;param_lr__C&quot;]]
+print(
+    results[[&quot;rank_test_score&quot;, &quot;mean_train_score&quot;, &quot;mean_test_score&quot;, &quot;param_lr__C&quot;]]
+)
 </code></pre>
 <div style="overflow: auto; width: 780px">
 <table border="1" class="dataframe">
@@ -909,7 +908,7 @@ results[[&quot;rank_test_score&quot;, &quot;mean_train_score&quot;, &quot;mean_t
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1649520612430);
+                    newDate.setTime(1649536222555);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
