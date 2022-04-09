@@ -173,7 +173,7 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-27</a>
+                                Date: <a href="#">2022-03-26</a>
                             </span>
                                     
                                         <span class="post-category">
@@ -670,120 +670,121 @@ print(
   </tbody>
 </table>
 </div>
-## Logistic Regression
-```Python
-from sklearn.linear_model import LogisticRegression
-<p>df2 = df.copy()<br>
-X = df2.iloc[:, 0:4].values<br>
-y = df2.iloc[:, 4].values</p>
-<h1 id="calculate-mean-test-accuracy">Calculate mean test accuracy</h1>
-<p>Clist = [0.01, 0.1, 1.0, 5.0, 10.0, 20.0, 50.0, 100., 150., 200.]<br>
-FullModel = Pipeline(<br>
-[<br>
-(&quot;scaler&quot;, StandardScaler()),<br>
-(&quot;lr&quot;, LogisticRegression(penalty=&quot;l2&quot;, solver=&quot;lbfgs&quot;, multi_class=&quot;auto&quot;)),<br>
-]<br>
-)<br>
-param_grid = {&quot;lr__C&quot;: Clist}<br>
-grid_search = GridSearchCV(<br>
-FullModel,<br>
-param_grid,<br>
-scoring=&quot;accuracy&quot;,<br>
-cv=shuffle,<br>
-return_train_score=True,<br>
-n_jobs=-1,<br>
-)<br>
-grid_search.fit(X, y)<br>
-results = pd.DataFrame(grid_search.cv_results_)<br>
-results[[&quot;rank_test_score&quot;, &quot;mean_train_score&quot;, &quot;mean_test_score&quot;, &quot;param_lr__C&quot;]]</p>
-<pre><code>&lt;div style=&quot;overflow: auto; width: 780px&quot;&gt;
-&lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr style=&quot;text-align: right;&quot;&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;rank_test_score&lt;/th&gt;
-      &lt;th&gt;mean_train_score&lt;/th&gt;
-      &lt;th&gt;mean_test_score&lt;/th&gt;
-      &lt;th&gt;param_lr__C&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;th&gt;0&lt;/th&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;0.852321&lt;/td&gt;
-      &lt;td&gt;0.834342&lt;/td&gt;
-      &lt;td&gt;0.01&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;1&lt;/th&gt;
-      &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt;0.919777&lt;/td&gt;
-      &lt;td&gt;0.908684&lt;/td&gt;
-      &lt;td&gt;0.1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;2&lt;/th&gt;
-      &lt;td&gt;8&lt;/td&gt;
-      &lt;td&gt;0.969509&lt;/td&gt;
-      &lt;td&gt;0.960132&lt;/td&gt;
-      &lt;td&gt;1.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;3&lt;/th&gt;
-      &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;0.979420&lt;/td&gt;
-      &lt;td&gt;0.968026&lt;/td&gt;
-      &lt;td&gt;5.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;4&lt;/th&gt;
-      &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;0.981295&lt;/td&gt;
-      &lt;td&gt;0.969342&lt;/td&gt;
-      &lt;td&gt;10.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;5&lt;/th&gt;
-      &lt;td&gt;3&lt;/td&gt;
-      &lt;td&gt;0.982857&lt;/td&gt;
-      &lt;td&gt;0.969737&lt;/td&gt;
-      &lt;td&gt;20.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;6&lt;/th&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;0.984598&lt;/td&gt;
-      &lt;td&gt;0.970263&lt;/td&gt;
-      &lt;td&gt;50.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;7&lt;/th&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;0.986205&lt;/td&gt;
-      &lt;td&gt;0.969737&lt;/td&gt;
-      &lt;td&gt;100.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;8&lt;/th&gt;
-      &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;0.986786&lt;/td&gt;
-      &lt;td&gt;0.969211&lt;/td&gt;
-      &lt;td&gt;150.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;9&lt;/th&gt;
-      &lt;td&gt;6&lt;/td&gt;
-      &lt;td&gt;0.987009&lt;/td&gt;
-      &lt;td&gt;0.968684&lt;/td&gt;
-      &lt;td&gt;200.0&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-# Conclusion
-For the current running, Logistic Regression has the highest test accuracy followed by KNN Classifier. Naive Bayes Classifier has the lowest test accuracy.
+<h2 id="logistic-regression">Logistic Regression</h2>
+<pre><code class="language-Python">from sklearn.linear_model import LogisticRegression
+
+df2 = df.copy()
+X = df2.iloc[:, 0:4].values
+y = df2.iloc[:, 4].values
+
+# Calculate mean test accuracy
+Clist = [0.01, 0.1, 1.0, 5.0, 10.0, 20.0, 50.0, 100., 150., 200.]
+FullModel = Pipeline(
+    [
+        (&quot;scaler&quot;, StandardScaler()),
+        (&quot;lr&quot;, LogisticRegression(penalty=&quot;l2&quot;, solver=&quot;lbfgs&quot;, multi_class=&quot;auto&quot;)),
+    ]
+)
+param_grid = {&quot;lr__C&quot;: Clist}
+grid_search = GridSearchCV(
+    FullModel,
+    param_grid,
+    scoring=&quot;accuracy&quot;,
+    cv=shuffle,
+    return_train_score=True,
+    n_jobs=-1,
+)
+grid_search.fit(X, y)
+results = pd.DataFrame(grid_search.cv_results_)
+results[[&quot;rank_test_score&quot;, &quot;mean_train_score&quot;, &quot;mean_test_score&quot;, &quot;param_lr__C&quot;]]
 </code></pre>
+<div style="overflow: auto; width: 780px">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank_test_score</th>
+      <th>mean_train_score</th>
+      <th>mean_test_score</th>
+      <th>param_lr__C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>0.852321</td>
+      <td>0.834342</td>
+      <td>0.01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>9</td>
+      <td>0.919777</td>
+      <td>0.908684</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>0.969509</td>
+      <td>0.960132</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7</td>
+      <td>0.979420</td>
+      <td>0.968026</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0.981295</td>
+      <td>0.969342</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3</td>
+      <td>0.982857</td>
+      <td>0.969737</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>0.984598</td>
+      <td>0.970263</td>
+      <td>50.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>0.986205</td>
+      <td>0.969737</td>
+      <td>100.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>5</td>
+      <td>0.986786</td>
+      <td>0.969211</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>6</td>
+      <td>0.987009</td>
+      <td>0.968684</td>
+      <td>200.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h1 id="conclusion">Conclusion</h1>
+<p>For the current running, Logistic Regression has the highest test accuracy followed by KNN Classifier. Naive Bayes Classifier has the lowest test accuracy.</p>
 
                         </div>
                         
@@ -794,9 +795,10 @@ For the current running, Logistic Regression has the highest test accuracy follo
 <ul>
 <li><a href="#k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</a></li>
 <li><a href="#naive-bayes-classifier">Naive Bayes Classifier</a></li>
+<li><a href="#logistic-regression">Logistic Regression</a></li>
 </ul>
 </li>
-<li><a href="#calculate-mean-test-accuracy">Calculate mean test accuracy</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
 </ul>
 
                             </div>
@@ -906,7 +908,7 @@ For the current running, Logistic Regression has the highest test accuracy follo
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1649519507921);
+                    newDate.setTime(1649519591915);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
