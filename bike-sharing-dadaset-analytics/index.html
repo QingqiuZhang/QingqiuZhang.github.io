@@ -173,7 +173,7 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-04-08</a>
+                                Date: <a href="#">2022-04-07</a>
                             </span>
                                     
                                 </div>
@@ -181,12 +181,768 @@
                         </header>
                         
                         <div class="post-content">
-                            <p>kl</p>
+                            <p>In the <a href="https://qingqiuzhang.github.io/bike-sharing-dataset-analytics/">previous article</a>, I analyze the bike sharing dataset from a daily level. In this article, I will do a similar procedure from a houly level.<br>
+Source data: <a href="https://github.com/qingqiuzhang/qingqiuzhang.github.io/blob/data/bike-sharing-dataset-analytics-hourly-data/hour.csv">hour.csv</a><br>
+Source python file: <a href="https://github.com/qingqiuzhang/qingqiuzhang.github.io/blob/data/bike-sharing-dataset-analytics-hourly-data/Bike%20Sharing%20Dataset%20Analytics%20--%20Hourly%20Data.py">Bike Sharing Dataset Analytics -- Hourly Data.py</a></p>
+<h1 id="exploring-the-data">Exploring the Data</h1>
+<pre><code class="language-Python">import pandas as pd
+hour = pd.read_csv(&quot;hour.csv&quot;)
+hour.head()
+</code></pre>
+<div style="overflow: auto; width: 780px">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>instant</th>
+      <th>dteday</th>
+      <th>season</th>
+      <th>yr</th>
+      <th>mnth</th>
+      <th>hr</th>
+      <th>holiday</th>
+      <th>weekday</th>
+      <th>workingday</th>
+      <th>weathersit</th>
+      <th>temp</th>
+      <th>atemp</th>
+      <th>hum</th>
+      <th>windspeed</th>
+      <th>casual</th>
+      <th>registered</th>
+      <th>cnt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2011-01-01</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.24</td>
+      <td>0.2879</td>
+      <td>0.81</td>
+      <td>0.0</td>
+      <td>3</td>
+      <td>13</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2011-01-01</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.22</td>
+      <td>0.2727</td>
+      <td>0.80</td>
+      <td>0.0</td>
+      <td>8</td>
+      <td>32</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2011-01-01</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.22</td>
+      <td>0.2727</td>
+      <td>0.80</td>
+      <td>0.0</td>
+      <td>5</td>
+      <td>27</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2011-01-01</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.24</td>
+      <td>0.2879</td>
+      <td>0.75</td>
+      <td>0.0</td>
+      <td>3</td>
+      <td>10</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>2011-01-01</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.24</td>
+      <td>0.2879</td>
+      <td>0.75</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h1 id="visualization">Visualization</h1>
+<pre><code class="language-Python">import matplotlib.pyplot as plt
+result = hour[[&quot;hr&quot;, &quot;casual&quot;, &quot;registered&quot;, &quot;cnt&quot;]].groupby([&quot;hr&quot;]).mean()
+result = (
+    result.stack()
+    .reset_index()
+    .set_index(&quot;hr&quot;)
+    .rename(columns={&quot;level_1&quot;: &quot;cat&quot;, 0: &quot;people per hour&quot;})
+)
+f, axes = plt.subplots(2, sharey=False, figsize=(25, 12))
+sns.barplot(x=result.index, y=&quot;people per hour&quot;, hue=&quot;cat&quot;, data=result, ax=axes[0])
+
+result = hour[[&quot;casual&quot;, &quot;registered&quot;, &quot;cnt&quot;]].set_index(hour[&quot;hr&quot;])
+result = (
+    result.stack()
+    .reset_index()
+    .set_index(&quot;hr&quot;)
+    .rename(columns={&quot;level_1&quot;: &quot;cat&quot;, 0: &quot;people&quot;})
+)
+sns.violinplot(x=result.index, y=&quot;people&quot;, hue=&quot;cat&quot;, data=result, cut=0, ax=axes[1])
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1649544710526.png" alt="" loading="lazy"></figure>
+<h1 id="linear-regression">Linear Regression</h1>
+<h2 id="split-data">Split Data</h2>
+<pre><code class="language-Python">from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+cat       = [&quot;season&quot;, &quot;mnth&quot;, &quot;hr&quot;, &quot;holiday&quot;, &quot;weekday&quot;, &quot;workingday&quot;, &quot;weathersit&quot;]
+hour[cat] = hour[cat].apply(lambda x: x.astype(&quot;category&quot;))
+dummies   = pd.get_dummies(hour[cat], drop_first=True)
+print(dummies.shape)
+conti_predictors = [&quot;temp&quot;, &quot;atemp&quot;, &quot;hum&quot;, &quot;windspeed&quot;]
+print(hour[conti_predictors].shape)
+X = pd.concat([hour[conti_predictors], dummies], axis=1)
+X.head()
+y = hour.iloc[:, 14:]
+y.head()
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
+sc = StandardScaler()
+X_train[conti_predictors] = sc.fit_transform(X_train[conti_predictors])
+X_test[conti_predictors] = sc.transform(X_test[conti_predictors])
+</code></pre>
+<pre>(17379, 48)
+(17379, 4)</pre>
+<div style="overflow: auto; width: 780px">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temp</th>
+      <th>atemp</th>
+      <th>hum</th>
+      <th>windspeed</th>
+      <th>season_2</th>
+      <th>season_3</th>
+      <th>season_4</th>
+      <th>mnth_2</th>
+      <th>mnth_3</th>
+      <th>mnth_4</th>
+      <th>mnth_5</th>
+      <th>mnth_6</th>
+      <th>mnth_7</th>
+      <th>mnth_8</th>
+      <th>mnth_9</th>
+      <th>mnth_10</th>
+      <th>mnth_11</th>
+      <th>mnth_12</th>
+      <th>hr_1</th>
+      <th>hr_2</th>
+      <th>hr_3</th>
+      <th>hr_4</th>
+      <th>hr_5</th>
+      <th>hr_6</th>
+      <th>hr_7</th>
+      <th>hr_8</th>
+      <th>hr_9</th>
+      <th>hr_10</th>
+      <th>hr_11</th>
+      <th>hr_12</th>
+      <th>hr_13</th>
+      <th>hr_14</th>
+      <th>hr_15</th>
+      <th>hr_16</th>
+      <th>hr_17</th>
+      <th>hr_18</th>
+      <th>hr_19</th>
+      <th>hr_20</th>
+      <th>hr_21</th>
+      <th>hr_22</th>
+      <th>hr_23</th>
+      <th>holiday_1</th>
+      <th>weekday_1</th>
+      <th>weekday_2</th>
+      <th>weekday_3</th>
+      <th>weekday_4</th>
+      <th>weekday_5</th>
+      <th>weekday_6</th>
+      <th>workingday_1</th>
+      <th>weathersit_2</th>
+      <th>weathersit_3</th>
+      <th>weathersit_4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.24</td>
+      <td>0.2879</td>
+      <td>0.81</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.22</td>
+      <td>0.2727</td>
+      <td>0.80</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.22</td>
+      <td>0.2727</td>
+      <td>0.80</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.24</td>
+      <td>0.2879</td>
+      <td>0.75</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.24</td>
+      <td>0.2879</td>
+      <td>0.75</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div style="overflow: auto; width: 780px">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>casual</th>
+      <th>registered</th>
+      <th>cnt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>13</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8</td>
+      <td>32</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>27</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>10</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="train-model">Train Model</h2>
+<pre><code class="language-Python3">from sklearn.linear_model import LinearRegression
+from dmba import adjusted_r2_score
+
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+
+y_pred = lr.predict(X_test)
+y_pred = pd.DataFrame(y_pred, columns=[&quot;casual&quot;, &quot;registered&quot;, &quot;cnt&quot;]).astype(int)
+print(y_pred)
+print(adjusted_r2_score(y_test, y_pred, lr))
+</code></pre>
+<div style="overflow: auto; width: 780px">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>casual</th>
+      <th>registered</th>
+      <th>cnt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>37</td>
+      <td>249</td>
+      <td>286</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>42</td>
+      <td>344</td>
+      <td>386</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>48</td>
+      <td>259</td>
+      <td>307</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>19</td>
+      <td>360</td>
+      <td>380</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-9</td>
+      <td>-88</td>
+      <td>-98</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4340</th>
+      <td>6</td>
+      <td>205</td>
+      <td>211</td>
+    </tr>
+    <tr>
+      <th>4341</th>
+      <td>6</td>
+      <td>109</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>4342</th>
+      <td>32</td>
+      <td>226</td>
+      <td>259</td>
+    </tr>
+    <tr>
+      <th>4343</th>
+      <td>52</td>
+      <td>93</td>
+      <td>146</td>
+    </tr>
+    <tr>
+      <th>4344</th>
+      <td>-5</td>
+      <td>142</td>
+      <td>137</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre>0.5979873068757086</pre>
+Because number of people cannot be negative, we change some data so that the result make sense.
+<pre><code class="language-Python">for i in range(y_pred.shape[0]):
+    if y_pred[&quot;casual&quot;].iloc[i] &lt; 0:
+        y_pred[&quot;casual&quot;].iloc[i] = 0
+    if y_pred[&quot;registered&quot;].iloc[i] &lt; 0:
+        y_pred[&quot;registered&quot;].iloc[i] = 0
+        y_pred[&quot;cnt&quot;].iloc[i] = y_pred[&quot;casual&quot;].iloc[i] + y_pred[&quot;registered&quot;].iloc[i]
+print(y_pred)
+print(adjusted_r2_score(y_test, y_pred, lr))
+</code></pre>
+<div style="overflow: auto; width: 780px">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>casual</th>
+      <th>registered</th>
+      <th>cnt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>37</td>
+      <td>249</td>
+      <td>286</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>42</td>
+      <td>344</td>
+      <td>386</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>48</td>
+      <td>259</td>
+      <td>307</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>19</td>
+      <td>360</td>
+      <td>380</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4340</th>
+      <td>6</td>
+      <td>205</td>
+      <td>211</td>
+    </tr>
+    <tr>
+      <th>4341</th>
+      <td>6</td>
+      <td>109</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>4342</th>
+      <td>32</td>
+      <td>226</td>
+      <td>259</td>
+    </tr>
+    <tr>
+      <th>4343</th>
+      <td>52</td>
+      <td>93</td>
+      <td>146</td>
+    </tr>
+    <tr>
+      <th>4344</th>
+      <td>0</td>
+      <td>142</td>
+      <td>142</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre>0.6153434162490663</pre>
 
                         </div>
                         
                             <div class="post-toc">
-                                
+                                <ul class="markdownIt-TOC">
+<li><a href="#exploring-the-data">Exploring the Data</a></li>
+<li><a href="#visualization">Visualization</a></li>
+<li><a href="#linear-regression">Linear Regression</a>
+<ul>
+<li><a href="#split-data">Split Data</a></li>
+<li><a href="#train-model">Train Model</a></li>
+</ul>
+</li>
+</ul>
+
                             </div>
                             
                                 
@@ -276,7 +1032,7 @@
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1649543175613);
+                    newDate.setTime(1649545414693);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
