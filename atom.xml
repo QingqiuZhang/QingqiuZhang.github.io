@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>Qingqiu Zhang</title>
-    <updated>2022-04-10T14:43:37.158Z</updated>
+    <updated>2022-04-10T14:52:43.481Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
@@ -1771,9 +1771,20 @@ print(adjusted_r2_score(y_test, y_pred, lr))
         <id>https://qingqiuzhang.github.io/national-center-for-education-dataset-project/</id>
         <link href="https://qingqiuzhang.github.io/national-center-for-education-dataset-project/">
         </link>
-        <updated>2022-03-17T02:19:52.000Z</updated>
-        <content type="html"><![CDATA[<p>The dataset you will be processing comes from the National Center for Education Statistics. You can find the original dataset <a href="https://nces.ed.gov/programs/digest/d18/tables/dt18_104.20.asp">here</a>. This data has been cleaned a bit and you can use the the provided file <a href="https://github.com/qingqiuzhang/qingqiuzhang.github.io/blob/data/national-center-for-education-dataset-project/nces-ed-attainment.csv">nces-ed-attainment.csv</a>. You can find the whole python file <a href="https://github.com/qingqiuzhang/qingqiuzhang.github.io/blob/data/national-center-for-education-dataset-project/National%20Center%20for%20Education.py">National Center for Education.py</a> here.</p>
-<p>The original dataset is titled: Percentage of persons 25 to 29 years old with selected levels of educational attainment, by race/ethnicity and sex: Selected years, 1920 through 2018. The cleaned version you will be working with has columns for Year, Sex, Educational Attainment, and race/ethnicity categories considered in the dataset. Note that not all columns will have data starting at 1920.</p>
+        <updated>2022-03-16T02:19:52.000Z</updated>
+        <summary type="html"><![CDATA[<p>The dataset comes from the National Center for Education Statistics. In this article, I will demonstrate some data cleaning and dataframe manipulation techniques. Hope this helps!<br>
+<strong>For everything you may need, visit:</strong><br>
+<a href="https://nces.ed.gov/programs/digest/d18/tables/dt18_104.20.asp">Source Data</a><br>
+<a href="https://github.com/qingqiuzhang/qingqiuzhang.github.io/blob/data/national-center-for-education-dataset-project/nces-ed-attainment.csv">nces-ed-attainment.csv</a><br>
+<a href="https://github.com/qingqiuzhang/qingqiuzhang.github.io/blob/data/national-center-for-education-dataset-project/National%20Center%20for%20Education.py">National Center for Education.py</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>The dataset comes from the National Center for Education Statistics. In this article, I will demonstrate some data cleaning and dataframe manipulation techniques. Hope this helps!<br>
+<strong>For everything you may need, visit:</strong><br>
+<a href="https://nces.ed.gov/programs/digest/d18/tables/dt18_104.20.asp">Source Data</a><br>
+<a href="https://github.com/qingqiuzhang/qingqiuzhang.github.io/blob/data/national-center-for-education-dataset-project/nces-ed-attainment.csv">nces-ed-attainment.csv</a><br>
+<a href="https://github.com/qingqiuzhang/qingqiuzhang.github.io/blob/data/national-center-for-education-dataset-project/National%20Center%20for%20Education.py">National Center for Education.py</a></p>
+<!-- more -->
+<p>The original dataset is titled: Percentage of persons 25 to 29 years old with selected levels of educational attainment, by race/ethnicity and sex: Selected years, 1920 through 2018. The cleaned version has columns for Year, Sex, Educational Attainment, and race/ethnicity categories considered in the dataset. Note that not all columns will have data starting at 1920.</p>
 <h1 id="exploring-the-data">Exploring the data</h1>
 <pre><code class="language-Python"># packages needed
 import pandas as pd
@@ -2245,13 +2256,11 @@ top_2_2000s(df)
         <id>https://qingqiuzhang.github.io/diabetes-dataset-report/</id>
         <link href="https://qingqiuzhang.github.io/diabetes-dataset-report/">
         </link>
-        <updated>2022-02-17T19:44:03.000Z</updated>
-        <summary type="html"><![CDATA[<p><img src="https://qingqiuzhang.github.io/post-images/1649601809050.jpg" alt="" loading="lazy"><br>
-This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models.<br>
+        <updated>2022-02-16T17:44:03.000Z</updated>
+        <summary type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models including K-Nearest Neighbors, Logistic Regression, Support Vector Machine, Decision Tree and Random Forest.<br>
 <strong>In case you need the source data, visit this webpage:</strong> <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Data Source</a></p>
 ]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://qingqiuzhang.github.io/post-images/1649601809050.jpg" alt="" loading="lazy"><br>
-This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models.<br>
+        <content type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models including K-Nearest Neighbors, Logistic Regression, Support Vector Machine, Decision Tree and Random Forest.<br>
 <strong>In case you need the source data, visit this webpage:</strong> <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Data Source</a></p>
 <!-- more -->
 <h1 id="what-can-we-do-with-this-dataset">What Can We Do With This Dataset?</h1>
