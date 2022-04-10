@@ -201,7 +201,7 @@ You can go to this webpage to find the source data <a href="https://github.com/q
 day = pd.read_csv(&quot;day.csv&quot;)
 day.head()
 </code></pre>
-<div style="overflow: auto; width: 780px">
+<div style="overflow: auto; width: 100%">
 <table border="0">
   <thead>
     <tr style="text-align: right;">
@@ -422,6 +422,7 @@ y_pred = pd.DataFrame(y_pred, columns=[&quot;casual&quot;, &quot;registered&quot
 print(y_pred)
 print(adjusted_r2_score(y_test, y_pred, lr))
 </code></pre>
+<div style="overflow: auto; width: 100%">
 <table border="1" align="center">
   <thead>
     <tr style="text-align: right;">
@@ -500,6 +501,7 @@ print(adjusted_r2_score(y_test, y_pred, lr))
     </tr>
   </tbody>
 </table>
+</div>
 <pre>0.5664326431246609</pre>
 Because number of people cannot be negative, we change some data so that the result make sense.
 <pre><code class="language-Python">for i in range(y_pred.shape[0]):
@@ -511,6 +513,7 @@ Because number of people cannot be negative, we change some data so that the res
 print(y_pred)
 print(adjusted_r2_score(y_test, y_pred, lr))
 </code></pre>
+<div style="overflow: auto; width: 100%">
 <table border="1" align="center">
   <thead>
     <tr style="text-align: right;">
@@ -589,6 +592,7 @@ print(adjusted_r2_score(y_test, y_pred, lr))
     </tr>
   </tbody>
 </table>
+</div>
 <pre>0.5761640858277055</pre>
                         </div>
                         
@@ -739,7 +743,7 @@ print(adjusted_r2_score(y_test, y_pred, lr))
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1649605787434);
+                    newDate.setTime(1649606254896);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>

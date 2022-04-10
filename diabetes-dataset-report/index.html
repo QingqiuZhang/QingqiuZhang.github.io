@@ -173,7 +173,7 @@
                                         Qingqiu Zhang
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2022-03-31</a>
+                                Date: <a href="#">2022-03-30</a>
                             </span>
                                     
                                         <span class="post-category">
@@ -209,7 +209,7 @@ import pandas as pd
 data = pd.read_csv('diabetes.csv')
 data.head(10)
 </code></pre>
-<div style="overflow: auto; width: 780px">
+<div style="overflow: auto; width: 100%">
 <table border="1">
   <thead>
     <tr style="text-align: right;">
@@ -379,7 +379,7 @@ dtype: int64</pre>
 <p>It seems there is no null values. Shall we pop the champagne now? If we further examine the data, we will find that the situation is not as good as we thought.</p>
 <pre><code class="language-Python">data.describe().round(2)
 </code></pre>
-<div style="overflow: auto; width: 780px">
+<div style="overflow: auto; width: 100%">
 <table border="1">
   <thead>
     <tr style="text-align: right;">
@@ -521,6 +521,7 @@ data.iloc[:, 1:6] = data.iloc[:, 1:6].replace({0:np.NaN})
 data = data.fillna(data.median()) 
 data.describe().round(2).T
 ```
+<div style="overflow: auto; width: 100%">
 <table border="1">
   <thead>
     <tr style="text-align: right;">
@@ -637,6 +638,7 @@ data.describe().round(2).T
     </tr>
   </tbody>
 </table>
+</div>
 Now we can visualize the dataset and see if we can find something else.
 <pre><code class="language-Python3">import seaborn as sns
 sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
@@ -663,6 +665,7 @@ data = pd.concat([X, y], axis=1)
 print(data.shape)
 data.describe().round(2).T
 </code></pre>
+<div style="overflow: auto; width: 100%">
 <table border="1">
   <thead>
     <tr style="text-align: right;">
@@ -779,6 +782,7 @@ data.describe().round(2).T
     </tr>
   </tbody>
 </table>
+</div>
 Once again visualize the dataset to see the changes in the distribution of data.
 <pre><code class="language-Python3">sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
 </code></pre>
@@ -1006,7 +1010,7 @@ print(X)
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1649605787434);
+                    newDate.setTime(1649606254896);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
