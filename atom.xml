@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>Qingqiu Zhang</title>
-    <updated>2022-04-10T16:04:33.628Z</updated>
+    <updated>2022-04-10T16:49:50.352Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
@@ -10,23 +10,37 @@
     <icon>https://qingqiuzhang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, Qingqiu Zhang</rights>
     <entry>
-        <title type="html"><![CDATA[Bike Sharing Dataset Analytics (2) -- Hourly Data]]></title>
-        <id>https://qingqiuzhang.github.io/bike-sharing-dadaset-analytics/</id>
-        <link href="https://qingqiuzhang.github.io/bike-sharing-dadaset-analytics/">
+        <title type="html"><![CDATA[Diabetes Data Analytics (2) -- Model Training And Evaluating ]]></title>
+        <id>https://qingqiuzhang.github.io/diabetes-dataset-report-/</id>
+        <link href="https://qingqiuzhang.github.io/diabetes-dataset-report-/">
         </link>
-        <updated>2022-04-05T21:17:04.000Z</updated>
+        <updated>2022-04-03T00:26:04.000Z</updated>
+        <summary type="html"><![CDATA[<p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">the previous article</a>, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.<br>
+<strong>For everything you may need, visit:</strong><br>
+<a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
+Hope this helps!</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">the previous article</a>, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.<br>
+<strong>For everything you may need, visit:</strong><br>
+<a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
+Hope this helps!</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Diabetes Data Analytics (1) -- Data Preprocessing]]></title>
         <id>https://qingqiuzhang.github.io/diabetes-dataset-report/</id>
         <link href="https://qingqiuzhang.github.io/diabetes-dataset-report/">
         </link>
-        <updated>2022-03-30T16:44:03.000Z</updated>
+        <updated>2022-03-28T16:44:03.000Z</updated>
         <summary type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models including K-Nearest Neighbors, Logistic Regression, Support Vector Machine, Decision Tree and Random Forest.<br>
-<strong>In case you need the source data, visit this webpage:</strong> <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Data Source</a></p>
+<strong>For everything you may need, visit:</strong><br>
+<a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
+Hope this helps!</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models including K-Nearest Neighbors, Logistic Regression, Support Vector Machine, Decision Tree and Random Forest.<br>
-<strong>In case you need the source data, visit this webpage:</strong> <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Data Source</a></p>
+<strong>For everything you may need, visit:</strong><br>
+<a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
+Hope this helps!</p>
 ]]></content>
     </entry>
     <entry>
