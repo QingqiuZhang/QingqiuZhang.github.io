@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>Qingqiu Zhang</title>
-    <updated>2022-04-10T14:38:44.946Z</updated>
+    <updated>2022-04-10T14:43:37.158Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
@@ -2245,12 +2245,15 @@ top_2_2000s(df)
         <id>https://qingqiuzhang.github.io/diabetes-dataset-report/</id>
         <link href="https://qingqiuzhang.github.io/diabetes-dataset-report/">
         </link>
-        <updated>2022-02-18T08:44:03.000Z</updated>
-        <summary type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models.</p>
+        <updated>2022-02-17T19:44:03.000Z</updated>
+        <summary type="html"><![CDATA[<p><img src="https://qingqiuzhang.github.io/post-images/1649601809050.jpg" alt="" loading="lazy"><br>
+This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models.<br>
+<strong>In case you need the source data, visit this webpage:</strong> <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Data Source</a></p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models.</p>
+        <content type="html"><![CDATA[<p><img src="https://qingqiuzhang.github.io/post-images/1649601809050.jpg" alt="" loading="lazy"><br>
+This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models.<br>
+<strong>In case you need the source data, visit this webpage:</strong> <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Data Source</a></p>
 <!-- more -->
-<p><strong>In case you need the source data, visit this webpage:</strong> <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Data Source</a></p>
 <h1 id="what-can-we-do-with-this-dataset">What Can We Do With This Dataset?</h1>
 <p>The observations in the dataset are all females from Pima Indian heritage who are greater than or equal to 21 years old.</p>
 <h1 id="data-preprocessing">Data Preprocessing</h1>
