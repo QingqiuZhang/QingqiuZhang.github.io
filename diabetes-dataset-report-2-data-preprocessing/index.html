@@ -682,7 +682,7 @@ As the number of observations is only 768, it's unrealistic to under-sampling. H
 <p>We can use SMOTE() to over-sampling observations so that the number of outcome in each class will be the same. After doing that, we describe the data again.</p>
 <details>
     <summary>Show/Hide Cells</summary>
-<pre><code class="language-Python3">from imblearn.over_sampling import SMOTE 
+<pre><code class="language-Python">from imblearn.over_sampling import SMOTE 
 # get X, y
 X          = data.iloc[:, 0:8]
 y          = data.iloc[:, -1]
@@ -818,19 +818,17 @@ data.describe().round(2).T
 <p>Once again visualize the dataset to see the changes in the distribution of data.</p>
 <details>
     <summary>Show/Hide Cells</summary>
-```Python3
-sns.pairplot(data, hue="Outcome", corner=True)
-```
+<pre><code class="language-Python">sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
+</code></pre>
 </details>
 <p><img src="https://qingqiuzhang.github.io/post-images/1648950949751.png" alt="Pairplot - Balanced Dataset" loading="lazy"><br>
 For now, we transform the original imbalanced dataset into a balanced dataset with the number of each outcome class being 500. there is not much difference in distribution between diabetics and nondiabetics. Glucose should have the highest correlation with Outcome among all the features. We can testify it using a correlation matrix heatmap.</p>
 <details>
     <summary>Show/Hide Cells</summary>
-```Python3
-corr_mat = data.corr().round(2)
+<pre><code class="language-Python">corr_mat = data.corr().round(2)
 plt.figure(figsize = (15,10))
 sns.heatmap(corr_mat, annot=True)
-```
+</code></pre>
 </details>
 <figure data-type="image" tabindex="2"><img src="https://qingqiuzhang.github.io/post-images/1648951579451.png" alt="Correlation Matrix - Balanced Dataset" loading="lazy"></figure>
 <p>The features with higher correlation with Outcome are more important and more inspirable to our model process.</p>
@@ -845,7 +843,7 @@ sns.heatmap(corr_mat, annot=True)
 <p>I usually choose MinMaxScaler() or StandardScaler() for most of datasets. You can also use others according to the charasteristic of the dataset at hand.</p>
 <details>
     <summary>Show/Hide Cells</summary>
-<pre><code class="language-Python3">from sklearn.model_selection import train_test_split
+<pre><code class="language-Python">from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 # get X, y
@@ -903,7 +901,7 @@ print(X2_trainValid)
 <p>With clean data at hand, we can visulize the data, which may indicate some relations between the features or between features and targets. Knowing these is useful to data reduction, for example, if a feature is highly correlated with the target, then we had better retain it. Or if two features are highly correlated, it would be much easier for us if we drop out one of them. Here I use PCA (Principal componenet analysis) for a demonstration.</p>
 <details>
     <summary>Show/Hide Cells</summary>
-<pre><code class="language-Python3">from sklearn.decomposition import PCA
+<pre><code class="language-Python">from sklearn.decomposition import PCA
 
 pca      = PCA()
 
@@ -1089,7 +1087,7 @@ print(X2_trainValid)
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1650325898655);
+                    newDate.setTime(1650326040171);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
