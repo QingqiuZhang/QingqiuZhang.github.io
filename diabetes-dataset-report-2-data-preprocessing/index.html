@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    Qingqiu Zhang
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="Qingqiu Zhang">
+<meta name="description" content="Thank you for visiting. Have fun here!">
+<meta name="keywords" content="qingqiu zhang, machine learning, Qingqiu Zhang">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://qingqiuzhang.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+        <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+        
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+			<script src="https://jerryz.sgp1.cdn.digitaloceanspaces.com/lib/hit-kounter/hit-kounter-lc-0.3.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+                                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-224309801-1"></script>
+                                <script>
+                                    window.dataLayer = window.dataLayer || [];
+
+                                    function gtag() {
+                                        dataLayer.push(arguments);
+                                    }
+                                    gtag('js', new Date());
+                                    gtag('config', 'UA-224309801-1');
+                                </script>
+                                
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://qingqiuzhang.github.io">
+                    Qingqiu Zhang
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        Home
+                    </a>
+                    
+                    <a class="menu-item" href="/posts">
+                        Content
+                    </a>
+                    
+                    <a class="menu-item" href="https://qingqiuzhang.github.io/archives">
+                        Archives
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        Tag
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://qingqiuzhang.github.io">
+                            Qingqiu Zhang
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            Home
+                        </a>
+                        
+                        <a class="menu-item" href="/posts">
+                            Content
+                        </a>
+                        
+                        <a class="menu-item" href="https://qingqiuzhang.github.io/archives">
+                            Archives
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            Tag
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Diabetes Data Analytics (1) -- Data Preprocessing
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Qingqiu Zhang
+                                    </a>
+                                    <span class="post-time">
+                                        Date: <a href="#">
+                                            2022-03-22
+                                        </a>
+                                    </span>
+                                    
+                                        Views:
+					<span data-hk-page="current">-</span>
+                                        
+                                </div>
+                                
+                        </header>
+                        
+                                <div class="post-content">
+                                    <p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models including K-Nearest Neighbors, Logistic Regression, Support Vector Machine, Decision Tree and Random Forest.<br>
+<strong>For everything you may need, visit:</strong><br>
+<a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
+Hope this helps!</p>
+<!-- more -->
+<hr>
+<p>I cannot emphasize the importance of data preprocessing. It is the process of transforming raw data into more reasonable, useful and efficient format. It's a must and one of the most important step in a machine learing project. Without it our models will probably crash and won't be able to generate good results.<br>
+There are several steps in data preprocessing: data cleaning, data reduction and data transformation. In the following paragraphs, I'll show you how to perform the steps one by one.</p>
+<h1 id="data-cleaning">Data Cleaning</h1>
+<p>First, I load the data from the .csv file and print the first ten rows so that I can have a basic understanding of how the data looks like.</p>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python"># packages needed
+import numpy as np
+import pandas as pd
+
+# load data
+data = pd.read_csv('diabetes.csv')
+data.head(10)
+</code></pre>
+</details>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pregnancies</th>
+      <th>Glucose</th>
+      <th>BloodPressure</th>
+      <th>SkinThickness</th>
+      <th>Insulin</th>
+      <th>BMI</th>
+      <th>DiabetesPedigreeFunction</th>
+      <th>Age</th>
+      <th>Outcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6</td>
+      <td>148</td>
+      <td>72</td>
+      <td>35</td>
+      <td>0</td>
+      <td>33.6</td>
+      <td>0.627</td>
+      <td>50</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>85</td>
+      <td>66</td>
+      <td>29</td>
+      <td>0</td>
+      <td>26.6</td>
+      <td>0.351</td>
+      <td>31</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+      <td>183</td>
+      <td>64</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.3</td>
+      <td>0.672</td>
+      <td>32</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>89</td>
+      <td>66</td>
+      <td>23</td>
+      <td>94</td>
+      <td>28.1</td>
+      <td>0.167</td>
+      <td>21</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>137</td>
+      <td>40</td>
+      <td>35</td>
+      <td>168</td>
+      <td>43.1</td>
+      <td>2.288</td>
+      <td>33</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>116</td>
+      <td>74</td>
+      <td>0</td>
+      <td>0</td>
+      <td>25.6</td>
+      <td>0.201</td>
+      <td>30</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3</td>
+      <td>78</td>
+      <td>50</td>
+      <td>32</td>
+      <td>88</td>
+      <td>31.0</td>
+      <td>0.248</td>
+      <td>26</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>10</td>
+      <td>115</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>35.3</td>
+      <td>0.134</td>
+      <td>29</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2</td>
+      <td>197</td>
+      <td>70</td>
+      <td>45</td>
+      <td>543</td>
+      <td>30.5</td>
+      <td>0.158</td>
+      <td>53</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>8</td>
+      <td>125</td>
+      <td>96</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.232</td>
+      <td>54</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>The meaning of each column is stated as below:</p>
+<blockquote>
+<ul>
+<li>Pregnancies: Number of times pregnant</li>
+<li>Glucose: Plasma glucose concentration a 2 hours in an oral glucose tolerance test</li>
+<li>BloodPressure: Diastolic blood pressure (mm Hg)</li>
+<li>SkinThickness: Triceps skin fold thickness (mm)</li>
+<li>Insulin: 2-Hour serum insulin (mu U/ml)</li>
+<li>BMI: Body mass index (weight in kg/(height in m)^2)</li>
+<li>DiabetesPedigreeFunction: Diabetes pedigree function</li>
+<li>Age: Age (years)</li>
+<li>Outcome: Class variable (0 or 1)</li>
+</ul>
+</blockquote>
+<p>Next, we need to examin whether there are null values in the dataset.</p>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">data.isnull().sum()
+</code></pre>
+</details>
+<pre>Pregnancies                 0
+Glucose                     0
+BloodPressure               0
+SkinThickness               0
+Insulin                     0
+BMI                         0
+DiabetesPedigreeFunction    0
+Age                         0
+Outcome                     0
+dtype: int64</pre>
+<p>It seems there is no null values. Shall we pop the champagne now? If we further examine the data, we will find that the situation is not as good as we thought.</p>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">data.describe().round(2).T
+</code></pre>
+</details>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Pregnancies</th>
+      <td>768.0</td>
+      <td>3.85</td>
+      <td>3.37</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>3.00</td>
+      <td>6.00</td>
+      <td>17.00</td>
+    </tr>
+    <tr>
+      <th>Glucose</th>
+      <td>768.0</td>
+      <td>120.89</td>
+      <td>31.97</td>
+      <td>0.00</td>
+      <td>99.00</td>
+      <td>117.00</td>
+      <td>140.25</td>
+      <td>199.00</td>
+    </tr>
+    <tr>
+      <th>BloodPressure</th>
+      <td>768.0</td>
+      <td>69.11</td>
+      <td>19.36</td>
+      <td>0.00</td>
+      <td>62.00</td>
+      <td>72.00</td>
+      <td>80.00</td>
+      <td>122.00</td>
+    </tr>
+    <tr>
+      <th>SkinThickness</th>
+      <td>768.0</td>
+      <td>20.54</td>
+      <td>15.95</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>23.00</td>
+      <td>32.00</td>
+      <td>99.00</td>
+    </tr>
+    <tr>
+      <th>Insulin</th>
+      <td>768.0</td>
+      <td>79.80</td>
+      <td>115.24</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>30.50</td>
+      <td>127.25</td>
+      <td>846.00</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>768.0</td>
+      <td>31.99</td>
+      <td>7.88</td>
+      <td>0.00</td>
+      <td>27.30</td>
+      <td>32.00</td>
+      <td>36.60</td>
+      <td>67.10</td>
+    </tr>
+    <tr>
+      <th>DiabetesPedigreeFunction</th>
+      <td>768.0</td>
+      <td>0.47</td>
+      <td>0.33</td>
+      <td>0.08</td>
+      <td>0.24</td>
+      <td>0.37</td>
+      <td>0.63</td>
+      <td>2.42</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>768.0</td>
+      <td>33.24</td>
+      <td>11.76</td>
+      <td>21.00</td>
+      <td>24.00</td>
+      <td>29.00</td>
+      <td>41.00</td>
+      <td>81.00</td>
+    </tr>
+    <tr>
+      <th>Outcome</th>
+      <td>768.0</td>
+      <td>0.35</td>
+      <td>0.48</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+We can see from the picture above that the minimum value of Glucose, BloodPressure, SkinThickness, Insulin, BMI is zero. However, anyone having common sense knows that by no means would these indicators of an alive person be zero. Apparently, the null values are replaced by zeros when inputing data. Here we calculate the number of null values in each column so that we will better decide how to deal with them.
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">for col in list(data.columns):
+    zero = len(data[data[col] == 0])
+    print('0s in %s: %d' % (col, zero))
+</code></pre>
+</details>
+<pre>0s in Pregnancies: 111
+0s in Glucose: 5
+0s in BloodPressure: 35
+0s in SkinThickness: 227
+0s in Insulin: 374
+0s in BMI: 11
+0s in DiabetesPedigreeFunction: 0
+0s in Age: 0
+0s in Outcome: 500
+</pre>
+There are nearly 400 null values in Insulin column, so it's not realistic to drop all the null values. Normally under such circumstance, we replace them with indicators such as mean, median, or mode, etc. Here I choose median.
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python"># replace 0s in target columns with null value
+data.iloc[:, 1:6] = data.iloc[:, 1:6].replace({0:np.NaN})
+# fill null values with medians
+data = data.fillna(data.median()) 
+data.describe().round(2).T
+</code></pre>
+</details>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Pregnancies</th>
+      <td>768.0</td>
+      <td>3.85</td>
+      <td>3.37</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>3.00</td>
+      <td>6.00</td>
+      <td>17.00</td>
+    </tr>
+    <tr>
+      <th>Glucose</th>
+      <td>768.0</td>
+      <td>121.66</td>
+      <td>30.44</td>
+      <td>44.00</td>
+      <td>99.75</td>
+      <td>117.00</td>
+      <td>140.25</td>
+      <td>199.00</td>
+    </tr>
+    <tr>
+      <th>BloodPressure</th>
+      <td>768.0</td>
+      <td>72.39</td>
+      <td>12.10</td>
+      <td>24.00</td>
+      <td>64.00</td>
+      <td>72.00</td>
+      <td>80.00</td>
+      <td>122.00</td>
+    </tr>
+    <tr>
+      <th>SkinThickness</th>
+      <td>768.0</td>
+      <td>29.11</td>
+      <td>8.79</td>
+      <td>7.00</td>
+      <td>25.00</td>
+      <td>29.00</td>
+      <td>32.00</td>
+      <td>99.00</td>
+    </tr>
+    <tr>
+      <th>Insulin</th>
+      <td>768.0</td>
+      <td>140.67</td>
+      <td>86.38</td>
+      <td>14.00</td>
+      <td>121.50</td>
+      <td>125.00</td>
+      <td>127.25</td>
+      <td>846.00</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>768.0</td>
+      <td>32.46</td>
+      <td>6.88</td>
+      <td>18.20</td>
+      <td>27.50</td>
+      <td>32.30</td>
+      <td>36.60</td>
+      <td>67.10</td>
+    </tr>
+    <tr>
+      <th>DiabetesPedigreeFunction</th>
+      <td>768.0</td>
+      <td>0.47</td>
+      <td>0.33</td>
+      <td>0.08</td>
+      <td>0.24</td>
+      <td>0.37</td>
+      <td>0.63</td>
+      <td>2.42</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>768.0</td>
+      <td>33.24</td>
+      <td>11.76</td>
+      <td>21.00</td>
+      <td>24.00</td>
+      <td>29.00</td>
+      <td>41.00</td>
+      <td>81.00</td>
+    </tr>
+    <tr>
+      <th>Outcome</th>
+      <td>768.0</td>
+      <td>0.35</td>
+      <td>0.48</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h1 id="pairplot-correlation-matrix-imbalanced-dataset">Pairplot &amp; Correlation Matrix -- Imbalanced Dataset</h1>
+<p>Now we can visualize the dataset and see if we can find something else.</p>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">import seaborn as sns
+import matplotlib.pyplot as plt
+sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
+</code></pre>
+</details>
+<figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648690175972.png" alt="Pairplot-Imbalanced Dataset" loading="lazy"></figure>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">corr_mat = data.corr().round(2)
+plt.figure(figsize = (15,10))
+sns.heatmap(corr_mat, annot=True)
+</code></pre>
+</details>
+<p><img src="https://qingqiuzhang.github.io/post-images/1649884290937.png" alt="Correlation Matrix-Imbalanced Dataset" loading="lazy"><br>
+From the pairplot above, we discover this is an imbalanced dataset. There are 500 observations whose outcome is 0 and only 268 is 1. If we train our model with such data, the results may be misleading. <strong>There are several methods to deal with imbalanced data</strong>:</p>
+<ol>
+<li>Collect more data</li>
+<li>Under-Sampling</li>
+<li>Over-Sampling</li>
+<li>Use confusion matrix or other ways to evaluate the peformance<br>
+As the number of observations is only 768, it's unrealistic to under-sampling. Here I wil illustrate how to do oversampling using SMOTE().</li>
+</ol>
+<h1 id="oversampling-with-smote">Oversampling with SMOTE()</h1>
+<p>We can use SMOTE() to over-sampling observations so that the number of outcome in each class will be the same. After doing that, we describe the data again.</p>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python3">from imblearn.over_sampling import SMOTE 
+# get X, y
+X          = data.iloc[:, 0:8]
+y          = data.iloc[:, -1]
+# perform SMOTE()
+oversample = SMOTE()
+X, y       = oversample.fit_resample(X, y)
+# join X, y
+y          = pd.DataFrame(y)
+data       = pd.concat([X, y], axis=1)
+print(data.shape)
+data.describe().round(2).T
+</code></pre>
+</details>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Pregnancies</th>
+      <td>1000.0</td>
+      <td>3.99</td>
+      <td>3.33</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>3.00</td>
+      <td>6.00</td>
+      <td>17.00</td>
+    </tr>
+    <tr>
+      <th>Glucose</th>
+      <td>1000.0</td>
+      <td>126.40</td>
+      <td>31.39</td>
+      <td>44.00</td>
+      <td>102.82</td>
+      <td>122.00</td>
+      <td>148.00</td>
+      <td>199.00</td>
+    </tr>
+    <tr>
+      <th>BloodPressure</th>
+      <td>1000.0</td>
+      <td>72.97</td>
+      <td>11.71</td>
+      <td>24.00</td>
+      <td>65.75</td>
+      <td>72.00</td>
+      <td>80.00</td>
+      <td>122.00</td>
+    </tr>
+    <tr>
+      <th>SkinThickness</th>
+      <td>1000.0</td>
+      <td>29.64</td>
+      <td>8.22</td>
+      <td>7.00</td>
+      <td>27.00</td>
+      <td>29.00</td>
+      <td>33.00</td>
+      <td>99.00</td>
+    </tr>
+    <tr>
+      <th>Insulin</th>
+      <td>1000.0</td>
+      <td>146.58</td>
+      <td>90.69</td>
+      <td>14.00</td>
+      <td>125.00</td>
+      <td>125.00</td>
+      <td>136.25</td>
+      <td>846.00</td>
+    </tr>
+    <tr>
+      <th>BMI</th>
+      <td>1000.0</td>
+      <td>33.01</td>
+      <td>6.68</td>
+      <td>18.20</td>
+      <td>28.40</td>
+      <td>32.66</td>
+      <td>36.80</td>
+      <td>67.10</td>
+    </tr>
+    <tr>
+      <th>DiabetesPedigreeFunction</th>
+      <td>1000.0</td>
+      <td>0.49</td>
+      <td>0.32</td>
+      <td>0.08</td>
+      <td>0.26</td>
+      <td>0.40</td>
+      <td>0.65</td>
+      <td>2.42</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>1000.0</td>
+      <td>33.88</td>
+      <td>11.34</td>
+      <td>21.00</td>
+      <td>25.00</td>
+      <td>31.00</td>
+      <td>41.00</td>
+      <td>81.00</td>
+    </tr>
+    <tr>
+      <th>Outcome</th>
+      <td>1000.0</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>1.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h1 id="pairplot-correlation-matrix-balanced-dataset">Pairplot &amp; Correlation Matrix -- Balanced Dataset</h1>
+<p>Once again visualize the dataset to see the changes in the distribution of data.</p>
+<details>
+    <summary>Show/Hide Cells</summary>
+```Python3
+sns.pairplot(data, hue="Outcome", corner=True)
+```
+</details>
+<p><img src="https://qingqiuzhang.github.io/post-images/1648950949751.png" alt="Pairplot - Balanced Dataset" loading="lazy"><br>
+For now, we transform the original imbalanced dataset into a balanced dataset with the number of each outcome class being 500. there is not much difference in distribution between diabetics and nondiabetics. Glucose should have the highest correlation with Outcome among all the features. We can testify it using a correlation matrix heatmap.</p>
+<details>
+    <summary>Show/Hide Cells</summary>
+```Python3
+corr_mat = data.corr().round(2)
+plt.figure(figsize = (15,10))
+sns.heatmap(corr_mat, annot=True)
+```
+</details>
+<figure data-type="image" tabindex="2"><img src="https://qingqiuzhang.github.io/post-images/1648951579451.png" alt="Correlation Matrix - Balanced Dataset" loading="lazy"></figure>
+<p>The features with higher correlation with Outcome are more important and more inspirable to our model process.</p>
+<h1 id="data-transformation">Data Transformation</h1>
+<p>If the range of two features differ a lot, for example, one is from 0 to 1 and the other is from 0 to 10,000, apparantly models won't treat such two features equally. Normally, the feature with larger range would influence the result more. Nevertheless, this doesn't mean it's more important than the other one. That's why we need scale the features. Frequently used scaling techniques are:</p>
+<ul>
+<li>MinMaxScaler()</li>
+<li>StardardScaler()</li>
+<li>MaxAbsScaler()</li>
+<li>RobustScaler()</li>
+</ul>
+<p>I usually choose MinMaxScaler() or StandardScaler() for most of datasets. You can also use others according to the charasteristic of the dataset at hand.</p>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python3">from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# get X, y
+X  = data.drop([&quot;Outcome&quot;], axis=1)
+y  = data[&quot;Outcome&quot;]
+
+X2 = X.copy
+y2 = y.copy
+
+# split X, y into traning set and validation set
+X2_train, X2_trainValid, y2_train, y2_trainValid = train_test_split(X2, y2, test_size=0.5)
+# perform feature scaling
+scaler   = StandardScaler()
+
+X2_train = scaler.fit_transform(X2_train)
+print(&quot;The training set:&quot;)
+print(X2_train)
+
+X2_trainValid = scaler.transform(X2_trainValid)
+print(&quot;The validation set:&quot;)
+print(X2_trainValid)
+</code></pre>
+</details>
+<pre>The training set:
+[[ 0.91861577  1.16692299  1.18785055 ... -0.37252998 -1.00546758
+   1.12702163]
+ [-0.31857719  2.14006051 -0.37791467 ... -0.29655845 -0.59256699
+  -0.00540078]
+ [-1.2464719  -0.54138673  1.3123182  ... -0.07795059  0.92337497
+   0.25592747]
+ ...
+ [ 0.60931753  0.71279215  0.66592881 ... -0.50927873 -0.96541006
+   1.38834988]
+ [ 0.91861577  0.69093641  0.49301433 ...  0.36541497  0.17583587
+   1.4754593 ]
+ [-1.2464719  -1.00641748 -0.20394076 ...  1.61792412 -0.44466231
+  -1.1378232 ]]
+  </pre>
+  <pre>The validation set:
+[[-0.93717366 -1.13616915 -0.89983642 ... -0.85874777  0.2732917
+  -0.87649495]
+ [-0.62787543 -1.03885539 -0.7258625  ...  0.78223728  0.56293838
+  -0.96360437]
+ [ 0.30001929 -1.20104498 -0.55188859 ... -1.28418834 -0.46006904
+  -0.35383845]
+ ...
+ [-0.62787543 -0.94154164 -0.37791467 ... -1.78560044  0.47974199
+  -0.70227612]
+ [ 0.30001929  0.61547839  0.83990272 ... -0.12942108 -0.1211208
+   2.08522521]
+ [ 0.60931753 -0.58472455  1.36182446 ...  0.59990561  0.72624981
+  -0.26672903]]
+</pre>
+<h1 id="data-reduction">Data Reduction</h1>
+<p>With clean data at hand, we can visulize the data, which may indicate some relations between the features or between features and targets. Knowing these is useful to data reduction, for example, if a feature is highly correlated with the target, then we had better retain it. Or if two features are highly correlated, it would be much easier for us if we drop out one of them. Here I use PCA (Principal componenet analysis) for a demonstration.</p>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python3">from sklearn.decomposition import PCA
+
+pca      = PCA()
+
+X2_train = pca.fit_transform(X2_train)
+print(&quot;The training set:&quot;)
+print(X2_train)
+
+X2_trainValid = pca.transform(X2_trainValid)
+print(&quot;The validation set:&quot;)
+print(X2_trainValid)
+</code></pre>
+</details>
+<pre>The training set:
+[[ 1.11094069  1.71567637  0.06106008 ... -0.41295852  0.00731795
+  -0.44959938]
+ [-0.35117318  0.31229466  1.6917659  ... -1.61109567 -0.49354468
+   0.3728086 ]
+ [ 0.16735037 -0.4001708  -0.38262459 ...  0.82802415  0.95458562
+  -0.10766268]
+ ...
+ [ 0.66464415  1.65681528  0.09661504 ... -0.34339558  0.49824185
+  -0.21578121]
+ [ 1.89124805  0.9469956   0.91665363 ...  0.40528492  0.16728102
+   0.47349385]
+ [-0.77480095 -1.71331367 -1.18697513 ...  0.26478707 -0.22960668
+   1.25339887]]
+</pre>
+<pre>The validation set:
+[[-2.92512666 -0.09229361  0.31554059 ... -0.10102492 -0.22291171
+   0.68989167]
+ [-0.55971697 -1.49656753 -0.53947916 ...  0.41658342 -0.12598596
+   0.48539238]
+ [-2.27295931  1.03707233 -0.42829519 ... -0.03041183 -0.23491582
+  -0.2007138 ]
+ ...
+ [-2.79570134  0.52778715  0.64923584 ...  0.15441194 -0.14783737
+  -0.13731851]
+ [ 1.54801396  1.38771828  1.28965127 ...  0.67922686  0.85859194
+   0.66502772]
+ [ 0.65313216  0.2231839  -0.87818227 ...  0.76275166 -0.74002896
+   0.09427758]]
+</pre>
+                                </div>
+                                
+                                    <div class="post-toc">
+                                        <ul class="markdownIt-TOC">
+<li><a href="#data-cleaning">Data Cleaning</a></li>
+<li><a href="#pairplot-correlation-matrix-imbalanced-dataset">Pairplot &amp; Correlation Matrix -- Imbalanced Dataset</a></li>
+<li><a href="#oversampling-with-smote">Oversampling with SMOTE()</a></li>
+<li><a href="#pairplot-correlation-matrix-balanced-dataset">Pairplot &amp; Correlation Matrix -- Balanced Dataset</a></li>
+<li><a href="#data-transformation">Data Transformation</a></li>
+<li><a href="#data-reduction">Data Reduction</a></li>
+</ul>
+
+                                    </div>
+                                    
+                                        
+                                                            
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                                                                            
+                                                                                
+                                                                                    <a href="https://qingqiuzhang.github.io/WOUmPg0ZPX/">#
+                                                                                        Python
+                                                                                    </a>
+                                                                                    
+                                                                                    <a href="https://qingqiuzhang.github.io/2uMVT4cFu/">#
+                                                                                        Classification
+                                                                                    </a>
+                                                                                    
+                                                                                    <a href="https://qingqiuzhang.github.io/URtsfZ1k8/">#
+                                                                                        Machine Learning
+                                                                                    </a>
+                                                                                    
+                                                                                        
+                                                                        </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a
+                                                                            href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                        <!---->
+                                                                        <section class="post-nav">
+                                                                            
+                                                                                <a class="prev" rel="prev"
+                                                                                    href="https://qingqiuzhang.github.io/bike-sharing-dadaset-analytics/">
+                                                                                    Bike Sharing Dataset Analytics (2) -- Hourly Data
+                                                                                </a>
+                                                                                
+                                                                                    
+                                                                                        <a class="next" rel="next"
+                                                                                            href="https://qingqiuzhang.github.io/bike-sharing-dataset-analytics/">
+                                                                                            Bike Sharing Dataset Analytics (1) -- Daily Data
+                                                                                        </a>
+                                                                                        
+                                                                        </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '689fd1fc8fe8ddae1804',
+        clientSecret: '216656a758024efe4573879934956b305a43a693',
+        repo: 'qingqiuzhang.github.io',
+        owner: 'qingqiuzhang',
+        admin: ['qingqiuzhang'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        Qingqiu Zhang &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://github.com" target="_blank">
+                                                Github
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.6
+                </div>
+                
+                    <script>
+                        var port = '';
+                        
+                        port = ':4000';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1650325898655);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    Qingqiu Zhang
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="Qingqiu Zhang">
+<meta name="description" content="Thank you for visiting. Have fun here!">
+<meta name="keywords" content="qingqiu zhang, machine learning, Qingqiu Zhang">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://qingqiuzhang.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+        <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+        
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                        <!--CDN样式-->
+                        <script src="https://cdn1.lncld.net/static/js/av-min-1.5.0.js"></script>
+			<script src="https://jerryz.sgp1.cdn.digitaloceanspaces.com/lib/hit-kounter/hit-kounter-lc-0.3.0.js"></script>
+                        
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+                                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-224309801-1"></script>
+                                <script>
+                                    window.dataLayer = window.dataLayer || [];
+
+                                    function gtag() {
+                                        dataLayer.push(arguments);
+                                    }
+                                    gtag('js', new Date());
+                                    gtag('config', 'UA-224309801-1');
+                                </script>
+                                
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://qingqiuzhang.github.io">
+                    Qingqiu Zhang
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        Home
+                    </a>
+                    
+                    <a class="menu-item" href="/posts">
+                        Content
+                    </a>
+                    
+                    <a class="menu-item" href="https://qingqiuzhang.github.io/archives">
+                        Archives
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        Tag
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://qingqiuzhang.github.io">
+                            Qingqiu Zhang
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            Home
+                        </a>
+                        
+                        <a class="menu-item" href="/posts">
+                            Content
+                        </a>
+                        
+                        <a class="menu-item" href="https://qingqiuzhang.github.io/archives">
+                            Archives
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            Tag
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Diabetes Data Analytics (2) -- Model Training, Evaluating and Testing
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Qingqiu Zhang
+                                    </a>
+                                    <span class="post-time">
+                                        Date: <a href="#">
+                                            2022-03-29
+                                        </a>
+                                    </span>
+                                    
+                                        Views:
+					<span data-hk-page="current">-</span>
+                                        
+                                </div>
+                                
+                        </header>
+                        
+                                <div class="post-content">
+                                    <p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">the previous article</a>, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.<br>
+<strong>For everything you may need, visit:</strong><br>
+<a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
+Hope this helps!</p>
+<!-- more -->
+<p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">Daibetes Data Analytics (1) -- Data Preprocessing</a>, I demonstrate how to do feature scaling and deature reductio separately. This time I'll show how to combine these steps with model training using Pipeline.</p>
+<h1 id="model-training-and-evaluating">Model Training And Evaluating</h1>
+<p>There are so many classification models. Some you may have heard or used while the others not. This articles covers almost all the classification models you may need as a beginner. I will show you how to conduct them and how different hyperparameters will affect the models.<br>
+Notice the X and y used in train_test_split are the same from <a href="https://blog.csdn.net/VickyTsai/article/details/104007576#data-transformation">here</a>.</p>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import ShuffleSplit
+from sklearn.model_selection import cross_validate
+
+# get traing set and testing set
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size    = 0.25,
+    random_state = 42
+)
+
+# Since this is a clinical dataset, we don't care too much about accuracy.
+# Recall and precision are more important. So we use f1 score to evaluate models
+
+# cross validation
+def Cval(X_train, y_train, modelObj):
+    # split training set into traing set &amp; validation set
+    shuffle = ShuffleSplit(n_splits=100, test_size=0.25, random_state=10)
+    CVInfo  = cross_validate(
+        modelObj,
+        X_train,
+        y_train,
+        cv                 = shuffle,
+        scoring            = 'f1',
+        return_train_score = True,
+        n_jobs             = -1
+    )
+    mean_train = np.mean(CVInfo['train_score'])
+    mean_test  = np.mean(CVInfo['test_score'])
+    return f&quot;Mean Train: {mean_train}, Mean Test: {mean_test}&quot;
+
+# grid search
+def Gsearch(X, y, modelObj):
+    # split training set into traing set &amp; validation set
+    shuffle     = ShuffleSplit(n_splits=100, test_size=0.25, random_state=10)
+    grid_search = GridSearchCV(
+        modelObj,
+        param_grid,
+        cv                 = shuffle,
+        scoring            = 'f1',
+        return_train_score = True,
+        n_jobs             = -1
+    )
+    grid_search.fit(X,y)
+    results = pd.DataFrame(grid_search.cv_results_)
+    return results
+</code></pre>
+</details>
+<h2 id="k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</h2>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">from sklearn.pipeline import Pipeline
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+
+# grid search: K
+klist      = list(range(1, 20))
+fullModel  = Pipeline(
+    [
+        (&quot;scaler&quot;, StandardScaler()),
+        (&quot;pca&quot;, PCA()),
+        (&quot;knn&quot;,KNeighborsClassifier())
+    ]
+)
+param_grid = {'knn__n_neighbors':klist}
+print(
+    Gsearch(X_train, y_train, fullModel)[
+        [
+            'rank_test_score',
+            'mean_train_score',
+            'mean_test_score',
+            'param_knn__n_neighbors'
+        ]
+    ]
+)
+</code></pre>
+</details>
+<pre>    rank_test_score  mean_train_score  mean_test_score param_knn__n_neighbors
+0                17          1.000000         0.767296                      1
+1                19          0.905732         0.705512                      2
+2                15          0.876778         0.778121                      3
+3                18          0.846312         0.749821                      4
+4                14          0.845480         0.782354                      5
+5                16          0.829343         0.775068                      6
+6                 2          0.834093         0.789197                      7
+7                12          0.831851         0.785771                      8
+8                 4          0.830803         0.787731                      9
+9                 9          0.829832         0.786638                     10
+10                1          0.825560         0.790609                     11
+11               13          0.823216         0.785650                     12
+12                3          0.820105         0.788285                     13
+13               11          0.818992         0.786504                     14
+14                5          0.816281         0.787701                     15
+15                7          0.815164         0.786984                     16
+16                6          0.812760         0.787472                     17
+17                8          0.813046         0.786949                     18
+18               10          0.810027         0.786559                     19
+</pre>
+<h2 id="logistic-regression">Logistic Regression</h2>
+<h3 id="without-penalty">Without Penalty</h3>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">from sklearn.linear_model import LogisticRegression
+
+fullModel = Pipeline(
+    [
+        (&quot;scaler&quot;, StandardScaler()),
+        (&quot;pca&quot;, PCA()),
+        (&quot;lr&quot;, LogisticRegression(penalty=&quot;none&quot;)),
+    ]
+)
+print(Cval(X_train, y_train, fullModel))
+</code></pre>
+</details>
+<pre>Mean Train: 0.7489133929356746, Mean Test: 0.7334838216167244
+</pre>
+<h3 id="with-l2-penalty">With &quot;l2&quot; Penalty</h3>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">clist = [0.1, 0.5, 1., 2., 5., 10., 50., 100., 200.]
+fullModel = Pipeline(
+    [
+        (&quot;scaler&quot;, StandardScaler()),
+        (&quot;pca&quot;, PCA()),
+        (&quot;lr&quot;, LogisticRegression(penalty=&quot;l2&quot;)),
+    ]
+)
+param_grid = {&quot;lr__C&quot;: clist}
+print(
+    Gsearch(X_train, y_train, fullModel)[
+        [&quot;rank_test_score&quot;, &quot;mean_train_score&quot;, &quot;mean_test_score&quot;, &quot;param_lr__C&quot;]
+    ]
+)
+</code></pre>
+</details>
+<pre>   rank_test_score  mean_train_score  mean_test_score param_lr__C
+0                9          0.746639         0.732332         0.1
+1                1          0.748524         0.734091         0.5
+2                2          0.748749         0.733897         1.0
+3                4          0.748788         0.733610         2.0
+4                3          0.748850         0.733614         5.0
+5                8          0.748915         0.733403        10.0
+6                7          0.748927         0.733416        50.0
+7                5          0.748927         0.733484       100.0
+8                5          0.748913         0.733484       200.0
+</pre>
+<h2 id="naive-bayes-classifier">Naive Bayes Classifier</h2>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">from sklearn.naive_bayes import GaussianNB
+
+fullModel = Pipeline(
+    [(&quot;scaler&quot;, StandardScaler()), (&quot;pca&quot;, PCA()), (&quot;gnb&quot;, GaussianNB())]
+)
+print(Cval(X_train, y_train, fullModel))
+</code></pre>
+</details>
+<pre>Mean Train: 0.7156724204600774, Mean Test: 0.6935958660647001
+</pre>
+<h2 id="support-vector-machine">Support Vector Machine</h2>
+<h3 id="linear">Linear</h3>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">from sklearn.svm import SVC
+
+C         = [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 5.0, 10.0]
+fullModel = Pipeline(
+    [(&quot;scaler&quot;, StandardScaler()), (&quot;pca&quot;, PCA()), (&quot;lsv&quot;, SVC(kernel=&quot;linear&quot;))]
+)
+param_grid = {&quot;lsv__C&quot;: C}
+print(
+    Gsearch(X_train, y_train, fullModel)[
+        [&quot;rank_test_score&quot;, &quot;mean_train_score&quot;, &quot;mean_test_score&quot;, &quot;param_lsv__C&quot;]
+    ]
+)
+</code></pre>
+</details>
+<pre>   rank_test_score  mean_train_score  mean_test_score param_lsv__C
+0                9          0.736142         0.721251         0.01
+1                8          0.748459         0.732040          0.1
+2                7          0.751446         0.734082          1.0
+3                3          0.751417         0.734420          1.5
+4                4          0.751544         0.734324          2.0
+5                1          0.751747         0.734826          5.0
+6                2          0.751812         0.734491         10.0
+7                6          0.751675         0.734110         20.0
+8                5          0.751708         0.734141         50.0
+</pre>
+<h3 id="nonlinear">Nonlinear</h3>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">C         = [0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0]
+gamma     = [0.0001, 0.001, 0.1, 0.5, 1.0, 1.5, 2.0]
+fullModel = Pipeline(
+    [(&quot;scaler&quot;, StandardScaler()), (&quot;pca&quot;, PCA()), (&quot;nlsv&quot;, SVC(kernel=&quot;rbf&quot;))]
+)
+param_grid = {&quot;nlsv__C&quot;: C, &quot;nlsv__gamma&quot;: gamma}
+print(
+    Gsearch(X_train, y_train, fullModel)[
+        [
+            &quot;rank_test_score&quot;,
+            &quot;mean_train_score&quot;,
+            &quot;mean_test_score&quot;,
+            &quot;param_nlsv__C&quot;,
+            &quot;param_nlsv__gamma&quot;,
+        ]
+    ]
+)
+</code></pre>
+</details>
+<pre>    rank_test_score  mean_train_score  mean_test_score param_nlsv__C  param_nlsv__gamma 
+0                44          0.372066         0.351788           0.1            0.0001  
+1                43          0.372777         0.352342           0.1             0.001   
+2                16          0.794937         0.769077           0.1               0.1
+3                19          0.796141         0.759841           0.1               0.5
+4                38          0.506495         0.426928           0.1               1.0
+5                41          0.389886         0.354617           0.1               1.5
+6                49          0.389178         0.338997           0.1               2.0
+7                44          0.372066         0.351788          0.25            0.0001 
+8                37          0.512152         0.495792          0.25             0.001
+9                 9          0.819667         0.787810          0.25               0.1
+10               12          0.865541         0.782728          0.25               0.5
+11               20          0.898090         0.747326          0.25               1.0
+12               36          0.816284         0.555991          0.25               1.5
+13               39          0.589468         0.395044          0.25               2.0
+14               44          0.372066         0.351788           0.5            0.0001
+15               33          0.715235         0.699347           0.5             0.001
+16                7          0.832132         0.790794           0.5               0.1
+17                3          0.906015         0.792512           0.5               0.5
+18               14          0.953103         0.775851           0.5               1.0
+19               25          0.978297         0.724190           0.5               1.5
+20               35          0.989296         0.616334           0.5               2.0
+21               44          0.372066         0.351788          0.75            0.0001
+22               31          0.723086         0.707281          0.75              0.01
+23                6          0.840006         0.791039          0.75               0.1
+24                5          0.920507         0.791277          0.75               0.5
+25               13          0.965587         0.777566          0.75               1.0
+26               24          0.986410         0.732414          0.75               1.5
+27               34          0.995198         0.669428          0.75               2.0
+28               44          0.372066         0.351788           1.0            0.0001
+29               28          0.728932         0.711763           1.0              0.01
+30                4          0.845415         0.791687           1.0               0.1
+31                8          0.930660         0.790740           1.0               0.5
+32               15          0.975305         0.774491           1.0               1.0
+33               21          0.992273         0.741896           1.0               1.5
+34               32          0.996811         0.706107           1.0               2.0
+35               42          0.372209         0.352824           1.5            0.0001
+36               26          0.736768         0.720368           1.5              0.01
+37                2          0.852950         0.793025           1.5               0.1
+38               10          0.947417         0.787222           1.5               0.5
+39               17          0.987013         0.768417           1.5               1.0
+40               22          0.996314         0.741427           1.5               1.5
+41               29          0.998739         0.710655           1.5               2.0
+42               40          0.405951         0.387968           2.0            0.0001
+43               27          0.735862         0.718574           2.0              0.01
+44                1          0.858846         0.793716           2.0               0.1
+45               11          0.958640         0.783840           2.0               0.5
+46               18          0.992780         0.765268           2.0               1.0
+47               23          0.998327         0.740466           2.0               1.5
+48               30          0.999947         0.709506           2.0               2.0
+</pre>
+<h2 id="decision-tree">Decision Tree</h2>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">from sklearn.tree import DecisionTreeClassifier
+
+max_tree_depth = list(np.arange(1, 11, 1))
+fullModel      = Pipeline(
+    [(&quot;scaler&quot;, StandardScaler()), (&quot;pca&quot;, PCA()), (&quot;dtc&quot;, DecisionTreeClassifier())]
+)
+param_grid = {&quot;dtc__max_depth&quot;: max_tree_depth}
+print(
+    Gsearch(X_train, y_train, fullModel)[
+        [
+            &quot;rank_test_score&quot;,
+            &quot;mean_train_score&quot;,
+            &quot;mean_test_score&quot;,
+        ]
+    ]
+)
+</code></pre>
+</details>
+<pre>   rank_test_score  mean_train_score  mean_test_score param_dtc__max_depth
+0                3          0.769956         0.752233                    1
+1                5          0.766799         0.739621                    2
+2               10          0.777782         0.728209                    3
+3                1          0.822327         0.759595                    4
+4                2          0.851185         0.753298                    5
+5                4          0.882829         0.746050                    6
+6                6          0.912364         0.739208                    7
+7                7          0.937076         0.737403                    8
+8                9          0.956295         0.729259                    9
+9                8          0.971882         0.730771                   10
+</pre>
+<h2 id="random-forest">Random Forest</h2>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">max_tree_depth = list(np.arange(1, 21, 1))
+fullModel      = Pipeline(
+    [(&quot;scaler&quot;, StandardScaler()), (&quot;pca&quot;, PCA()), (&quot;forest&quot;, RandomForestClassifier())]
+)
+param_grid = {&quot;forest__max_depth&quot;: max_tree_depth}
+print(
+    Gsearch(X_train, y_train, fullModel)[
+        [
+            &quot;rank_test_score&quot;,
+            &quot;mean_train_score&quot;,
+            &quot;mean_test_score&quot;,
+        ]
+    ]
+)
+</code></pre>
+</details>
+<pre>    rank_test_score  mean_train_score  mean_test_score param_forest__max_depth
+0                20          0.780006         0.743256                       1
+1                19          0.810001         0.760425                       2
+2                18          0.832622         0.770300                       3
+3                17          0.857490         0.776023                       4
+4                16          0.885679         0.782947                       5
+5                14          0.916162         0.789779                       6
+6                15          0.946883         0.789271                       7
+7                13          0.970423         0.793335                       8
+8                 7          0.985119         0.795747                       9
+9                 6          0.992331         0.795925                      10
+10               12          0.996899         0.793636                      11
+11                9          0.999103         0.795075                      12
+12                8          0.999682         0.795129                      13
+13                1          0.999947         0.798139                      14
+14                2          0.999982         0.796966                      15
+15                5          0.999982         0.796176                      16
+16               10          1.000000         0.794725                      17
+17               11          1.000000         0.794472                      18
+18                4          1.000000         0.796287                      19
+19                3          1.000000         0.796903                      20
+</pre>
+<h1 id="model-testing">Model Testing</h1>
+<p>For now we have trained a set of models, among which KNN, non-linear SVC, and Random Forest are the best. So we use the three methods to see how they perform on testing set.</p>
+<h2 id="k-nearest-neighbors-classifier-2">K-Nearest Neighbors Classifier</h2>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">from sklearn.metrics import f1_score
+
+fullModel = Pipeline(
+    [
+        (&quot;scaler&quot;, StandardScaler()),
+        (&quot;pca&quot;, PCA()),
+        (&quot;nlsv&quot;, KNeighborsClassifier(n_neighbors=11)),
+    ]
+)
+fullModel.fit(X_train, y_train)
+y_pred = fullModel.predict(X_test)
+f1_score(y_test, y_pred)
+</code></pre>
+</details>
+<pre>0.793103448275862</pre>
+<h2 id="non-linear-support-vector-classifier">Non-linear Support Vector Classifier</h2>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">fullModel = Pipeline(
+    [
+        (&quot;scaler&quot;, StandardScaler()),
+        (&quot;pca&quot;, PCA()),
+        (&quot;nlsv&quot;, SVC(kernel=&quot;rbf&quot;, C=1, gamma=0.5)),
+    ]
+)
+fullModel.fit(X_train, y_train)
+y_pred = fullModel.predict(X_test)
+f1_score(y_test, y_pred)
+</code></pre>
+</details>
+<pre>0.8060836501901141</pre>
+<h2 id="random-forest-2">Random Forest</h2>
+<details>
+    <summary>Show/Hide Cells</summary>
+<pre><code class="language-Python">fullModel = Pipeline(
+    [
+        (&quot;scaler&quot;, StandardScaler()),
+        (&quot;pca&quot;, PCA()),
+        (&quot;forest&quot;, RandomForestClassifier(max_depth=14)),
+    ]
+)
+fullModel.fit(X_train, y_train)
+y_pred = fullModel.predict(X_test)
+f1_score(y_test, y_pred)
+</code></pre>
+</details>
+<pre>0.8057553956834532</pre>
+                                </div>
+                                
+                                    <div class="post-toc">
+                                        <ul class="markdownIt-TOC">
+<li><a href="#model-training-and-evaluating">Model Training And Evaluating</a>
+<ul>
+<li><a href="#k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</a></li>
+<li><a href="#logistic-regression">Logistic Regression</a>
+<ul>
+<li><a href="#without-penalty">Without Penalty</a></li>
+<li><a href="#with-l2-penalty">With &quot;l2&quot; Penalty</a></li>
+</ul>
+</li>
+<li><a href="#naive-bayes-classifier">Naive Bayes Classifier</a></li>
+<li><a href="#support-vector-machine">Support Vector Machine</a>
+<ul>
+<li><a href="#linear">Linear</a></li>
+<li><a href="#nonlinear">Nonlinear</a></li>
+</ul>
+</li>
+<li><a href="#decision-tree">Decision Tree</a></li>
+<li><a href="#random-forest">Random Forest</a></li>
+</ul>
+</li>
+<li><a href="#model-testing">Model Testing</a>
+<ul>
+<li><a href="#k-nearest-neighbors-classifier-2">K-Nearest Neighbors Classifier</a></li>
+<li><a href="#non-linear-support-vector-classifier">Non-linear Support Vector Classifier</a></li>
+<li><a href="#random-forest-2">Random Forest</a></li>
+</ul>
+</li>
+</ul>
+
+                                    </div>
+                                    
+                                        
+                                                            
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                                                                            
+                                                                                
+                                                                                    <a href="https://qingqiuzhang.github.io/WOUmPg0ZPX/">#
+                                                                                        Python
+                                                                                    </a>
+                                                                                    
+                                                                                    <a href="https://qingqiuzhang.github.io/2uMVT4cFu/">#
+                                                                                        Classification
+                                                                                    </a>
+                                                                                    
+                                                                                    <a href="https://qingqiuzhang.github.io/URtsfZ1k8/">#
+                                                                                        Machine Learning
+                                                                                    </a>
+                                                                                    
+                                                                                        
+                                                                        </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a
+                                                                            href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                        <!---->
+                                                                        <section class="post-nav">
+                                                                            
+                                                                                    
+                                                                                        <a class="next" rel="next"
+                                                                                            href="https://qingqiuzhang.github.io/iris-data-set-analytics/">
+                                                                                            Iris Dataset Analytics
+                                                                                        </a>
+                                                                                        
+                                                                        </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '689fd1fc8fe8ddae1804',
+        clientSecret: '216656a758024efe4573879934956b305a43a693',
+        repo: 'qingqiuzhang.github.io',
+        owner: 'qingqiuzhang',
+        admin: ['qingqiuzhang'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        Qingqiu Zhang &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://github.com" target="_blank">
+                                                Github
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.6
+                </div>
+                
+                    <script>
+                        var port = '';
+                        
+                        port = ':4000';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1650325898655);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>
