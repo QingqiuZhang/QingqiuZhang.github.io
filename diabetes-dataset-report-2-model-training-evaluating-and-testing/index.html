@@ -200,8 +200,6 @@ Hope this helps!</p>
 <h1 id="model-training-and-evaluating">Model Training And Evaluating</h1>
 <p>There are so many classification models. Some you may have heard or used while the others not. This articles covers almost all the classification models you may need as a beginner. I will show you how to conduct them and how different hyperparameters will affect the models.<br>
 Notice the X and y used in train_test_split are the same from <a href="https://blog.csdn.net/VickyTsai/article/details/104007576#data-transformation">here</a>.</p>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import ShuffleSplit
 from sklearn.model_selection import cross_validate
@@ -250,10 +248,7 @@ def Gsearch(X, y, modelObj):
     results = pd.DataFrame(grid_search.cv_results_)
     return results
 </code></pre>
-</details>
 <h2 id="k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</h2>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
@@ -280,7 +275,6 @@ print(
     ]
 )
 </code></pre>
-</details>
 <pre>    rank_test_score  mean_train_score  mean_test_score param_knn__n_neighbors
 0                17          1.000000         0.767296                      1
 1                19          0.905732         0.705512                      2
@@ -304,8 +298,6 @@ print(
 </pre>
 <h2 id="logistic-regression">Logistic Regression</h2>
 <h3 id="without-penalty">Without Penalty</h3>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">from sklearn.linear_model import LogisticRegression
 
 fullModel = Pipeline(
@@ -317,12 +309,9 @@ fullModel = Pipeline(
 )
 print(Cval(X_train, y_train, fullModel))
 </code></pre>
-</details>
 <pre>Mean Train: 0.7489133929356746, Mean Test: 0.7334838216167244
 </pre>
 <h3 id="with-l2-penalty">With &quot;l2&quot; Penalty</h3>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">clist = [0.1, 0.5, 1., 2., 5., 10., 50., 100., 200.]
 fullModel = Pipeline(
     [
@@ -338,7 +327,6 @@ print(
     ]
 )
 </code></pre>
-</details>
 <pre>   rank_test_score  mean_train_score  mean_test_score param_lr__C
 0                9          0.746639         0.732332         0.1
 1                1          0.748524         0.734091         0.5
@@ -351,8 +339,6 @@ print(
 8                5          0.748913         0.733484       200.0
 </pre>
 <h2 id="naive-bayes-classifier">Naive Bayes Classifier</h2>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">from sklearn.naive_bayes import GaussianNB
 
 fullModel = Pipeline(
@@ -360,13 +346,10 @@ fullModel = Pipeline(
 )
 print(Cval(X_train, y_train, fullModel))
 </code></pre>
-</details>
 <pre>Mean Train: 0.7156724204600774, Mean Test: 0.6935958660647001
 </pre>
 <h2 id="support-vector-machine">Support Vector Machine</h2>
 <h3 id="linear">Linear</h3>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">from sklearn.svm import SVC
 
 C         = [0.01, 0.05, 0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 5.0, 10.0]
@@ -380,7 +363,6 @@ print(
     ]
 )
 </code></pre>
-</details>
 <pre>   rank_test_score  mean_train_score  mean_test_score param_lsv__C
 0                9          0.736142         0.721251         0.01
 1                8          0.748459         0.732040          0.1
@@ -393,8 +375,6 @@ print(
 8                5          0.751708         0.734141         50.0
 </pre>
 <h3 id="nonlinear">Nonlinear</h3>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">C         = [0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0]
 gamma     = [0.0001, 0.001, 0.1, 0.5, 1.0, 1.5, 2.0]
 fullModel = Pipeline(
@@ -413,7 +393,6 @@ print(
     ]
 )
 </code></pre>
-</details>
 <pre>    rank_test_score  mean_train_score  mean_test_score param_nlsv__C  param_nlsv__gamma 
 0                44          0.372066         0.351788           0.1            0.0001  
 1                43          0.372777         0.352342           0.1             0.001   
@@ -466,8 +445,6 @@ print(
 48               30          0.999947         0.709506           2.0               2.0
 </pre>
 <h2 id="decision-tree">Decision Tree</h2>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">from sklearn.tree import DecisionTreeClassifier
 
 max_tree_depth = list(np.arange(1, 11, 1))
@@ -485,7 +462,6 @@ print(
     ]
 )
 </code></pre>
-</details>
 <pre>   rank_test_score  mean_train_score  mean_test_score param_dtc__max_depth
 0                3          0.769956         0.752233                    1
 1                5          0.766799         0.739621                    2
@@ -499,8 +475,6 @@ print(
 9                8          0.971882         0.730771                   10
 </pre>
 <h2 id="random-forest">Random Forest</h2>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">max_tree_depth = list(np.arange(1, 21, 1))
 fullModel      = Pipeline(
     [(&quot;scaler&quot;, StandardScaler()), (&quot;pca&quot;, PCA()), (&quot;forest&quot;, RandomForestClassifier())]
@@ -516,7 +490,6 @@ print(
     ]
 )
 </code></pre>
-</details>
 <pre>    rank_test_score  mean_train_score  mean_test_score param_forest__max_depth
 0                20          0.780006         0.743256                       1
 1                19          0.810001         0.760425                       2
@@ -542,8 +515,6 @@ print(
 <h1 id="model-testing">Model Testing</h1>
 <p>For now we have trained a set of models, among which KNN, non-linear SVC, and Random Forest are the best. So we use the three methods to see how they perform on testing set.</p>
 <h2 id="k-nearest-neighbors-classifier-2">K-Nearest Neighbors Classifier</h2>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">from sklearn.metrics import f1_score
 
 fullModel = Pipeline(
@@ -557,11 +528,8 @@ fullModel.fit(X_train, y_train)
 y_pred = fullModel.predict(X_test)
 f1_score(y_test, y_pred)
 </code></pre>
-</details>
 <pre>0.793103448275862</pre>
 <h2 id="non-linear-support-vector-classifier">Non-linear Support Vector Classifier</h2>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">fullModel = Pipeline(
     [
         (&quot;scaler&quot;, StandardScaler()),
@@ -573,11 +541,8 @@ fullModel.fit(X_train, y_train)
 y_pred = fullModel.predict(X_test)
 f1_score(y_test, y_pred)
 </code></pre>
-</details>
 <pre>0.8060836501901141</pre>
 <h2 id="random-forest-2">Random Forest</h2>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">fullModel = Pipeline(
     [
         (&quot;scaler&quot;, StandardScaler()),
@@ -589,7 +554,6 @@ fullModel.fit(X_train, y_train)
 y_pred = fullModel.predict(X_test)
 f1_score(y_test, y_pred)
 </code></pre>
-</details>
 <pre>0.8057553956834532</pre>
                                 </div>
                                 
@@ -750,7 +714,7 @@ f1_score(y_test, y_pred)
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1650373998458);
+                    newDate.setTime(1650635843638);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>

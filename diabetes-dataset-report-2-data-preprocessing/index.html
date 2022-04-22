@@ -179,7 +179,7 @@
                                     </a>
                                     <span class="post-time">
                                         Date: <a href="#">
-                                            2022-03-30
+                                            2022-03-29
                                         </a>
                                     </span>
                                     
@@ -201,8 +201,6 @@ Hope this helps!</p>
 There are several steps in data preprocessing: data cleaning, data reduction and data transformation. In the following paragraphs, I'll show you how to perform the steps one by one.</p>
 <h1 id="data-cleaning">Data Cleaning</h1>
 <p>First, I load the data from the .csv file and print the first ten rows so that I can have a basic understanding of how the data looks like.</p>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python"># packages needed
 import numpy as np
 import pandas as pd
@@ -211,7 +209,6 @@ import pandas as pd
 data = pd.read_csv('diabetes.csv')
 data.head(10)
 </code></pre>
-</details>
 <div style="overflow: auto; width: 100%">
 <table border="1">
   <thead>
@@ -367,11 +364,8 @@ data.head(10)
 </ul>
 </blockquote>
 <p>Next, we need to examin whether there are null values in the dataset.</p>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">data.isnull().sum()
 </code></pre>
-</details>
 <pre>Pregnancies                 0
 Glucose                     0
 BloodPressure               0
@@ -383,11 +377,8 @@ Age                         0
 Outcome                     0
 dtype: int64</pre>
 <p>It seems there is no null values. Shall we pop the champagne now? If we further examine the data, we will find that the situation is not as good as we thought.</p>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">data.describe().round(2).T
 </code></pre>
-</details>
 <div style="overflow: auto; width: 100%">
 <table border="1">
   <thead>
@@ -507,13 +498,10 @@ dtype: int64</pre>
 </table>
 </div>
 We can see from the picture above that the minimum value of Glucose, BloodPressure, SkinThickness, Insulin, BMI is zero. However, anyone having common sense knows that by no means would these indicators of an alive person be zero. Apparently, the null values are replaced by zeros when inputing data. Here we calculate the number of null values in each column so that we will better decide how to deal with them.
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">for col in list(data.columns):
     zero = len(data[data[col] == 0])
     print('0s in %s: %d' % (col, zero))
 </code></pre>
-</details>
 <pre>0s in Pregnancies: 111
 0s in Glucose: 5
 0s in BloodPressure: 35
@@ -524,16 +512,13 @@ We can see from the picture above that the minimum value of Glucose, BloodPressu
 0s in Age: 0
 0s in Outcome: 500
 </pre>
-There are nearly 400 null values in Insulin column, so it's not realistic to drop all the null values. Normally under such circumstance, we replace them with indicators such as mean, median, or mode, etc. Here I choose median.
-<details>
-    <summary>Show/Hide Cells</summary>
+<p>There are nearly 400 null values in Insulin column, so it's not realistic to drop all the null values. Normally under such circumstance, we replace them with indicators such as mean, median, or mode, etc. Here I choose median.</p>
 <pre><code class="language-Python"># replace 0s in target columns with null value
 data.iloc[:, 1:6] = data.iloc[:, 1:6].replace({0:np.NaN})
 # fill null values with medians
 data = data.fillna(data.median()) 
 data.describe().round(2).T
 </code></pre>
-</details>
 <div style="overflow: auto; width: 100%">
 <table border="1">
   <thead>
@@ -654,21 +639,15 @@ data.describe().round(2).T
 </div>
 <h1 id="pairplot-correlation-matrix-imbalanced-dataset">Pairplot &amp; Correlation Matrix -- Imbalanced Dataset</h1>
 <p>Now we can visualize the dataset and see if we can find something else.</p>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">import seaborn as sns
 import matplotlib.pyplot as plt
 sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
 </code></pre>
-</details>
 <figure data-type="image" tabindex="1"><img src="https://qingqiuzhang.github.io/post-images/1648690175972.png" alt="Pairplot-Imbalanced Dataset" loading="lazy"></figure>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">corr_mat = data.corr().round(2)
 plt.figure(figsize = (15,10))
 sns.heatmap(corr_mat, annot=True)
 </code></pre>
-</details>
 <p><img src="https://qingqiuzhang.github.io/post-images/1649884290937.png" alt="Correlation Matrix-Imbalanced Dataset" loading="lazy"><br>
 From the pairplot above, we discover this is an imbalanced dataset. There are 500 observations whose outcome is 0 and only 268 is 1. If we train our model with such data, the results may be misleading. <strong>There are several methods to deal with imbalanced data</strong>:</p>
 <ol>
@@ -680,8 +659,6 @@ As the number of observations is only 768, it's unrealistic to under-sampling. H
 </ol>
 <h1 id="oversampling-with-smote">Oversampling with SMOTE()</h1>
 <p>We can use SMOTE() to over-sampling observations so that the number of outcome in each class will be the same. After doing that, we describe the data again.</p>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">from imblearn.over_sampling import SMOTE 
 # get X, y
 X          = data.iloc[:, 0:8]
@@ -695,7 +672,6 @@ data       = pd.concat([X, y], axis=1)
 print(data.shape)
 data.describe().round(2).T
 </code></pre>
-</details>
 <div style="overflow: auto; width: 100%">
 <table border="1">
   <thead>
@@ -816,20 +792,14 @@ data.describe().round(2).T
 </div>
 <h1 id="pairplot-correlation-matrix-balanced-dataset">Pairplot &amp; Correlation Matrix -- Balanced Dataset</h1>
 <p>Once again visualize the dataset to see the changes in the distribution of data.</p>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">sns.pairplot(data, hue=&quot;Outcome&quot;, corner=True)
 </code></pre>
-</details>
 <p><img src="https://qingqiuzhang.github.io/post-images/1648950949751.png" alt="Pairplot - Balanced Dataset" loading="lazy"><br>
 For now, we transform the original imbalanced dataset into a balanced dataset with the number of each outcome class being 500. there is not much difference in distribution between diabetics and nondiabetics. Glucose should have the highest correlation with Outcome among all the features. We can testify it using a correlation matrix heatmap.</p>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">corr_mat = data.corr().round(2)
 plt.figure(figsize = (15,10))
 sns.heatmap(corr_mat, annot=True)
 </code></pre>
-</details>
 <figure data-type="image" tabindex="2"><img src="https://qingqiuzhang.github.io/post-images/1648951579451.png" alt="Correlation Matrix - Balanced Dataset" loading="lazy"></figure>
 <p>The features with higher correlation with Outcome are more important and more inspirable to our model process.</p>
 <h1 id="data-transformation">Data Transformation</h1>
@@ -841,8 +811,6 @@ sns.heatmap(corr_mat, annot=True)
 <li>RobustScaler()</li>
 </ul>
 <p>I usually choose MinMaxScaler() or StandardScaler() for most of datasets. You can also use others according to the charasteristic of the dataset at hand.</p>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -866,7 +834,6 @@ X2_trainValid = scaler.transform(X2_trainValid)
 print(&quot;The validation set:&quot;)
 print(X2_trainValid)
 </code></pre>
-</details>
 <pre>The training set:
 [[ 0.91861577  1.16692299  1.18785055 ... -0.37252998 -1.00546758
    1.12702163]
@@ -899,8 +866,6 @@ print(X2_trainValid)
 </pre>
 <h1 id="data-reduction">Data Reduction</h1>
 <p>With clean data at hand, we can visulize the data, which may indicate some relations between the features or between features and targets. Knowing these is useful to data reduction, for example, if a feature is highly correlated with the target, then we had better retain it. Or if two features are highly correlated, it would be much easier for us if we drop out one of them. Here I use PCA (Principal componenet analysis) for a demonstration.</p>
-<details>
-    <summary>Show/Hide Cells</summary>
 <pre><code class="language-Python">from sklearn.decomposition import PCA
 
 pca      = PCA()
@@ -913,7 +878,6 @@ X2_trainValid = pca.transform(X2_trainValid)
 print(&quot;The validation set:&quot;)
 print(X2_trainValid)
 </code></pre>
-</details>
 <pre>The training set:
 [[ 1.11094069  1.71567637  0.06106008 ... -0.41295852  0.00731795
   -0.44959938]
@@ -1087,7 +1051,7 @@ print(X2_trainValid)
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1650373998458);
+                    newDate.setTime(1650635843638);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
