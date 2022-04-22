@@ -175,7 +175,7 @@
                                     </a>
                                     <span class="post-time">
                                         Date: <a href="#">
-                                            2022-03-13
+                                            2022-04-03
                                         </a>
                                     </span>
                                     
@@ -425,7 +425,7 @@ grid.render_notebook()
 # Normally type A has the largest size and type c has the smallest.
 
 </code></pre>
-<iframe allowfullscreen="true" width="100%" height="500px" frameborder="no" src="../post-images/Boxplot & Scatter Store Size by Type.html" >
+<iframe allowfullscreen="true" width="100%" height="450px" frameborder="no" src="../post-images/Boxplot & Scatter Store Size by Type.html" >
 </iframe>
 <h2 id="sales">Sales</h2>
 <pre><code class="language-Python">sales = pd.read_csv(&quot;sales data-set.csv&quot;)
@@ -452,7 +452,7 @@ sales.head(10)
       <th>0</th>
       <td>1</td>
       <td>1</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>24924.50</td>
       <td>False</td>
     </tr>
@@ -460,7 +460,7 @@ sales.head(10)
       <th>1</th>
       <td>1</td>
       <td>1</td>
-      <td>2010-02-12</td>
+      <td nowrap="nowrap">2010-02-12</td>
       <td>46039.49</td>
       <td>True</td>
     </tr>
@@ -468,7 +468,7 @@ sales.head(10)
       <th>2</th>
       <td>1</td>
       <td>1</td>
-      <td>2010-02-19</td>
+      <td nowrap="nowrap">2010-02-19</td>
       <td>41595.55</td>
       <td>False</td>
     </tr>
@@ -476,7 +476,7 @@ sales.head(10)
       <th>3</th>
       <td>1</td>
       <td>1</td>
-      <td>2010-02-26</td>
+      <td nowrap="nowrap">2010-02-26</td>
       <td>19403.54</td>
       <td>False</td>
     </tr>
@@ -484,7 +484,7 @@ sales.head(10)
       <th>4</th>
       <td>1</td>
       <td>1</td>
-      <td>2010-03-05</td>
+      <td nowrap="nowrap">2010-03-05</td>
       <td>21827.90</td>
       <td>False</td>
     </tr>
@@ -492,7 +492,7 @@ sales.head(10)
       <th>5</th>
       <td>1</td>
       <td>1</td>
-      <td>2010-03-12</td>
+      <td nowrap="nowrap">2010-03-12</td>
       <td>21043.39</td>
       <td>False</td>
     </tr>
@@ -500,7 +500,7 @@ sales.head(10)
       <th>6</th>
       <td>1</td>
       <td>1</td>
-      <td>2010-03-19</td>
+      <td nowrap="nowrap">2010-03-19</td>
       <td>22136.64</td>
       <td>False</td>
     </tr>
@@ -508,7 +508,7 @@ sales.head(10)
       <th>7</th>
       <td>1</td>
       <td>1</td>
-      <td>2010-03-26</td>
+      <td nowrap="nowrap">2010-03-26</td>
       <td>26229.21</td>
       <td>False</td>
     </tr>
@@ -516,7 +516,7 @@ sales.head(10)
       <th>8</th>
       <td>1</td>
       <td>1</td>
-      <td>2010-04-02</td>
+      <td nowrap="nowrap">2010-04-02</td>
       <td>57258.43</td>
       <td>False</td>
     </tr>
@@ -524,7 +524,7 @@ sales.head(10)
       <th>9</th>
       <td>1</td>
       <td>1</td>
-      <td>2010-04-09</td>
+      <td nowrap="nowrap">2010-04-09</td>
       <td>42960.91</td>
       <td>False</td>
     </tr>
@@ -723,7 +723,7 @@ for dept in dept_list:
     tab = tab.add(names[str(dept)], f&quot;Dept {dept}&quot;)
 tab.render_notebook()
 </code></pre>
-<iframe allowfullscreen="true" width="100%" height="700px" frameborder="no" src="../post-images/Dept Avg Weekly Sales by Store in Holidays and Nonholidays.html" >
+<iframe allowfullscreen="true" width="100%" height="790px" frameborder="no" src="../post-images/Dept Avg Weekly Sales by Store in Holidays and Nonholidays.html" >
 </iframe>
 <p>Some departments in different stores show similar pattern. So maybe the department Num. indicates its business scope. Therefore, dept No. might be an important feature.</p>
 <h2 id="merge-stores-and-sales">Merge Stores and Sales</h2>
@@ -751,7 +751,7 @@ merge.head()
       <td>A</td>
       <td>151315</td>
       <td>1</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>24924.50</td>
       <td>False</td>
     </tr>
@@ -761,7 +761,7 @@ merge.head()
       <td>A</td>
       <td>151315</td>
       <td>1</td>
-      <td>2010-02-12</td>
+      <td nowrap="nowrap">2010-02-12</td>
       <td>46039.49</td>
       <td>True</td>
     </tr>
@@ -771,7 +771,7 @@ merge.head()
       <td>A</td>
       <td>151315</td>
       <td>1</td>
-      <td>2010-02-19</td>
+      <td nowrap="nowrap">2010-02-19</td>
       <td>41595.55</td>
       <td>False</td>
     </tr>
@@ -781,7 +781,7 @@ merge.head()
       <td>A</td>
       <td>151315</td>
       <td>1</td>
-      <td>2010-02-26</td>
+      <td nowrap="nowrap">2010-02-26</td>
       <td>19403.54</td>
       <td>False</td>
     </tr>
@@ -791,7 +791,7 @@ merge.head()
       <td>A</td>
       <td>151315</td>
       <td>1</td>
-      <td>2010-03-05</td>
+      <td nowrap="nowrap">2010-03-05</td>
       <td>21827.90</td>
       <td>False</td>
     </tr>
@@ -852,7 +852,7 @@ page.render_notebook()
 
 # Type A &amp; Type B sales increase at Christmas while Type C sales decrease
 </code></pre>
-<iframe allowfullscreen="true" width="100%" height="800px" frameborder="no" src="../post-images/Weekly Sales by Type.html" >
+<iframe allowfullscreen="true" width="100%" height="1620px" frameborder="no" src="../post-images/Weekly Sales by Type.html" >
 </iframe>
 <pre><code class="language-Python">import matplotlib.pyplot as plt
 import seaborn as sns
@@ -894,7 +894,7 @@ features.head(10)
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>42.31</td>
       <td>2.572</td>
       <td>NaN</td>
@@ -909,7 +909,7 @@ features.head(10)
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>2010-02-12</td>
+      <td nowrap="nowrap">2010-02-12</td>
       <td>38.51</td>
       <td>2.548</td>
       <td>NaN</td>
@@ -924,7 +924,7 @@ features.head(10)
     <tr>
       <th>2</th>
       <td>1</td>
-      <td>2010-02-19</td>
+      <td nowrap="nowrap">2010-02-19</td>
       <td>39.93</td>
       <td>2.514</td>
       <td>NaN</td>
@@ -939,7 +939,7 @@ features.head(10)
     <tr>
       <th>3</th>
       <td>1</td>
-      <td>2010-02-26</td>
+      <td nowrap="nowrap">2010-02-26</td>
       <td>46.63</td>
       <td>2.561</td>
       <td>NaN</td>
@@ -954,7 +954,7 @@ features.head(10)
     <tr>
       <th>4</th>
       <td>1</td>
-      <td>2010-03-05</td>
+      <td nowrap="nowrap">2010-03-05</td>
       <td>46.50</td>
       <td>2.625</td>
       <td>NaN</td>
@@ -969,7 +969,7 @@ features.head(10)
     <tr>
       <th>5</th>
       <td>1</td>
-      <td>2010-03-12</td>
+      <td nowrap="nowrap">2010-03-12</td>
       <td>57.79</td>
       <td>2.667</td>
       <td>NaN</td>
@@ -984,7 +984,7 @@ features.head(10)
     <tr>
       <th>6</th>
       <td>1</td>
-      <td>2010-03-19</td>
+      <td nowrap="nowrap">2010-03-19</td>
       <td>54.58</td>
       <td>2.720</td>
       <td>NaN</td>
@@ -999,7 +999,7 @@ features.head(10)
     <tr>
       <th>7</th>
       <td>1</td>
-      <td>2010-03-26</td>
+      <td nowrap="nowrap">2010-03-26</td>
       <td>51.45</td>
       <td>2.732</td>
       <td>NaN</td>
@@ -1014,7 +1014,7 @@ features.head(10)
     <tr>
       <th>8</th>
       <td>1</td>
-      <td>2010-04-02</td>
+      <td nowrap="nowrap">2010-04-02</td>
       <td>62.27</td>
       <td>2.719</td>
       <td>NaN</td>
@@ -1029,7 +1029,7 @@ features.head(10)
     <tr>
       <th>9</th>
       <td>1</td>
-      <td>2010-04-09</td>
+      <td nowrap="nowrap">2010-04-09</td>
       <td>65.86</td>
       <td>2.770</td>
       <td>NaN</td>
@@ -1245,7 +1245,7 @@ data.head()
       <td>A</td>
       <td>151315</td>
       <td>1</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>24924.50</td>
       <td>False</td>
       <td>42.31</td>
@@ -1264,7 +1264,7 @@ data.head()
       <td>A</td>
       <td>151315</td>
       <td>2</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>50605.27</td>
       <td>False</td>
       <td>42.31</td>
@@ -1283,7 +1283,7 @@ data.head()
       <td>A</td>
       <td>151315</td>
       <td>3</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>13740.12</td>
       <td>False</td>
       <td>42.31</td>
@@ -1302,7 +1302,7 @@ data.head()
       <td>A</td>
       <td>151315</td>
       <td>4</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>39954.04</td>
       <td>False</td>
       <td>42.31</td>
@@ -1321,7 +1321,7 @@ data.head()
       <td>A</td>
       <td>151315</td>
       <td>5</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>32229.38</td>
       <td>False</td>
       <td>42.31</td>
@@ -1607,7 +1607,7 @@ for i in range(len(l)):
     page = page.add(overlap)
 page.render_notebook()
 </code></pre>
-<iframe allowfullscreen="true" width="100%" height="800px" frameborder="no" src="../post-images/Temperature by Type.html" >
+<iframe allowfullscreen="true" width="100%" height="1620px" frameborder="no" src="../post-images/Temparature by Type.html" >
 </iframe>
 <pre><code class="language-Python">page = Page()
 
@@ -1650,7 +1650,7 @@ for i in range(len(l)):
     page = page.add(overlap)
 page.render_notebook()
 </code></pre>
-<iframe allowfullscreen="true" width="100%" height="800px" frameborder="no" src="../post-images/Fuel Price by Type.html" >
+<iframe allowfullscreen="true" width="100%" height="1620px" frameborder="no" src="../post-images/Fuel Price by Type.html" >
 </iframe>
 <pre><code class="language-Python">page = Page()
 
@@ -1693,7 +1693,7 @@ for i in range(len(l)):
     page = page.add(overlap)
 page.render_notebook()
 </code></pre>
-<iframe allowfullscreen="true" width="100%" height="800px" frameborder="no" src="../post-images/CPI by Type.html" >
+<iframe allowfullscreen="true" width="100%" height="1620px" frameborder="no" src="../post-images/CPI by Type.html" >
 </iframe>
 <pre><code class="language-Python">page = Page()
 
@@ -1738,7 +1738,7 @@ for i in range(len(l)):
     page = page.add(overlap)
 page.render_notebook()
 </code></pre>
-<iframe allowfullscreen="true" width="100%" height="800px" frameborder="no" src="../post-images/Unemployment Rate by Type.html" >
+<iframe allowfullscreen="true" width="100%" height="1620px" frameborder="no" src="../post-images/Unemployment Rete by Type.html" >
 </iframe>
 <p>Temperature, fuel price, CPI, unemployment rate are differnt for stores, but the same for deparments in one store. So the stores are randomly chosen from various places.</p>
 <h1 id="feature-engineer">Feature Engineer</h1>
@@ -1774,7 +1774,7 @@ page.render_notebook()
       <td>A</td>
       <td>151315</td>
       <td>1</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>24924.50</td>
       <td>False</td>
       <td>42.31</td>
@@ -1793,7 +1793,7 @@ page.render_notebook()
       <td>A</td>
       <td>151315</td>
       <td>2</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>50605.27</td>
       <td>False</td>
       <td>42.31</td>
@@ -1812,7 +1812,7 @@ page.render_notebook()
       <td>A</td>
       <td>151315</td>
       <td>3</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>13740.12</td>
       <td>False</td>
       <td>42.31</td>
@@ -1831,7 +1831,7 @@ page.render_notebook()
       <td>A</td>
       <td>151315</td>
       <td>4</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>39954.04</td>
       <td>False</td>
       <td>42.31</td>
@@ -1850,7 +1850,7 @@ page.render_notebook()
       <td>A</td>
       <td>151315</td>
       <td>5</td>
-      <td>2010-02-05</td>
+      <td nowrap="nowrap">2010-02-05</td>
       <td>32229.38</td>
       <td>False</td>
       <td>42.31</td>
@@ -1902,7 +1902,7 @@ df
       <td>A</td>
       <td>151315</td>
       <td>1</td>
-      <td>2011-11-11</td>
+      <td nowrap="nowrap">2011-11-11</td>
       <td>18689.54</td>
       <td>False</td>
       <td>59.11</td>
@@ -1921,7 +1921,7 @@ df
       <td>A</td>
       <td>151315</td>
       <td>2</td>
-      <td>2011-11-11</td>
+      <td nowrap="nowrap">2011-11-11</td>
       <td>44936.47</td>
       <td>False</td>
       <td>59.11</td>
@@ -1940,7 +1940,7 @@ df
       <td>A</td>
       <td>151315</td>
       <td>3</td>
-      <td>2011-11-11</td>
+      <td nowrap="nowrap">2011-11-11</td>
       <td>9959.64</td>
       <td>False</td>
       <td>59.11</td>
@@ -1959,7 +1959,7 @@ df
       <td>A</td>
       <td>151315</td>
       <td>4</td>
-      <td>2011-11-11</td>
+      <td nowrap="nowrap">2011-11-11</td>
       <td>36826.52</td>
       <td>False</td>
       <td>59.11</td>
@@ -1978,7 +1978,7 @@ df
       <td>A</td>
       <td>151315</td>
       <td>5</td>
-      <td>2011-11-11</td>
+      <td nowrap="nowrap">2011-11-11</td>
       <td>31002.65</td>
       <td>False</td>
       <td>59.11</td>
@@ -2016,7 +2016,7 @@ df
       <td>B</td>
       <td>118221</td>
       <td>93</td>
-      <td>2012-10-26</td>
+      <td nowrap="nowrap">2012-10-26</td>
       <td>2487.80</td>
       <td>False</td>
       <td>58.85</td>
@@ -2035,7 +2035,7 @@ df
       <td>B</td>
       <td>118221</td>
       <td>94</td>
-      <td>2012-10-26</td>
+      <td nowrap="nowrap">2012-10-26</td>
       <td>5203.31</td>
       <td>False</td>
       <td>58.85</td>
@@ -2054,7 +2054,7 @@ df
       <td>B</td>
       <td>118221</td>
       <td>95</td>
-      <td>2012-10-26</td>
+      <td nowrap="nowrap">2012-10-26</td>
       <td>56017.47</td>
       <td>False</td>
       <td>58.85</td>
@@ -2073,7 +2073,7 @@ df
       <td>B</td>
       <td>118221</td>
       <td>97</td>
-      <td>2012-10-26</td>
+      <td nowrap="nowrap">2012-10-26</td>
       <td>6817.48</td>
       <td>False</td>
       <td>58.85</td>
@@ -2092,7 +2092,7 @@ df
       <td>B</td>
       <td>118221</td>
       <td>98</td>
-      <td>2012-10-26</td>
+      <td nowrap="nowrap">2012-10-26</td>
       <td>1076.80</td>
       <td>False</td>
       <td>58.85</td>
@@ -2161,12 +2161,12 @@ df
                                                                         <!---->
                                                                         <section class="post-nav">
                                                                             
-                                                                                <a class="prev" rel="prev"
-                                                                                    href="https://qingqiuzhang.github.io/national-center-for-education-dataset-project/">
-                                                                                    National Center for Education Dataset Project
-                                                                                </a>
-                                                                                
                                                                                     
+                                                                                        <a class="next" rel="next"
+                                                                                            href="https://qingqiuzhang.github.io/diabetes-dataset-report-2-model-training-evaluating-and-testing/">
+                                                                                            Diabetes Data Analytics (2) -- Model Training, Evaluating and Testing
+                                                                                        </a>
+                                                                                        
                                                                         </section>
                     </article>
                 </div>
@@ -2250,7 +2250,7 @@ df
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1650663919194);
+                    newDate.setTime(1650669377469);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
