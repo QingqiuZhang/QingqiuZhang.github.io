@@ -179,7 +179,7 @@
                                     </a>
                                     <span class="post-time">
                                         Date: <a href="#">
-                                            2022-03-17
+                                            2022-03-16
                                         </a>
                                     </span>
                                     
@@ -208,6 +208,7 @@
 <li>Unemployment: the unemployment rate</li>
 </ul>
 </blockquote>
+<h2 id="stores">Stores</h2>
 <pre><code class="language-Python">import pandas as pd
 stores = pd.read_csv(&quot;stores data-set.csv&quot;)
 stores.shape
@@ -363,19 +364,335 @@ memory usage: 1.2+ KB
   </tbody>
 </table>
 </div>
-<h2 id="visualization">Visualization</h2>
 <pre><code class="language-Python">from pyecharts import options as opts
 from pyecharts.charts import Bar
 
 # how many stores each type
-store_num_by_type=stores.iloc[:,:2].groupby(&quot;Type&quot;, as_index=False).count()
-bar_store_num_by_type = (Bar(init_opts=opts.InitOpts(width=&quot;300px&quot;, height=&quot;300px&quot;))
-                         .add_xaxis(list(store_num_by_type[&quot;Type&quot;]))
-                         .add_yaxis(&quot;Store Number&quot;, list(store_num_by_type[&quot;Store&quot;]), category_gap=&quot;50%&quot;))
+store_num_by_type = stores.iloc[:, :2].groupby(&quot;Type&quot;, as_index=False).count()
+bar_store_num_by_type = (
+    Bar(init_opts = opts.InitOpts(width = &quot;300px&quot;, height = &quot;300px&quot;))
+    .add_xaxis(list(store_num_by_type[&quot;Type&quot;]))
+    .add_yaxis(&quot;Store Number&quot;, list(store_num_by_type[&quot;Store&quot;]), category_gap = &quot;50%&quot;)
+)
 bar_store_num_by_type.render_notebook()
 </code></pre>
-<iframe scrolling="no" allowfullscreen="true" width="100%" height="100%" frameborder="no" src="/bar_store_num_by_type.html" >
+<iframe scrolling="no" allowfullscreen="true" width="100%" height="300px" frameborder="no" src="file:///Users/qingqiuzhang/Documents/Gridea/post-images/Bar Store Num by Type.html" >
 </iframe>
+<pre><code class="language-Python">from pyecharts.charts import Scatter, Boxplot, Line, Grid, Tab
+
+# relationship between type and size
+# guess: the bigger the size, the higher the weekly sales.
+
+types = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]
+names = locals()
+
+# scatter plot
+for val in types: 
+    names[str(val)] = (
+        Scatter(init_opts=opts.InitOpts(width=&quot;300px&quot;, height=&quot;300px&quot;))
+        .add_xaxis(stores.loc[stores[&quot;Type&quot;] == val][&quot;Store&quot;].to_list())
+        .add_yaxis(f&quot;Type{val}&quot;, stores.loc[stores[&quot;Type&quot;] == val][&quot;Size&quot;].to_list())
+        .set_global_opts(
+            title_opts  = opts.TitleOpts(
+                pos_left = &quot;left&quot;, title = &quot;Store Size Boxplot by Type&quot;
+            ),
+            xaxis_opts  = opts.AxisOpts(type_=&quot;value&quot;, name=&quot;Store&quot;),
+            yaxis_opts  = opts.AxisOpts(type_=&quot;value&quot;, name=&quot;Size&quot;, is_scale=True),
+            legend_opts = opts.LegendOpts(
+                pos_left = &quot;42%&quot;, align = &quot;left&quot;, orient = &quot;vertical&quot;
+            ),
+        )
+        .set_series_opts(label_opts=opts.LabelOpts(is_show=False))
+    )
+overlap = A.overlap(B).overlap(C)
+
+# boxplot
+boxplot = Boxplot(init_opts=opts.InitOpts(width=&quot;300px&quot;, height=&quot;300px&quot;))
+y_axis = [
+    list(stores.loc[stores[&quot;Type&quot;] == &quot;A&quot;][&quot;Size&quot;]),
+    list(stores.loc[stores[&quot;Type&quot;] == &quot;B&quot;][&quot;Size&quot;]),
+    list(stores.loc[stores[&quot;Type&quot;] == &quot;C&quot;][&quot;Size&quot;]),
+]
+boxplot_store_size_by_type = boxplot.add_xaxis(
+    [&quot;Type A&quot;, &quot;Type B&quot;, &quot;Type C&quot;]
+).add_yaxis(&quot;&quot;, boxplot.prepare_data(y_axis))
+boxplot_store_size_by_type.set_global_opts(
+    title_opts = opts.TitleOpts(pos_left=&quot;right&quot;, title=&quot;Store Size Scatter Plot&quot;),
+    xaxis_opts = opts.AxisOpts(type_=&quot;category&quot;, name=&quot;Type&quot;),
+    yaxis_opts = opts.AxisOpts(type_=&quot;value&quot;, name=&quot;Size&quot;, is_scale=True),
+)
+
+# combine the plots
+grid = (
+    Grid(init_opts=opts.InitOpts(width=&quot;900px&quot;, height=&quot;500px&quot;))
+    .add(overlap, grid_opts=opts.GridOpts(pos_left=&quot;58%&quot;))
+    .add(boxplot_store_size_by_type, grid_opts=opts.GridOpts(pos_right=&quot;58%&quot;))
+)
+grid.render_notebook()
+# Normally type A has the largest size and type c has the smallest.
+
+</code></pre>
+<iframe allowfullscreen="true" width="100%" height="540px" frameborder="no" src="file:///Users/qingqiuzhang/Documents/Gridea/post-images/Boxplot & Scatter Store Size by Type.html" >
+</iframe>
+<h2 id="sales">Sales</h2>
+<pre><code class="language-Python">sales = pd.read_csv(&quot;sales data-set.csv&quot;)
+# The format of date is DD/MM/YYYY
+sales.Date = pd.to_datetime(sales.Date, dayfirst=True)
+sales.shape
+sales.head(10)
+</code></pre>
+<pre>(421570, 5)</pre>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Store</th>
+      <th>Dept</th>
+      <th>Date</th>
+      <th>Weekly_Sales</th>
+      <th>IsHoliday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2010-02-05</td>
+      <td>24924.50</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2010-02-12</td>
+      <td>46039.49</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2010-02-19</td>
+      <td>41595.55</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2010-02-26</td>
+      <td>19403.54</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2010-03-05</td>
+      <td>21827.90</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2010-03-12</td>
+      <td>21043.39</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2010-03-19</td>
+      <td>22136.64</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2010-03-26</td>
+      <td>26229.21</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2010-04-02</td>
+      <td>57258.43</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2010-04-09</td>
+      <td>42960.91</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-Python">sales.isnull().sum()
+</code></pre>
+<pre>Store           0
+Dept            0
+Date            0
+Weekly_Sales    0
+IsHoliday       0
+dtype: int64</pre>
+<pre><code class="language-Python">sales.info()
+</code></pre>
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 421570 entries, 0 to 421569
+Data columns (total 5 columns):
+ #   Column        Non-Null Count   Dtype         
+---  ------        --------------   -----         
+ 0   Store         421570 non-null  int64         
+ 1   Dept          421570 non-null  int64         
+ 2   Date          421570 non-null  datetime64[ns]
+ 3   Weekly_Sales  421570 non-null  float64       
+ 4   IsHoliday     421570 non-null  bool          
+dtypes: bool(1), datetime64[ns](1), float64(1), int64(2)
+memory usage: 13.3 MB
+</pre>
+<pre><code class="language-Python">sales.describe()
+</code></pre>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Store</th>
+      <th>Dept</th>
+      <th>Weekly_Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>421570.000000</td>
+      <td>421570.000000</td>
+      <td>421570.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>22.200546</td>
+      <td>44.260317</td>
+      <td>15981.258123</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>12.785297</td>
+      <td>30.492054</td>
+      <td>22711.183519</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>-4988.940000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>11.000000</td>
+      <td>18.000000</td>
+      <td>2079.650000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>22.000000</td>
+      <td>37.000000</td>
+      <td>7612.030000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>33.000000</td>
+      <td>74.000000</td>
+      <td>20205.852500</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>45.000000</td>
+      <td>99.000000</td>
+      <td>693099.360000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-Python"># Average Weekly Dept Sales in each Store
+
+# holiday
+mean_dept_sales_H = (
+    sales.loc[sales[&quot;IsHoliday&quot;] == True]
+    .groupby([&quot;Store&quot;, &quot;Dept&quot;], as_index=False)
+    .mean()
+)
+
+# non-holiday
+mean_dept_sales_NH = (
+    sales.loc[sales[&quot;IsHoliday&quot;] == False]
+    .groupby([&quot;Store&quot;, &quot;Dept&quot;], as_index = False)
+    .mean()
+)
+
+store_dept = sales[[&quot;Store&quot;, &quot;Dept&quot;]].drop_duplicates()
+store_list = sorted(set(store_dept.Store.to_list()))
+names      = locals()
+tab        = Tab()
+
+# bar chart
+for store in store_list: 
+    names[str(store)] = (
+        Bar(init_opts = opts.InitOpts(width = &quot;1000px&quot;, height = &quot;400px&quot;))
+        .add_xaxis(store_dept.loc[store_dept[&quot;Store&quot;] == store][&quot;Dept&quot;].to_list())
+        .add_yaxis(
+            &quot;Holiday&quot;,
+            mean_dept_sales_H.loc[mean_dept_sales_H[&quot;Store&quot;] == store][
+                &quot;Weekly_Sales&quot;
+            ].to_list(),
+            stack = &quot;stack1&quot;,
+        )
+        .add_yaxis(
+            &quot;Not Holiday&quot;,
+            mean_dept_sales_NH.loc[mean_dept_sales_NH[&quot;Store&quot;] == store][
+                &quot;Weekly_Sales&quot;
+            ].to_list(),
+            stack = &quot;stack1&quot;,
+        )
+        .set_series_opts(label_opts = opts.LabelOpts(is_show = False))
+        .set_global_opts(
+            title_opts = opts.TitleOpts(
+                pos_left = &quot;left&quot;,
+                title    = f&quot;Department Average Weekly Sales of Store {store}&quot;,
+            ),
+            datazoom_opts = [opts.DataZoomOpts(), opts.DataZoomOpts(type_ = &quot;inside&quot;)],
+            xaxis_opts    = opts.AxisOpts(name=&quot;Department&quot;),
+            yaxis_opts    = opts.AxisOpts(
+                name = &quot;Avg. Weekly Sales&quot;, is_scale = True, min_interval = 20000
+            ),
+            legend_opts = opts.LegendOpts(
+                pos_left = &quot;80%&quot;, pos_top = &quot;top&quot;, align = &quot;left&quot;, orient = &quot;vertical&quot;
+            ),
+        )
+    )
+    tab = tab.add(names[str(store)], f&quot;Store {store}&quot;)
+tab.render_notebook()
+
+# Switch between tabs to see department average weekly sales of each store
+# Zoom the barplot in or drag the zoom window below the barplot to concentrate on specific departmentsHo
+# Click on legend to see Holiday or Non Holiday sales
+</code></pre>
+<iframe allowfullscreen="true" width="100%" height="630px" frameborder="no" src="file:///Users/qingqiuzhang/Documents/Gridea/post-images/Store Avg Weekly Sales by Dept in Holidays and Nonholidays.html" >
+</iframe>
+<p>Different department plays different roles. At some departments, the sales on holidays are much higher than the other days. While some other department vice versa.</p>
+<pre><code class="language-Python">
+</code></pre>
 <pre><code class="language-Python">
 </code></pre>
 <pre><code class="language-Python">
@@ -397,7 +714,8 @@ bar_store_num_by_type.render_notebook()
                                         <ul class="markdownIt-TOC">
 <li><a href="#exploring-data">Exploring Data</a>
 <ul>
-<li><a href="#visualization">Visualization</a></li>
+<li><a href="#stores">Stores</a></li>
+<li><a href="#sales">Sales</a></li>
 </ul>
 </li>
 </ul>
@@ -533,7 +851,7 @@ bar_store_num_by_type.render_notebook()
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1650639680476);
+                    newDate.setTime(1650642795439);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
