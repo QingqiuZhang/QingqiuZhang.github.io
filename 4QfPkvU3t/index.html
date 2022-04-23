@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<title>
+    Qingqiu Zhang
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="Qingqiu Zhang">
+<meta name="description" content="Thank you for visiting. Have fun here!">
+<meta name="keywords" content="qingqiu zhang, machine learning, Qingqiu Zhang">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://qingqiuzhang.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/css/style.min.css" />
+        <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/tocbot.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/script.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/itjoker233/Gridea-theme-Chic/assets/media/script/icon.min.js"></script>
+        
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/css/Card/prism.min.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
+                            <script>
+                                (function() {
+                                    var bp = document.createElement('script');
+                                    var curProtocol = window.location.protocol.split(':')[0];
+                                    if (curProtocol === 'https') {
+                                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                    } else {
+                                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                    }
+                                    var s = document.getElementsByTagName("script")[0];
+                                    s.parentNode.insertBefore(bp, s);
+                                })();
+                            </script>
+                            
+                                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-224309801-1"></script>
+                                <script>
+                                    window.dataLayer = window.dataLayer || [];
+
+                                    function gtag() {
+                                        dataLayer.push(arguments);
+                                    }
+                                    gtag('js', new Date());
+                                    gtag('config', 'UA-224309801-1');
+                                </script>
+                                
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://qingqiuzhang.github.io">
+                    Qingqiu Zhang
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        Home
+                    </a>
+                    
+                    <a class="menu-item" href="/posts">
+                        Content
+                    </a>
+                    
+                    <a class="menu-item" href="https://qingqiuzhang.github.io/archives">
+                        Archives
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        Tag
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://qingqiuzhang.github.io">
+                            Qingqiu Zhang
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            Home
+                        </a>
+                        
+                        <a class="menu-item" href="/posts">
+                            Content
+                        </a>
+                        
+                        <a class="menu-item" href="https://qingqiuzhang.github.io/archives">
+                            Archives
+                        </a>
+                        
+                        <a class="menu-item" href="/tags">
+                            Tag
+                        </a>
+                        
+                </div>
+            </div>
+        </nav>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
+
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
+
+    }
+</script>
+
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                World Happiness Report
+                            </h1>
+                            
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Qingqiu Zhang
+                                    </a>
+                                    <span class="post-time">
+                                        Date: <a href="#">
+                                            2022-04-19
+                                        </a>
+                                    </span>
+                                    
+                                </div>
+                                
+                        </header>
+                        
+                            <img class="post-feature-image" src="https://qingqiuzhang.github.io/post-images/4QfPkvU3t.jpg" alt="">
+                            
+                                <div class="post-content">
+                                    <p>This is a report about world happiness. In the report, we will visualize the distribution of countries' happiness scores from 2015-2019. Besides, we will analyze features like GDP, Health, Trust, and etc. to explore how they contribute to happiness scores.</p>
+<p><strong>In case you need the source data, visit this webpage:</strong><br>
+<a href="https://www.kaggle.com/datasets/unsdsn/world-happiness">Data Source</a></p>
+<!-- more -->
+<h1 id="exploring-data">Exploring Data</h1>
+<p>The column names of the 5 datasets are different and the meaning of each column is stated as below:</p>
+<blockquote>
+<ul>
+<li><strong>Country / Country or region:</strong> Name of the country.</li>
+<li><strong>Region:</strong> Region the country belongs to.</li>
+<li><strong>Happiness Rank / Overall rank:</strong> Rank of the country based on the Happiness Score.</li>
+<li><strong>Happiness Score / Score:</strong> A metric measured in 2015 by asking the sampled people the question: &quot;How would you rate your happiness on a scale of 0 to 10 where 10 is the happiest.&quot;.</li>
+<li><strong>Standard Error:</strong> The standard error of the happiness score.</li>
+<li><strong>Economy (GDP per Capita) / Economy..GDP.per.Capita. / GDP per capita:</strong> The extent to which GDP contributes to the calculation of the Happiness Score.</li>
+<li><strong>Family:</strong> The extent to which Family contributes to the calculation of the Happiness Score.</li>
+<li><strong>Health (Life Expectancy) / Health..Life.Expectancy. / Healthy life expectancy:</strong> The extent to which Life expectancy contributed to the calculation of the Happiness Score.</li>
+<li><strong>Freedom / Freedom to make life choices:</strong> The extent to which Freedom contributed to the calculation of the Happiness Score.</li>
+<li><strong>Trust (Government Corruption) / Trust..Government.Corruption. / Perceptions of corruption:</strong> The extent to which Perception of Corruption contributes to Happiness Score.</li>
+<li><strong>Generosity:</strong> The extent to which Generosity contributed to the calculation of the Happiness Score.</li>
+<li><strong>Dystopia Residual / Dystopia.Residual:</strong> The extent to which Dystopia Residual contributed to the calculation of the Happiness Score.</li>
+<li><strong>Lower Confidence Interval:</strong> Lower Confidence Interval of the Happiness Score</li>
+<li><strong>Upper Confidence Interval:</strong> Upper Confidence Interval of the Happiness Score</li>
+<li><strong>Whisker.high:</strong> Upper Whisker of the Happiness Score</li>
+<li><strong>Whisker.low:</strong> Lower Whisker of the Happiness Score</li>
+<li><strong>Social support:</strong> The extent to which Social support contributed to the calculation of the Happiness Score.</li>
+</ul>
+</blockquote>
+<p>First we need to have a look at the column names.</p>
+<pre><code class="language-Python">import pandas as pd
+import numpy as np
+
+years = list(range(2015, 2020))
+names = locals()
+for year in years:
+    names[&quot;happiness&quot; + str(year)] = pd.read_csv(f&quot;{year}.csv&quot;)
+    print(names[&quot;happiness&quot; + str(year)].columns)
+</code></pre>
+<pre>Index(['Country', 'Region', 'Happiness Rank', 'Happiness Score',
+       'Standard Error', 'Economy (GDP per Capita)', 'Family',
+       'Health (Life Expectancy)', 'Freedom', 'Trust (Government Corruption)',
+       'Generosity', 'Dystopia Residual'],
+      dtype='object')
+Index(['Country', 'Region', 'Happiness Rank', 'Happiness Score',
+       'Lower Confidence Interval', 'Upper Confidence Interval',
+       'Economy (GDP per Capita)', 'Family', 'Health (Life Expectancy)',
+       'Freedom', 'Trust (Government Corruption)', 'Generosity',
+       'Dystopia Residual'],
+      dtype='object')
+Index(['Country', 'Happiness.Rank', 'Happiness.Score', 'Whisker.high',
+       'Whisker.low', 'Economy..GDP.per.Capita.', 'Family',
+       'Health..Life.Expectancy.', 'Freedom', 'Generosity',
+       'Trust..Government.Corruption.', 'Dystopia.Residual'],
+      dtype='object')
+Index(['Overall rank', 'Country or region', 'Score', 'GDP per capita',
+       'Social support', 'Healthy life expectancy',
+       'Freedom to make life choices', 'Generosity',
+       'Perceptions of corruption'],
+      dtype='object')
+Index(['Overall rank', 'Country or region', 'Score', 'GDP per capita',
+       'Social support', 'Healthy life expectancy',
+       'Freedom to make life choices', 'Generosity',
+       'Perceptions of corruption'],
+      dtype='object')
+</pre>
+<p>Then we need to unify the column names.</p>
+<pre><code class="language-Python">happiness2017.columns = [
+    &quot;Country&quot;,
+    &quot;Happiness Rank&quot;,
+    &quot;Happiness Score&quot;,
+    &quot;Whisker High&quot;,
+    &quot;Whisker Low&quot;,
+    &quot;Economy (GDP per Capita)&quot;,
+    &quot;Family&quot;,
+    &quot;Health (Life Expectancy)&quot;,
+    &quot;Freedom&quot;,
+    &quot;Generosity&quot;,
+    &quot;Trust (Government Corruption)&quot;,
+    &quot;Dystopia Residual&quot;,
+]
+
+happiness2018.columns = [
+    &quot;Happiness Rank&quot;,
+    &quot;Country&quot;,
+    &quot;Happiness Score&quot;,
+    &quot;Economy (GDP per Capita)&quot;,
+    &quot;Social Support&quot;,
+    &quot;Health (Life Expectancy)&quot;,
+    &quot;Freedom&quot;,
+    &quot;Generosity&quot;,
+    &quot;Trust (Government Corruption)&quot;,
+]
+
+happiness2019.columns = [
+    &quot;Happiness Rank&quot;,
+    &quot;Country&quot;,
+    &quot;Happiness Score&quot;,
+    &quot;Economy (GDP per Capita)&quot;,
+    &quot;Social Support&quot;,
+    &quot;Health (Life Expectancy)&quot;,
+    &quot;Freedom&quot;,
+    &quot;Generosity&quot;,
+    &quot;Trust (Government Corruption)&quot;,
+]
+
+# Add Region column to happiness2017, happiness2018, and happiness2019
+names = locals()
+for year in range(2017, 2020):
+    for i in range(2015, 2017):
+        names[&quot;happiness&quot; + str(year)] = names[&quot;happiness&quot; + str(year)].merge(
+            names[&quot;happiness&quot; + str(i)][[&quot;Country&quot;, &quot;Region&quot;]], on=&quot;Country&quot;, how=&quot;left&quot;
+        )
+    null_index = names[&quot;happiness&quot; + str(year)][
+        names[&quot;happiness&quot; + str(year)].isnull().T.any()
+    ].index.to_list()
+    for ind in null_index:
+        if names[&quot;happiness&quot; + str(year)].loc[ind, &quot;Region_x&quot;] is np.nan:
+            names[&quot;happiness&quot; + str(year)].loc[ind, &quot;Region_x&quot;] = names[
+                &quot;happiness&quot; + str(year)
+            ].loc[ind, &quot;Region_y&quot;]
+    names[&quot;happiness&quot; + str(year)] = (
+        names[&quot;happiness&quot; + str(year)]
+        .drop([&quot;Region_y&quot;], axis=1)
+        .rename(columns={&quot;Region_x&quot;: &quot;Region&quot;})
+    )
+</code></pre>
+<p>Because in each year, the country being involved in the ranking were different and the names for some countries changed, the Region column would have some null values. We need to mannually fill these null values.</p>
+<pre><code class="language-Python">happiness2017[happiness2017.isnull().T.any()]
+</code></pre>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="undefined:undefined">
+      <th></th>
+      <th>Country</th>
+      <th>Happiness Rank</th>
+      <th>Happiness Score</th>
+      <th>Whisker High</th>
+      <th>Whisker Low</th>
+      <th>Economy (GDP per Capita)</th>
+      <th>Family</th>
+      <th>Health (Life Expectancy)</th>
+      <th>Freedom</th>
+      <th>Generosity</th>
+      <th>Trust (Government Corruption)</th>
+      <th>Dystopia Residual</th>
+      <th>Region</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>32</th>
+      <td>Taiwan Province of China</td>
+      <td>33</td>
+      <td>6.422</td>
+      <td>6.494596</td>
+      <td>6.349404</td>
+      <td>1.433627</td>
+      <td>1.384565</td>
+      <td>0.793984</td>
+      <td>0.361467</td>
+      <td>0.258360</td>
+      <td>0.063829</td>
+      <td>2.126607</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Hong Kong S.A.R., China</td>
+      <td>71</td>
+      <td>5.472</td>
+      <td>5.549594</td>
+      <td>5.394406</td>
+      <td>1.551675</td>
+      <td>1.262791</td>
+      <td>0.943062</td>
+      <td>0.490969</td>
+      <td>0.374466</td>
+      <td>0.293934</td>
+      <td>0.554633</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-Python">happiness2017.loc[32, &quot;Region&quot;] = 'Eastern Asia'
+happiness2017.loc[70, &quot;Region&quot;] = 'Eastern Asia'
+</code></pre>
+<pre><code class="language-Python">happiness2018[happiness2018.isnull().T.any()]
+</code></pre>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="undefined:undefined">
+      <th></th>
+      <th>Happiness Rank</th>
+      <th>Country</th>
+      <th>Happiness Score</th>
+      <th>Economy (GDP per Capita)</th>
+      <th>Social Support</th>
+      <th>Health (Life Expectancy)</th>
+      <th>Freedom</th>
+      <th>Generosity</th>
+      <th>Trust (Government Corruption)</th>
+      <th>Region</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>United Arab Emirates</td>
+      <td>6.774</td>
+      <td>2.096</td>
+      <td>0.776</td>
+      <td>0.670</td>
+      <td>0.284</td>
+      <td>0.186</td>
+      <td>NaN</td>
+      <td>Middle East and Northern Africa</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>38</td>
+      <td>Trinidad &amp; Tobago</td>
+      <td>6.192</td>
+      <td>1.223</td>
+      <td>1.492</td>
+      <td>0.564</td>
+      <td>0.575</td>
+      <td>0.171</td>
+      <td>0.019</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>58</td>
+      <td>Northern Cyprus</td>
+      <td>5.835</td>
+      <td>1.229</td>
+      <td>1.211</td>
+      <td>0.909</td>
+      <td>0.495</td>
+      <td>0.179</td>
+      <td>0.154</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-Python">happiness2018.loc[37, &quot;Region&quot;] = 'Latin America and Caribbean'
+happiness2018.loc[57, &quot;Region&quot;] = 'Western Europe'
+</code></pre>
+<pre><code class="language-Python">happiness2019[happiness2019.isnull().T.any()]
+</code></pre>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="undefined:undefined">
+      <th></th>
+      <th>Happiness Rank</th>
+      <th>Country</th>
+      <th>Happiness Score</th>
+      <th>Economy (GDP per Capita)</th>
+      <th>Social Support</th>
+      <th>Health (Life Expectancy)</th>
+      <th>Freedom</th>
+      <th>Generosity</th>
+      <th>Trust (Government Corruption)</th>
+      <th>Region</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>38</th>
+      <td>39</td>
+      <td>Trinidad &amp; Tobago</td>
+      <td>6.192</td>
+      <td>1.231</td>
+      <td>1.477</td>
+      <td>0.713</td>
+      <td>0.489</td>
+      <td>0.185</td>
+      <td>0.016</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>64</td>
+      <td>Northern Cyprus</td>
+      <td>5.718</td>
+      <td>1.263</td>
+      <td>1.252</td>
+      <td>1.042</td>
+      <td>0.417</td>
+      <td>0.191</td>
+      <td>0.162</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>84</td>
+      <td>North Macedonia</td>
+      <td>5.274</td>
+      <td>0.983</td>
+      <td>1.294</td>
+      <td>0.838</td>
+      <td>0.345</td>
+      <td>0.185</td>
+      <td>0.034</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>120</td>
+      <td>Gambia</td>
+      <td>4.516</td>
+      <td>0.308</td>
+      <td>0.939</td>
+      <td>0.428</td>
+      <td>0.382</td>
+      <td>0.269</td>
+      <td>0.167</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-Python">happiness2019.loc[38, &quot;Region&quot;] = 'Latin America and Caribbean'
+happiness2019.loc[63, &quot;Region&quot;] = 'Western Europe'
+happiness2019.loc[83, &quot;Region&quot;] = 'Central and Eastern Europe'
+happiness2019.loc[119, &quot;Region&quot;] = 'Sub-Saharan Africa'
+</code></pre>
+<p>Now let's look at the indicators of each dataset.</p>
+<pre><code class="language-Python">print(happiness2015.shape)
+happiness2015.describe()
+</code></pre>
+<pre>(158, 12)
+</pre>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="undefined:undefined">
+      <th></th>
+      <th>Happiness Rank</th>
+      <th>Happiness Score</th>
+      <th>Standard Error</th>
+      <th>Economy (GDP per Capita)</th>
+      <th>Family</th>
+      <th>Health (Life Expectancy)</th>
+      <th>Freedom</th>
+      <th>Trust (Government Corruption)</th>
+      <th>Generosity</th>
+      <th>Dystopia Residual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>158.000000</td>
+      <td>158.000000</td>
+      <td>158.000000</td>
+      <td>158.000000</td>
+      <td>158.000000</td>
+      <td>158.000000</td>
+      <td>158.000000</td>
+      <td>158.000000</td>
+      <td>158.000000</td>
+      <td>158.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>79.493671</td>
+      <td>5.375734</td>
+      <td>0.047885</td>
+      <td>0.846137</td>
+      <td>0.991046</td>
+      <td>0.630259</td>
+      <td>0.428615</td>
+      <td>0.143422</td>
+      <td>0.237296</td>
+      <td>2.098977</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>45.754363</td>
+      <td>1.145010</td>
+      <td>0.017146</td>
+      <td>0.403121</td>
+      <td>0.272369</td>
+      <td>0.247078</td>
+      <td>0.150693</td>
+      <td>0.120034</td>
+      <td>0.126685</td>
+      <td>0.553550</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>2.839000</td>
+      <td>0.018480</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.328580</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>40.250000</td>
+      <td>4.526000</td>
+      <td>0.037268</td>
+      <td>0.545808</td>
+      <td>0.856823</td>
+      <td>0.439185</td>
+      <td>0.328330</td>
+      <td>0.061675</td>
+      <td>0.150553</td>
+      <td>1.759410</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>79.500000</td>
+      <td>5.232500</td>
+      <td>0.043940</td>
+      <td>0.910245</td>
+      <td>1.029510</td>
+      <td>0.696705</td>
+      <td>0.435515</td>
+      <td>0.107220</td>
+      <td>0.216130</td>
+      <td>2.095415</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>118.750000</td>
+      <td>6.243750</td>
+      <td>0.052300</td>
+      <td>1.158448</td>
+      <td>1.214405</td>
+      <td>0.811013</td>
+      <td>0.549092</td>
+      <td>0.180255</td>
+      <td>0.309883</td>
+      <td>2.462415</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>158.000000</td>
+      <td>7.587000</td>
+      <td>0.136930</td>
+      <td>1.690420</td>
+      <td>1.402230</td>
+      <td>1.025250</td>
+      <td>0.669730</td>
+      <td>0.551910</td>
+      <td>0.795880</td>
+      <td>3.602140</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-Python">print(happiness2016.shape)
+happiness2016.describe()
+</code></pre>
+<pre>(157, 13)
+</pre>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="undefined:undefined">
+      <th></th>
+      <th>Happiness Rank</th>
+      <th>Happiness Score</th>
+      <th>Lower Confidence Interval</th>
+      <th>Upper Confidence Interval</th>
+      <th>Economy (GDP per Capita)</th>
+      <th>Family</th>
+      <th>Health (Life Expectancy)</th>
+      <th>Freedom</th>
+      <th>Trust (Government Corruption)</th>
+      <th>Generosity</th>
+      <th>Dystopia Residual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>157.000000</td>
+      <td>157.000000</td>
+      <td>157.000000</td>
+      <td>157.000000</td>
+      <td>157.000000</td>
+      <td>157.000000</td>
+      <td>157.000000</td>
+      <td>157.000000</td>
+      <td>157.000000</td>
+      <td>157.000000</td>
+      <td>157.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>78.980892</td>
+      <td>5.382185</td>
+      <td>5.282395</td>
+      <td>5.481975</td>
+      <td>0.953880</td>
+      <td>0.793621</td>
+      <td>0.557619</td>
+      <td>0.370994</td>
+      <td>0.137624</td>
+      <td>0.242635</td>
+      <td>2.325807</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>45.466030</td>
+      <td>1.141674</td>
+      <td>1.148043</td>
+      <td>1.136493</td>
+      <td>0.412595</td>
+      <td>0.266706</td>
+      <td>0.229349</td>
+      <td>0.145507</td>
+      <td>0.111038</td>
+      <td>0.133756</td>
+      <td>0.542220</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>2.905000</td>
+      <td>2.732000</td>
+      <td>3.078000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.817890</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>40.000000</td>
+      <td>4.404000</td>
+      <td>4.327000</td>
+      <td>4.465000</td>
+      <td>0.670240</td>
+      <td>0.641840</td>
+      <td>0.382910</td>
+      <td>0.257480</td>
+      <td>0.061260</td>
+      <td>0.154570</td>
+      <td>2.031710</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>79.000000</td>
+      <td>5.314000</td>
+      <td>5.237000</td>
+      <td>5.419000</td>
+      <td>1.027800</td>
+      <td>0.841420</td>
+      <td>0.596590</td>
+      <td>0.397470</td>
+      <td>0.105470</td>
+      <td>0.222450</td>
+      <td>2.290740</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>118.000000</td>
+      <td>6.269000</td>
+      <td>6.154000</td>
+      <td>6.434000</td>
+      <td>1.279640</td>
+      <td>1.021520</td>
+      <td>0.729930</td>
+      <td>0.484530</td>
+      <td>0.175540</td>
+      <td>0.311850</td>
+      <td>2.664650</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>157.000000</td>
+      <td>7.526000</td>
+      <td>7.460000</td>
+      <td>7.669000</td>
+      <td>1.824270</td>
+      <td>1.183260</td>
+      <td>0.952770</td>
+      <td>0.608480</td>
+      <td>0.505210</td>
+      <td>0.819710</td>
+      <td>3.837720</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-Python">print(happiness2017.shape)
+happiness2017.describe()
+</code></pre>
+<pre>(155, 13)
+</pre>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="undefined:undefined">
+      <th></th>
+      <th>Happiness Rank</th>
+      <th>Happiness Score</th>
+      <th>Whisker High</th>
+      <th>Whisker Low</th>
+      <th>Economy (GDP per Capita)</th>
+      <th>Family</th>
+      <th>Health (Life Expectancy)</th>
+      <th>Freedom</th>
+      <th>Generosity</th>
+      <th>Trust (Government Corruption)</th>
+      <th>Dystopia Residual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>155.000000</td>
+      <td>155.000000</td>
+      <td>155.000000</td>
+      <td>155.000000</td>
+      <td>155.000000</td>
+      <td>155.000000</td>
+      <td>155.000000</td>
+      <td>155.000000</td>
+      <td>155.000000</td>
+      <td>155.000000</td>
+      <td>155.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>78.000000</td>
+      <td>5.354019</td>
+      <td>5.452326</td>
+      <td>5.255713</td>
+      <td>0.984718</td>
+      <td>1.188898</td>
+      <td>0.551341</td>
+      <td>0.408786</td>
+      <td>0.246883</td>
+      <td>0.123120</td>
+      <td>1.850238</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>44.888751</td>
+      <td>1.131230</td>
+      <td>1.118542</td>
+      <td>1.145030</td>
+      <td>0.420793</td>
+      <td>0.287263</td>
+      <td>0.237073</td>
+      <td>0.149997</td>
+      <td>0.134780</td>
+      <td>0.101661</td>
+      <td>0.500028</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>2.693000</td>
+      <td>2.864884</td>
+      <td>2.521116</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.377914</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>39.500000</td>
+      <td>4.505500</td>
+      <td>4.608172</td>
+      <td>4.374955</td>
+      <td>0.663371</td>
+      <td>1.042635</td>
+      <td>0.369866</td>
+      <td>0.303677</td>
+      <td>0.154106</td>
+      <td>0.057271</td>
+      <td>1.591291</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>78.000000</td>
+      <td>5.279000</td>
+      <td>5.370032</td>
+      <td>5.193152</td>
+      <td>1.064578</td>
+      <td>1.253918</td>
+      <td>0.606042</td>
+      <td>0.437454</td>
+      <td>0.231538</td>
+      <td>0.089848</td>
+      <td>1.832910</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>116.500000</td>
+      <td>6.101500</td>
+      <td>6.194600</td>
+      <td>6.006527</td>
+      <td>1.318027</td>
+      <td>1.414316</td>
+      <td>0.723008</td>
+      <td>0.516561</td>
+      <td>0.323762</td>
+      <td>0.153296</td>
+      <td>2.144654</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>155.000000</td>
+      <td>7.537000</td>
+      <td>7.622030</td>
+      <td>7.479556</td>
+      <td>1.870766</td>
+      <td>1.610574</td>
+      <td>0.949492</td>
+      <td>0.658249</td>
+      <td>0.838075</td>
+      <td>0.464308</td>
+      <td>3.117485</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-Python">print(happiness2018.shape)
+happiness2018.describe()
+</code></pre>
+<pre>(156, 10)
+</pre>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="undefined:undefined">
+      <th></th>
+      <th>Happiness Rank</th>
+      <th>Happiness Score</th>
+      <th>Economy (GDP per Capita)</th>
+      <th>Social Support</th>
+      <th>Health (Life Expectancy)</th>
+      <th>Freedom</th>
+      <th>Generosity</th>
+      <th>Trust (Government Corruption)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>155.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>78.500000</td>
+      <td>5.375917</td>
+      <td>0.891449</td>
+      <td>1.213237</td>
+      <td>0.597346</td>
+      <td>0.454506</td>
+      <td>0.181006</td>
+      <td>0.112000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>45.177428</td>
+      <td>1.119506</td>
+      <td>0.391921</td>
+      <td>0.302372</td>
+      <td>0.247579</td>
+      <td>0.162424</td>
+      <td>0.098471</td>
+      <td>0.096492</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>2.905000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>39.750000</td>
+      <td>4.453750</td>
+      <td>0.616250</td>
+      <td>1.066750</td>
+      <td>0.422250</td>
+      <td>0.356000</td>
+      <td>0.109500</td>
+      <td>0.051000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>78.500000</td>
+      <td>5.378000</td>
+      <td>0.949500</td>
+      <td>1.255000</td>
+      <td>0.644000</td>
+      <td>0.487000</td>
+      <td>0.174000</td>
+      <td>0.082000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>117.250000</td>
+      <td>6.168500</td>
+      <td>1.197750</td>
+      <td>1.463000</td>
+      <td>0.777250</td>
+      <td>0.578500</td>
+      <td>0.239000</td>
+      <td>0.137000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>156.000000</td>
+      <td>7.632000</td>
+      <td>2.096000</td>
+      <td>1.644000</td>
+      <td>1.030000</td>
+      <td>0.724000</td>
+      <td>0.598000</td>
+      <td>0.457000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code class="language-Python">print(happiness2019.shape)
+happiness2019.describe()
+</code></pre>
+<pre>(156, 10)
+</pre>
+<div style="overflow: auto; width: 100%">
+<table border="1">
+  <thead>
+    <tr style="undefined:undefined">
+      <th></th>
+      <th>Happiness Rank</th>
+      <th>Happiness Score</th>
+      <th>Economy (GDP per Capita)</th>
+      <th>Social Support</th>
+      <th>Health (Life Expectancy)</th>
+      <th>Freedom</th>
+      <th>Generosity</th>
+      <th>Trust (Government Corruption)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+      <td>156.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>78.500000</td>
+      <td>5.407096</td>
+      <td>0.905147</td>
+      <td>1.208814</td>
+      <td>0.725244</td>
+      <td>0.392571</td>
+      <td>0.184846</td>
+      <td>0.110603</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>45.177428</td>
+      <td>1.113120</td>
+      <td>0.398389</td>
+      <td>0.299191</td>
+      <td>0.242124</td>
+      <td>0.143289</td>
+      <td>0.095254</td>
+      <td>0.094538</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>2.853000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>39.750000</td>
+      <td>4.544500</td>
+      <td>0.602750</td>
+      <td>1.055750</td>
+      <td>0.547750</td>
+      <td>0.308000</td>
+      <td>0.108750</td>
+      <td>0.047000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>78.500000</td>
+      <td>5.379500</td>
+      <td>0.960000</td>
+      <td>1.271500</td>
+      <td>0.789000</td>
+      <td>0.417000</td>
+      <td>0.177500</td>
+      <td>0.085500</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>117.250000</td>
+      <td>6.184500</td>
+      <td>1.232500</td>
+      <td>1.452500</td>
+      <td>0.881750</td>
+      <td>0.507250</td>
+      <td>0.248250</td>
+      <td>0.141250</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>156.000000</td>
+      <td>7.769000</td>
+      <td>1.684000</td>
+      <td>1.624000</td>
+      <td>1.141000</td>
+      <td>0.631000</td>
+      <td>0.566000</td>
+      <td>0.453000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h1 id="visualization">Visualization</h1>
+<p>Names for some countries in Pyecharts differed from those in the datasets, so we must change the name of some countries into those Pyecharts can recognize.</p>
+<pre><code class="language-Python">countries = {
+    &quot;South Korea&quot;: &quot;Korea&quot;,
+    &quot;Congo (Kinshasa)&quot;: &quot;Dem. Rep. Congo&quot;,
+    &quot;Congo (Brazzaville)&quot;: &quot;Congo&quot;,
+    &quot;South Sudan&quot;: &quot;S. Sudan&quot;,
+    &quot;Somaliland region&quot;: &quot;Somalia&quot;,
+    &quot;Central African Republic&quot;: &quot;Central African Rep.&quot;,
+    &quot;Ivory Coast&quot;: &quot;Côte d'Ivoire&quot;,
+    &quot;Dominican Republic&quot;: &quot;Dominican Rep.&quot;,
+    &quot;Czech Republic&quot;: &quot;Czech Rep.&quot;,
+    &quot;North Korea&quot;: &quot;Dem. Rep. Korea&quot;,
+}
+
+names = locals()
+for key, val in countries.items():
+    for i in range(2015, 2020):
+        try:
+            df_name = names[&quot;happiness&quot; + str(i)]
+            row_ind = int(df_name.loc[df_name[&quot;Country&quot;] == key].index.values)
+            names[&quot;happiness&quot; + str(i)].loc[row_ind, &quot;Country&quot;] = countries[key]
+        except (TypeError, KeyError):
+            pass
+</code></pre>
+<p>Put all info into a dictionary for visualization.</p>
+<pre><code class="language-Python">data       = dict()
+data[2015] = happiness2015.to_dict(&quot;list&quot;)
+data[2016] = happiness2016.to_dict(&quot;list&quot;)
+data[2017] = happiness2017.to_dict(&quot;list&quot;)
+data[2018] = happiness2018.to_dict(&quot;list&quot;)
+data[2019] = happiness2019.to_dict(&quot;list&quot;)
+</code></pre>
+<pre><code class="language-Python">from pyecharts.charts import Map, Timeline, Tab
+from pyecharts import options as opts
+import math
+
+col_list = [
+    &quot;Happiness Score&quot;,
+    &quot;Economy (GDP per Capita)&quot;,
+    &quot;Family&quot;,
+    &quot;Health (Life Expectancy)&quot;,
+    &quot;Freedom&quot;,
+    &quot;Trust (Government Corruption)&quot;,
+    &quot;Generosity&quot;,
+    &quot;Dystopia Residual&quot;,
+]
+
+tab = Tab()
+for col in col_list:
+    tl = Timeline()
+    for year in range(2015, 2020):
+        try:
+            data_pair = []
+            # range of values for each feature
+            minimum = min(names[&quot;happiness&quot; + str(year)][col].round(2))
+            maximum = max(names[&quot;happiness&quot; + str(year)][col].round(2))
+
+            data_pair = [
+                list(z)
+                for z in zip(
+                    names[&quot;happiness&quot; + str(year)][&quot;Country&quot;].to_list(),
+                    names[&quot;happiness&quot; + str(year)][col].round(3),
+                )
+            ]
+
+            c = (
+                Map()
+                .add(col, data_pair, &quot;world&quot;, is_map_symbol_show=False)
+                .set_series_opts(label_opts=opts.LabelOpts(is_show=False))
+                .set_global_opts(
+                    title_opts=opts.TitleOpts(title=f&quot;World {col} Index of {year}&quot;),
+                    visualmap_opts=opts.VisualMapOpts(
+                        min_=minimum, max_=maximum, is_piecewise=False
+                    ),
+                    legend_opts=opts.LegendOpts(is_show=False),
+                )
+            )
+            tl = tl.add(c, year).add_schema(
+                is_auto_play=False, play_interval=1000, is_loop_play=True
+            )
+        except KeyError:
+            pass
+    tab = tab.add(tl, col)
+tab.render_notebook()
+
+# Click tab above the charts to see the distribution of features.
+# And click the timeline below the charts to swich between years.
+# Click the play button to automatically see the changes between years.
+</code></pre>
+<iframe scrolling="no" allowfullscreen="true" width="100%" height="600px" frameborder="no" src="../post-images/Map World Happiness Report.html" >
+</iframe>
+<p>In developed countries, like those in North America, Oceania, and Europe, happiness scores are higher than countries in Asia and Africa.</p>
+<p>Situations are similar for GDP, Freedom, Trust, and Generosity. So we guess, higher GDP, Freedom, Trust, and Generosity correlated with higher happiness score.</p>
+<p>World Family Index didn't differ much across countries. But in war region, like Iraq and Afghanistan, and in poor countries, like Sudan and some other countries in Africa, the values are low. Health Index shows similar distribution.</p>
+<p>Dystopia Residual Index is extremely high in Latin America and in the other countries, there weren't much difference.</p>
+<pre><code class="language-Python">from pyecharts.charts import Scatter
+from pyecharts.commons.utils import JsCode
+
+col_list = [
+    &quot;Economy (GDP per Capita)&quot;,
+    &quot;Family&quot;,
+    &quot;Health (Life Expectancy)&quot;,
+    &quot;Freedom&quot;,
+    &quot;Trust (Government Corruption)&quot;,
+    &quot;Generosity&quot;,
+    &quot;Dystopia Residual&quot;,
+]
+tab = Tab()
+for col in col_list:
+    tl = Timeline()
+    # tooltip format
+    js_code_str = &quot;&quot;&quot;
+function(params){
+return params.data[4]+' - '+params.data[3]+'&lt;br/&gt;'
++'X: '+params.data[5]+'&lt;br/&gt;'
++'Y: '+params.data[1];
+}
+&quot;&quot;&quot;
+    for year in range(2015, 2020):
+        try:
+            df = names[&quot;happiness&quot; + str(year)]
+            region_list = df[&quot;Region&quot;].unique().tolist()
+            df[&quot;R_transfromed&quot;] = df[&quot;Region&quot;].apply(lambda x: region_list.index(x))
+            y_data = [
+                z
+                for z in zip(
+                    df[col].round(3),
+                    df[&quot;R_transfromed&quot;].to_list(),
+                    df[&quot;Country&quot;],
+                    df[&quot;Region&quot;],
+                    df[&quot;Happiness Score&quot;].round(3),
+                )
+            ]
+            c = (
+                Scatter()
+                .add_xaxis(df[&quot;Happiness Score&quot;].to_list())
+                .add_yaxis(&quot;&quot;, y_data)
+                .set_global_opts(
+                    title_opts=opts.TitleOpts(
+                        title=f&quot;Relationship between Happiness Score and {col} in {year}&quot;
+                    ),
+                    visualmap_opts=[
+                        opts.VisualMapOpts(
+                            is_show=False, type_=&quot;color&quot;, dimension=2, min_=0, max_=10
+                        )
+                    ],
+                    xaxis_opts=opts.AxisOpts(
+                        type_=&quot;value&quot;,
+                        name=&quot;Happiness Score&quot;,
+                        is_scale=True,
+                        name_location=&quot;middle&quot;,
+                    ),
+                    yaxis_opts=opts.AxisOpts(type_=&quot;value&quot;, name=col, is_scale=True),
+                    tooltip_opts=opts.TooltipOpts(formatter=JsCode(js_code_str)),
+                )
+                .set_series_opts(label_opts=opts.LabelOpts(is_show=False))
+            )
+            tl = tl.add(c, year).add_schema(
+                is_auto_play=False, play_interval=1000, is_loop_play=True
+            )
+        except KeyError:
+            pass
+    tab = tab.add(tl, col)
+tab.render_notebook()
+</code></pre>
+<iframe scrolling="no" allowfullscreen="true" width="100%" height="600px" frameborder="no" src="../post-images/Scatter World Happiness Report by Region.html" >
+</iframe>
+<p>From the scatter plot, we further prove our guess that higher GDP and Health Index correlated with higher happiness score. However, higher Freedom Index and Generosity Index dont't mean higher Happiness Score. For Trust Index, when it is smaller than 6, it doesn't show much correlation with happiness score; while when it is greater than 6, the positive correlation is much stronger. Family Index and Dystopia Residual Index also show a positive correlation with Happiness Score to some extent.</p>
+<p>Countries in North America, Western Europe, and Latin America as well as Australia, New Zealand, Singapore, and some countries in Middle East are ranked as the happiest countries among the world, most of which are also among the richest countries. As for countries in Latin America, I think citizens' happiness may be rooted in their heart and naturally part of their nature. This might be explained by the enthusiasm and optimism.</p>
+
+                                </div>
+                                
+                                    <div class="post-toc">
+                                        <ul class="markdownIt-TOC">
+<li><a href="#exploring-data">Exploring Data</a></li>
+<li><a href="#visualization">Visualization</a></li>
+</ul>
+
+                                    </div>
+                                    
+                                        
+                                                            
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                                                                            
+                                                                                
+                                                                                    <a href="https://qingqiuzhang.github.io/hr2pmrSs1/">#
+                                                                                        Pyecharts
+                                                                                    </a>
+                                                                                    
+                                                                                    <a href="https://qingqiuzhang.github.io/8jX6f7soJ/">#
+                                                                                        Data Visualization
+                                                                                    </a>
+                                                                                    
+                                                                                        
+                                                                        </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a
+                                                                            href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
+                                                                
+                                                                        <!---->
+                                                                        <section class="post-nav">
+                                                                            
+                                                                                    
+                                                                                        <a class="next" rel="next"
+                                                                                            href="https://qingqiuzhang.github.io/diabetes-dataset-report-2-model-training-evaluating-and-testing/">
+                                                                                            Diabetes Data Analytics (2) -- Model Training, Evaluating and Testing
+                                                                                        </a>
+                                                                                        
+                                                                        </section>
+                    </article>
+                </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '689fd1fc8fe8ddae1804',
+        clientSecret: '216656a758024efe4573879934956b305a43a693',
+        repo: 'qingqiuzhang.github.io',
+        owner: 'qingqiuzhang',
+        admin: ['qingqiuzhang'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
+            </div>
+    </div>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        
+                            
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        Qingqiu Zhang &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="https://github.com" target="_blank">
+                                                Github
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                on
+            </div>
+            
+                <div id="version" style="display:none;">
+                    1.7.6
+                </div>
+                
+                    <script>
+                        var port = '';
+                        
+                        port = ':4000';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+            <script src='https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js'></script>
+            
+                <script>
+                    
+                    
+                    loadlive2d();
+                    
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    CheckVersion();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1650754275678);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
+        </div>
+</body>
+<script>
+    scroll();
+</script>
+
+</html>
