@@ -53,6 +53,7 @@
                                     gtag('config', 'UA-224309801-1');
                                 </script>
                                 
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
 <body>
@@ -160,45 +161,108 @@
 
             <div class="main">
                 <div class="container">
-                    <div class="post-wrap archive">
-                        
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Plans for October, 2022
+                            </h1>
                             
-                                <h3>
-                                    2022
-                                </h3>
+                                <!--en-->
+                                <div class="post-meta en">
+                                    Author:
+                                    <a itemprop="author" rel="author" href="/">
+                                        Qingqiu Zhang
+                                    </a>
+                                    <span class="post-time">
+                                        Date: <a href="#">
+                                            2022-09-18
+                                        </a>
+                                    </span>
+                                    
+                                </div>
                                 
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://qingqiuzhang.github.io/bike-sharing-dadaset-analytics/">
-                                                Bike Sharing Dataset Analytics (2) -- Hourly Data
-                                            </a>
-                                            <span class="archive-item-date">2022-03-23 </span>
-                                        </article>
-                                        
-                                            
-                                    
-
-                                        <article class="archive-item">
-                                            <a class="archive-item-link" href="https://qingqiuzhang.github.io/bike-sharing-dataset-analytics/">
-                                                Bike Sharing Dataset Analytics (1) -- Daily Data
-                                            </a>
-                                            <span class="archive-item-date">2022-03-18 </span>
-                                        </article>
-                                        
-                                            
-                                                
-                    </div>
-                    <div class="pagination-container">
+                        </header>
                         
-                                                
-                                                    <a href="https://qingqiuzhang.github.io/URtsfZ1k8" class="prev"><i class="icon-arrow-ios-back-outline"></i> Prev</a>
-                                                    
-                                                        
+                                <div class="post-content">
+                                    <h3 id="1-unsupervised-ml-k-means-clustering-from-scratch">1. [Unsupervised ML] K-means Clustering from Scratch</h3>
+<p>I am thinking about releasing a post about how to do K-means clustering without any ML libraries. I will include both &quot;random&quot; and &quot;kmeans++&quot; initialization. Meanwhile, I will write functions on Silhouette score and Normalized Mutual Information score as well. The optimal number of clusters k is also a key point in this article and I'm considering use elbow method and Silhouette score to decide the k. At last I'll wrap up the post with a comparison between my implementation and sklearn.</p>
+<h3 id="2-deep-learning-backpropagation-from-scratch">2. [Deep Learning] Backpropagation from Scratch</h3>
+<p>I haven't started this yet but I will definately work on it sometime in the next few weeks. I found there are so many get confused with backpropagation and I really think it's necessary to write an article explaining the mechanism and the implementation in details.</p>
+
+                                </div>
+                                
+                                    <div class="post-toc">
+                                        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-unsupervised-ml-k-means-clustering-from-scratch">1. [Unsupervised ML] K-means Clustering from Scratch</a></li>
+<li><a href="#2-deep-learning-backpropagation-from-scratch">2. [Deep Learning] Backpropagation from Scratch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                                    </div>
+                                    
+                                        
+                                                            
+                                                                <!--en-->
+                                                                <section class="post-tags en ">
+                                                                    <div>
+                                                                        <span>Tag(s):</span>
+                                                                        <span class="tag ">
+                                                                            
+                                                                        </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <a
+                                                                            href="javascript:window.history.back();">back</a>
+                                                                        <span>&dot;</span>
+                                                                        <a href="#">home</a>
+                                                                    </div>
+                                                                </section>
                                                                 
-                    </div>
+                                                                        <!---->
+                                                                        <section class="post-nav">
+                                                                            
+                                                                                    
+                                                                                        <a class="next" rel="next"
+                                                                                            href="https://qingqiuzhang.github.io/4QfPkvU3t/">
+                                                                                            World Happiness Report
+                                                                                        </a>
+                                                                                        
+                                                                        </section>
+                    </article>
                 </div>
+                
+                    
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '689fd1fc8fe8ddae1804',
+        clientSecret: '216656a758024efe4573879934956b305a43a693',
+        repo: 'qingqiuzhang.github.io',
+        owner: 'qingqiuzhang',
+        admin: ['qingqiuzhang'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+                            
+                                        
+                                            
             </div>
+    </div>
+    </div>
     </div>
     
         <footer id="footer" class="footer">
@@ -259,5 +323,8 @@
                 </script>
         </div>
 </body>
+<script>
+    scroll();
+</script>
 
 </html>
