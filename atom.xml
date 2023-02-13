@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>Qingqiu Zhang</title>
-    <updated>2023-02-13T18:04:55.897Z</updated>
+    <updated>2023-02-13T18:09:14.816Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
@@ -15,14 +15,20 @@
         <id>https://qingqiuzhang.github.io/_7Rz3JT8j/</id>
         <link href="https://qingqiuzhang.github.io/_7Rz3JT8j/">
         </link>
-        <updated>2023-02-12T02:40:06.000Z</updated>
+        <updated>2023-02-10T11:40:06.000Z</updated>
+        <summary type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
+Aim: Create a rounded bar plot of sales in each state.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
+Aim: Create a rounded bar plot of sales in each state.</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[World Happiness Report]]></title>
         <id>https://qingqiuzhang.github.io/4QfPkvU3t/</id>
         <link href="https://qingqiuzhang.github.io/4QfPkvU3t/">
         </link>
-        <updated>2022-04-19T09:17:03.000Z</updated>
+        <updated>2022-04-18T21:17:03.000Z</updated>
         <summary type="html"><![CDATA[<p>This is a report about world happiness. In the report, we will visualize the distribution of countries' happiness scores from 2015-2019. Besides, we will analyze features like GDP, Health, Trust, and etc. to explore how they contribute to happiness scores.</p>
 <p><strong>In case you need the source data, visit this webpage:</strong><br>
 <a href="https://www.kaggle.com/datasets/unsdsn/world-happiness">Data Source</a></p>
