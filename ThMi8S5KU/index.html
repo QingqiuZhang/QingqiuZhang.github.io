@@ -165,7 +165,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Tableau Visualization Tutorials - Table of Contents
+                                Tableau Visulization Tutorials - Bar-in-Bar Chart
                             </h1>
                             
                                 <!--en-->
@@ -185,14 +185,46 @@
                         </header>
                         
                                 <div class="post-content">
-                                    <h1 id="bar-chart">Bar Chart</h1>
-<p><a href="https://qingqiuzhang.github.io/_7Rz3JT8j/">Rounded Bar Chart</a></p>
+                                    <p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
+Aim: Create a bar-in-bar chart of sales of ship modes in 2016 &amp; 2017.</p>
+<!-- more -->
+<h3 id="step-1">Step 1</h3>
+<p>Create calculated fields of sales in 2016 &amp; 2017<br>
+<img src="https://qingqiuzhang.github.io/post-images/1676314984835.png" alt="" loading="lazy"><br>
+The syntax for sales_2016:</p>
+<pre><code>IF YEAR([Order Date]) = 2016 THEN [Sales] END
+</code></pre>
+<p>The syntax for sales_2017:</p>
+<pre><code>IF YEAR([Order Date]) = 2017 THEN [Sales] END
+</code></pre>
+<h3 id="step-2">Step 2</h3>
+<p>Drop &quot;Ship Mode&quot; to Rows and &quot;2016_sales&quot; to Columns. And then drop &quot;2017_sales&quot; to the axis of &quot;2016_sales&quot;.<br>
+<img src="https://qingqiuzhang.github.io/post-images/1676315882329.png" alt="" loading="lazy"><br>
+The chart would be like this:<br>
+<img src="https://qingqiuzhang.github.io/post-images/1676315940348.png" alt="" loading="lazy"></p>
+<h3 id="step-3">Step 3</h3>
+<p>Dops &quot;Measure Names&quot; in Rows to &quot;Color&quot; and that in data pane to &quot;Size&quot; in &quot;Marks&quot; Card.<br>
+<img src="https://qingqiuzhang.github.io/post-images/1676316334254.png" alt="" loading="lazy"></p>
+<h3 id="step-4">Step 4</h3>
+<p>Turn off stack marks in analysis.<br>
+<img src="https://qingqiuzhang.github.io/post-images/1676316226233.png" alt="" loading="lazy"></p>
 
                                 </div>
                                 
                                     <div class="post-toc">
                                         <ul class="markdownIt-TOC">
-<li><a href="#bar-chart">Bar Chart</a></li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#step-1">Step 1</a></li>
+<li><a href="#step-2">Step 2</a></li>
+<li><a href="#step-3">Step 3</a></li>
+<li><a href="#step-4">Step 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
                                     </div>
@@ -205,16 +237,6 @@
                                                                         <span>Tag(s):</span>
                                                                         <span class="tag ">
                                                                             
-                                                                                
-                                                                                    <a href="https://qingqiuzhang.github.io/u_lMme_Ib/">#
-                                                                                        Tableau
-                                                                                    </a>
-                                                                                    
-                                                                                    <a href="https://qingqiuzhang.github.io/8jX6f7soJ/">#
-                                                                                        Data Visualization
-                                                                                    </a>
-                                                                                    
-                                                                                        
                                                                         </span>
                                                                     </div>
                                                                     <div>
@@ -229,14 +251,14 @@
                                                                         <section class="post-nav">
                                                                             
                                                                                 <a class="prev" rel="prev"
-                                                                                    href="https://qingqiuzhang.github.io/ThMi8S5KU/">
-                                                                                    Tableau Visulization Tutorials - Bar-in-Bar Chart
+                                                                                    href="https://qingqiuzhang.github.io/hYrkYfvfr/">
+                                                                                    Tableau Visulization Tutorials - Rounded Bar Chart
                                                                                 </a>
                                                                                 
                                                                                     
                                                                                         <a class="next" rel="next"
-                                                                                            href="https://qingqiuzhang.github.io/4QfPkvU3t/">
-                                                                                            World Happiness Report
+                                                                                            href="https://qingqiuzhang.github.io/ZAGhqFyR5/">
+                                                                                            Tableau Visualization Tutorials - Table of Contents
                                                                                         </a>
                                                                                         
                                                                         </section>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>Qingqiu Zhang</title>
-    <updated>2023-02-13T18:39:03.842Z</updated>
+    <updated>2023-02-13T19:26:38.896Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
@@ -11,24 +11,37 @@
     <icon>https://qingqiuzhang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, Qingqiu Zhang</rights>
     <entry>
-        <title type="html"><![CDATA[Tableau Visualization Tutorials - Table of Contents]]></title>
-        <id>https://qingqiuzhang.github.io/ZAGhqFyR5/</id>
-        <link href="https://qingqiuzhang.github.io/ZAGhqFyR5/">
-        </link>
-        <updated>2023-02-10T11:37:35.000Z</updated>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Tableau Visulization Tutorials - Rounded Bar Chart]]></title>
-        <id>https://qingqiuzhang.github.io/_7Rz3JT8j/</id>
-        <link href="https://qingqiuzhang.github.io/_7Rz3JT8j/">
+        <id>https://qingqiuzhang.github.io/hYrkYfvfr/</id>
+        <link href="https://qingqiuzhang.github.io/hYrkYfvfr/">
         </link>
-        <updated>2023-02-08T07:40:06.000Z</updated>
+        <updated>2023-02-12T17:25:49.000Z</updated>
         <summary type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
 Aim: Create a rounded bar chart of sales in each state.</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
 Aim: Create a rounded bar chart of sales in each state.</p>
 ]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tableau Visulization Tutorials - Bar-in-Bar Chart]]></title>
+        <id>https://qingqiuzhang.github.io/ThMi8S5KU/</id>
+        <link href="https://qingqiuzhang.github.io/ThMi8S5KU/">
+        </link>
+        <updated>2023-02-10T12:43:19.000Z</updated>
+        <summary type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
+Aim: Create a bar-in-bar chart of sales of ship modes in 2016 &amp; 2017.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
+Aim: Create a bar-in-bar chart of sales of ship modes in 2016 &amp; 2017.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tableau Visualization Tutorials - Table of Contents]]></title>
+        <id>https://qingqiuzhang.github.io/ZAGhqFyR5/</id>
+        <link href="https://qingqiuzhang.github.io/ZAGhqFyR5/">
+        </link>
+        <updated>2023-02-10T11:37:35.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[World Happiness Report]]></title>
@@ -43,23 +56,6 @@ Aim: Create a rounded bar chart of sales in each state.</p>
         <content type="html"><![CDATA[<p>This is a report about world happiness. In the report, we will visualize the distribution of countries' happiness scores from 2015-2019. Besides, we will analyze features like GDP, Health, Trust, and etc. to explore how they contribute to happiness scores.</p>
 <p><strong>In case you need the source data, visit this webpage:</strong><br>
 <a href="https://www.kaggle.com/datasets/unsdsn/world-happiness">Data Source</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Diabetes Data Analytics (2) -- Model Training, Evaluating and Testing]]></title>
-        <id>https://qingqiuzhang.github.io/diabetes-dataset-report-2-model-training-evaluating-and-testing/</id>
-        <link href="https://qingqiuzhang.github.io/diabetes-dataset-report-2-model-training-evaluating-and-testing/">
-        </link>
-        <updated>2022-04-01T00:26:04.000Z</updated>
-        <summary type="html"><![CDATA[<p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">the previous article</a>, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.<br>
-<strong>For everything you may need, visit:</strong><br>
-<a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
-Hope this helps!</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">the previous article</a>, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.<br>
-<strong>For everything you may need, visit:</strong><br>
-<a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
-Hope this helps!</p>
 ]]></content>
     </entry>
 </feed>
