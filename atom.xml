@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>Qingqiu Zhang</title>
-    <updated>2023-02-13T19:34:33.299Z</updated>
+    <updated>2023-02-13T19:41:25.324Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://qingqiuzhang.github.io/hYrkYfvfr/</id>
         <link href="https://qingqiuzhang.github.io/hYrkYfvfr/">
         </link>
-        <updated>2023-02-12T17:25:49.000Z</updated>
+        <updated>2023-02-11T02:25:49.000Z</updated>
         <summary type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
 Aim: Create a rounded bar chart of sales in each state.</p>
 ]]></summary>
@@ -28,7 +28,7 @@ Aim: Create a rounded bar chart of sales in each state.</p>
         <id>https://qingqiuzhang.github.io/ThMi8S5KU/</id>
         <link href="https://qingqiuzhang.github.io/ThMi8S5KU/">
         </link>
-        <updated>2023-02-10T12:43:19.000Z</updated>
+        <updated>2023-02-08T21:43:19.000Z</updated>
         <summary type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
 Aim: Create a bar-in-bar chart of sales of ship modes in 2016 &amp; 2017.</p>
 ]]></summary>
