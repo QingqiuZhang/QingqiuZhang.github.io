@@ -53,6 +53,7 @@
                                     gtag('config', 'UA-224309801-1');
                                 </script>
                                 
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
     <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
@@ -372,6 +373,14 @@ Aim: Create a rounded bar chart of sales in each state.</p>
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
         </div>
+<div id="vcomments"></div>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: '<API_ID>',
+            appKey: '<API_Key>'
+        })
+    </script>
 </body>
 <script>
     scroll();
