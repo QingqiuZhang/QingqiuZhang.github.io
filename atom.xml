@@ -2,20 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>Qingqiu Zhang</title>
-    <updated>2022-09-19T00:51:46.903Z</updated>
+    <updated>2023-02-13T18:04:55.897Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
     <subtitle>This is Qingqiu Zhang&apos;s personal website, which is uesd to record her learing path and some projects she had finished in the field of machine learning.</subtitle>
     <logo>https://qingqiuzhang.github.io/images/avatar.png</logo>
     <icon>https://qingqiuzhang.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2022, Qingqiu Zhang</rights>
+    <rights>All rights reserved 2023, Qingqiu Zhang</rights>
     <entry>
-        <title type="html"><![CDATA[Plans for October, 2022]]></title>
-        <id>https://qingqiuzhang.github.io/R7tWC_TzE/</id>
-        <link href="https://qingqiuzhang.github.io/R7tWC_TzE/">
+        <title type="html"><![CDATA[Tableau Visulization Tutorials - Rounded Bar Plot]]></title>
+        <id>https://qingqiuzhang.github.io/_7Rz3JT8j/</id>
+        <link href="https://qingqiuzhang.github.io/_7Rz3JT8j/">
         </link>
-        <updated>2022-09-18T12:37:57.000Z</updated>
+        <updated>2023-02-12T02:40:06.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[World Happiness Report]]></title>
