@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>Qingqiu Zhang</title>
-    <updated>2023-02-13T18:09:14.816Z</updated>
+    <updated>2023-02-13T18:15:33.866Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
@@ -11,11 +11,18 @@
     <icon>https://qingqiuzhang.github.io/favicon.ico</icon>
     <rights>All rights reserved 2023, Qingqiu Zhang</rights>
     <entry>
-        <title type="html"><![CDATA[Tableau Visulization Tutorials - Rounded Bar Plot]]></title>
-        <id>https://qingqiuzhang.github.io/_7Rz3JT8j/</id>
-        <link href="https://qingqiuzhang.github.io/_7Rz3JT8j/">
+        <title type="html"><![CDATA[Tableau Visualization Tutorials - Table of Contents]]></title>
+        <id>https://qingqiuzhang.github.io/ZAGhqFyR5/</id>
+        <link href="https://qingqiuzhang.github.io/ZAGhqFyR5/">
         </link>
-        <updated>2023-02-10T11:40:06.000Z</updated>
+        <updated>2023-02-11T00:37:35.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Tableau Visulization Tutorials - Rounded Bar Plot]]></title>
+        <id>https://qingqiuzhang.github.io/7Rz3JT8j/</id>
+        <link href="https://qingqiuzhang.github.io/7Rz3JT8j/">
+        </link>
+        <updated>2023-02-09T09:40:06.000Z</updated>
         <summary type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
 Aim: Create a rounded bar plot of sales in each state.</p>
 ]]></summary>
@@ -50,23 +57,6 @@ Aim: Create a rounded bar plot of sales in each state.</p>
 Hope this helps!</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>In <a href="https://qingqiuzhang.github.io/post/diabetes-dataset-report/">the previous article</a>, I did data preprocessing. It is often seen as one of the most important step during a machine learning project. One must be patient with the data manimulation no matter how troublesome it is. In this article, we are finally exposed to the model traing procedure. I will demonstrate how to conduct different types of classification models and how to evalute their performance.<br>
-<strong>For everything you may need, visit:</strong><br>
-<a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
-Hope this helps!</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Diabetes Data Analytics (1) -- Data Preprocessing]]></title>
-        <id>https://qingqiuzhang.github.io/diabetes-dataset-report-2-data-preprocessing/</id>
-        <link href="https://qingqiuzhang.github.io/diabetes-dataset-report-2-data-preprocessing/">
-        </link>
-        <updated>2022-03-29T04:44:03.000Z</updated>
-        <summary type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models including K-Nearest Neighbors, Logistic Regression, Support Vector Machine, Decision Tree and Random Forest.<br>
-<strong>For everything you may need, visit:</strong><br>
-<a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
-Hope this helps!</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>This is a thorough analysis of diabetes dataset from Kaggle. In this article, I will demonstrate how to do an end-to-end machine learning project using diverse classification models including K-Nearest Neighbors, Logistic Regression, Support Vector Machine, Decision Tree and Random Forest.<br>
 <strong>For everything you may need, visit:</strong><br>
 <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Source Data</a><br>
 Hope this helps!</p>
