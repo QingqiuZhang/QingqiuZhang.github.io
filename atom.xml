@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qingqiuzhang.github.io</id>
     <title>Qingqiu Zhang</title>
-    <updated>2023-02-13T18:18:40.682Z</updated>
+    <updated>2023-02-13T18:24:30.327Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qingqiuzhang.github.io"/>
     <link rel="self" href="https://qingqiuzhang.github.io/atom.xml"/>
@@ -15,19 +15,19 @@
         <id>https://qingqiuzhang.github.io/ZAGhqFyR5/</id>
         <link href="https://qingqiuzhang.github.io/ZAGhqFyR5/">
         </link>
-        <updated>2023-02-11T00:37:35.000Z</updated>
+        <updated>2023-02-10T11:37:35.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Tableau Visulization Tutorials - Rounded Bar Plot]]></title>
-        <id>https://qingqiuzhang.github.io/7Rz3JT8j/</id>
-        <link href="https://qingqiuzhang.github.io/7Rz3JT8j/">
+        <title type="html"><![CDATA[Tableau Visulization Tutorials - Rounded Bar Chart]]></title>
+        <id>https://qingqiuzhang.github.io/_7Rz3JT8j/</id>
+        <link href="https://qingqiuzhang.github.io/_7Rz3JT8j/">
         </link>
-        <updated>2023-02-09T09:40:06.000Z</updated>
+        <updated>2023-02-08T07:40:06.000Z</updated>
         <summary type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
-Aim: Create a rounded bar plot of sales in each state.</p>
+Aim: Create a rounded bar chart of sales in each state.</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>Source Data: <a href="https://public.tableau.com/app/sample-data/sample_-_superstore.xls">Superstore Sales</a><br>
-Aim: Create a rounded bar plot of sales in each state.</p>
+Aim: Create a rounded bar chart of sales in each state.</p>
 ]]></content>
     </entry>
     <entry>
